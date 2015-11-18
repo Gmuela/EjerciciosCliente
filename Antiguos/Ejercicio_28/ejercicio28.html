@@ -1,0 +1,39 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script>
+           
+            /*
+            URL completa
+            Nombre del directorio
+            Protocolo  
+            Puerto
+            Servidor
+            Nombre del servidor
+            
+            En Opera y Chrome
+            */
+            
+            var urlComp=location.href;
+            var nombDir=location.pathname;
+            var pro=location.protocol;
+            var puerto=location.port;
+            var server=location.host;
+            var serverName=location.hostname;
+            
+            document.write("URL completa: "+urlComp+"</br>");
+            document.write("Nombre del directorio: "+nombDir+"</br>");               
+            document.write("Protocolo: "+pro+"</br>");                    
+            document.write("Puerto: "+puerto+"</br>");
+            document.write("Servidor: "+server+"</br>");
+            document.write("Nombre del servidor: "+serverName+"</br>");
+            
+        </script>    
+    </head>
+    <body>
+     
+    </body>  
+</html>

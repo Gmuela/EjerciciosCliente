@@ -1,0 +1,108 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            function operaString(){
+                
+                var frase=document.getElementById("frase").value;                
+                frase=frase.trim();                
+                var fraseArray=frase.split(" ");
+                
+                if(fraseArray.length<2){
+                    
+                    alert("Solo has escrito "+fraseArray.length+" palabra");
+                    
+                }
+                
+                else{
+                
+                    var error=false;
+                    
+                    for(var i=0;i<fraseArray.length;i++){
+
+                        if(fraseArray[i].length<6){
+                            
+                            alert(fraseArray[i]+" no tiene 6 letras");
+                            
+                            error=true;
+                                                        
+                        }
+                    }
+                    
+                    if(!error){
+                    
+                        document.write("La cadena es "+frase+"<br/>");
+                        document.write("Longitud de la cadena: "+frase.length+"<br/>");
+                        document.write("En grande: "+frase.big()+"<br/>");
+                        document.write("Parpadea(ya no funciona en navegadores modernos): "+frase.blink()+"<br/>");
+                        document.write("Fuente FIXED: "+frase.fixed()+"<br/>");
+                        document.write("Color rojo, formato hexadecimal RGB: "+frase.fontcolor("FF00")+"<br/>");
+                        document.write("Color salmón, formato hexadecimal RGB: "+frase.fontcolor("salmon")+"<br/>");
+                        document.write("Tamño 17: "+frase.fontsize(17)+"<br/>");
+                        document.write("Color verde, formato hexadecimal RGB tamaño 15 negrita: "+frase.fontcolor("0FF0").fontsize(15).bold()+"<br/>");
+                        document.write("En cursiva, negrita y subrayado: "+"<u>"+frase.italics().bold()+"</u><br/>");
+                        document.write("En pequeño: "+frase.small()+"<br/>");
+                        document.write("Tachada: "+frase.strike()+"<br/>");
+                        document.write("Subíndice con tamaño 4 minúscula negrita: "+frase.sub().fontsize(4).bold().toLowerCase()+"<br/>");
+                        document.write("Subíndice con tamaño 4 minúscula negrita: "+frase.sup().fontsize(3).bold().toUpperCase()+"<br/>");
+                        document.write("Minúscula cursiva: "+frase.toLowerCase().italics()+"<br/>");
+                        document.write("Mayúscula negrita: "+frase.toUpperCase().bold()+"<br/>");
+                        document.write("El caracter nº3 es el: "+frase.slice(2,3)+"<br/>");
+                        document.write("La subcadena entre los caracteres 7 y 12: "+frase.substring(6,12)+"<br/>");
+                
+                    if(frase.search("cade")==-1){
+                        
+                        document.write("No se ha encontrado \"cade\"<br/>");
+                    }
+                
+                    else{
+                        
+                        document.write("Se ha encontrado \"cade\" en la posición : "+frase.search("cade")+"<br/>");
+                    }
+                
+                    for(var i=0;i<frase.length;i++){
+                        
+                        document.write(frase.charAt(i)+".");
+                        
+                    }
+                    document.write("<br/>");
+                
+                    for(var i=0;i<frase.length;i++){
+                        
+                        if(i<11){
+                            
+                            document.write(frase.charAt(i)+"$");
+                            
+                        }
+                        else{
+                            
+                            document.write(frase.charAt(i));
+                        }
+                    }
+                    document.write("<br/>");
+                
+                    document.write("Enlace a google: "+frase.link("http://www.google.com")+"<br/>");
+                        
+                    }                    
+                }
+            }            
+            
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Escribe una frase que tenga mínimo 2 palabras de 6 letras cada una<br/>
+        <input type="text" name="frase" id="frase"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado" onclick="operaString()"/>
+    </body>  
+</html>

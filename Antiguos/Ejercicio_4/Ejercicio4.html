@@ -1,0 +1,21 @@
+<html>
+    <head>
+    <script>
+        
+        var bool=false;        
+        var resul1=bool&&(!bool);
+        var resul2=(!bool)&&(!bool);        
+        
+        document.write("<table border=1><tr><td colspan=3>OPERADOR AND</td></tr>            <tr><td>A</td><td>B</td><td>Resultado</td></tr><tr><td>"+bool+"</td>            <td>"+bool+"</td><td>"+resul1+"</td></tr><tr><td>"+bool+"</td><td>"+(!bool)+"</td><td>"+resul1+"</td></tr><tr><td>"+(!bool)+"</td><td>"+bool+"</td><td>"+resul1+"</td></tr><tr><td>"+(!bool)+"</td><td>"+(!bool)+"</td><td>"+resul2+"</td></tr></table><br>");        
+    
+        var resul1=(!bool)||(!bool);
+        var resul2=bool||bool;
+        var resul3=bool||(!bool);        
+        
+        document.write("<table border=1><tr><td colspan=3>OPERADOR OR</td></tr>              <tr><td>A</td><td>B</td><td>Resultado</td></tr><tr><td>"+bool+"</td>            <td>"+bool+"</td><td>"+resul2+"</td></tr><tr><td>"+boolTrue+"</td>              <td>"+(!bool)+"</td><td>"+resul3+"</td></tr><tr><td>"+(!bool)+"</td>            <td>"+(!bool)+"</td><td>"+resul1+"</td></tr><tr><td>"+(!bool)+"</td>            <td>"+bool+"</td><td>"+resul3+"</td></tr></table>");
+        
+    </script>
+    </head>
+    <body>
+    </body>   
+</html>

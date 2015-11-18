@@ -1,0 +1,81 @@
+<html>
+    <head>
+        
+        <style>
+        
+            *{
+                
+                margin: 10px auto;
+                transition: 1s;
+                font-size: 1em;
+                
+            }          
+            
+            img{
+                
+                width: 400px;
+                height: 400px;
+                display: block;
+                border-radius: 20px;             
+                        
+            }
+            
+            div#imagen{
+                
+                width: 800px;
+                height: 600px;
+                
+            }
+            
+            .nombre{
+                
+                text-align: center;
+                font-size: 3em;
+                font-family: Impact;
+            }
+            
+        
+        </style>
+        
+        <script>
+            
+            var arrayImg=new Array();
+            
+            arrayImg=["imagen0.png","imagen1.png","imagen2.png","imagen3.png","imagen4.png","imagen5.png","imagen6.png","imagen7.png","imagen8.png","imagen9.png"];
+            
+            arrayLink=["Sol","Mercurio_(planeta)","Venus_(planeta)","Tierra","Luna","Marte_(planeta)","Júpiter_(planeta)","Saturno_(planeta)","Urano_(planeta)","Neptuno_(planeta)"];
+            
+            arrayNombres=["Sol","Mercurio","Venus","Tierra","Luna","Marte","Júpiter","Saturno","Urano","Neptuno"]
+            
+            var indice=0;
+            
+            intervalo=window.setInterval(moverGaleria,2000);
+            
+            function moverGaleria(){             
+                
+                document.images[0].src="sist_solar/"+arrayImg[indice];
+                document.links[0].href="https://es.wikipedia.org/wiki/"+arrayLink[indice];
+                document.getElementById("nombre").innerHTML=arrayNombres[indice];
+                
+                
+                indice++;
+                
+                if(indice==10){
+                    
+                    indice=0;
+                    
+                }                
+            }
+            
+        </script>
+    </head>
+    
+<body>
+        
+        <a href="https://es.wikipedia.org/wiki/Sol" target="_blank"><img  id="img" src="sist_solar/imagen0.png"/></a>
+    
+        <p id="nombre" class="nombre">Sol</p>
+    
+    
+</body>
+</html>

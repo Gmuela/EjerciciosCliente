@@ -1,0 +1,159 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script>
+            
+            function calculaEdad(msTotales, miliSegundos){
+                
+                var t1=msTotales-miliSegundos;
+                
+                var t2=t1/1000; //Segundos
+                
+                var t3=t2/60;   //Minutos
+                
+                var t4=t3/60;    //Horas
+                
+                var t5=t4/24;    //Dias
+                
+                var edad=t5/365;   //Años
+                
+                return edad;
+                
+            }
+            
+            function comprueba(fechaArray){
+                
+                var error="";
+                
+                var correcto=true;
+                
+                var hoy=new Date();                 
+                
+                if(parseInt(fechaArray[2])>parseInt(hoy.getFullYear())){
+                    
+                    correcto=false;                    
+                    error+="|Año introducido incorrecto";
+                }             
+                
+                if(parseInt(fechaArray[0])>12 || parseInt(fechaArray[0])<0){
+                    
+                    correcto=false;                    
+                    error+="|Mes introducido incorrecto"
+                }
+                
+                if(parseInt(fechaArray[1])>31 || parseInt(fechaArray[1])<1){
+                    
+                    correcto=false;                    
+                    error+="|Día introducido incorrecto";
+                }
+                
+                if(parseInt(fechaArray[3])>23 || parseInt(fechaArray[3])<0){
+                    
+                    correcto=false;                    
+                    error+="|Hora introducida incorrecta"
+                }
+                
+                if(parseInt(fechaArray[4])>59 || parseInt(fechaArray[4])<0){
+                    
+                    correcto=false;                    
+                    error+="|Minutos introducidos incorrectos"
+                }
+                
+                if(parseInt(fechaArray[5])>59 || parseInt(fechaArray[5])<0){
+                    
+                    correcto=false;                    
+                    error+="|Segundos introducidos incorrectos"
+                }
+                
+                error+="|";
+                
+                var resp=[correcto,error];
+                
+                return resp;
+            }
+            
+            function quitarComa(fechaCaracter){
+                
+                fechaCaracter=fechaCaracter.replace(","," ")
+                fechaCaracter=fechaCaracter.replace(":"," ")
+                fechaCaracter=fechaCaracter.replace(":"," ")
+                
+                return fechaCaracter;
+                
+            }
+            
+            function recogeFecha(){
+                
+                var fechaCaracter=quitarComa(document.getElementById("fecha").value);
+                
+                var fechaArray=fechaCaracter.split(" ");
+                
+                //[0] [1] [2] [3]  [4] [5]
+                //MES DIA AÑO HORA MIN SEG          
+                
+                if(typeof(fechaArray[3])=='undefined' || typeof(fechaArray[4])=='undefined' || typeof(fechaArray[5])=='undefined'){
+                    
+                    fechaArray[3]=0;
+                    
+                    fechaArray[4]=0;
+                    
+                    fechaArray[5]=0;
+                    
+                }
+                
+                var resp=comprueba(fechaArray)
+                
+                var correcto=resp[0];
+                var error=resp[1];
+                
+                             
+               
+                if(correcto){
+                    
+                    var anio=fechaArray[2];
+                    var mes=fechaArray[0];
+                    var dia=fechaArray[1];
+                    var hora=fechaArray[3];
+                    var min=fechaArray[4];
+                    var seg=fechaArray[5]; 
+                    
+                    var fecha=new Date(anio,mes,dia,hora,min,seg);
+                    
+                    var f=new Date();
+                    
+                    var msTotales=f.getTime();
+                    
+                    var miliSegundos=Date.parse(fecha);
+                    
+                    var edad=calculaEdad(msTotales,miliSegundos);
+                    
+                    edad=parseInt(edad);
+                    
+                    document.write("Tu edad es <input type=\"text\" name=\"edad\" id=\"edad\" readonly=\"readonly\" value=\""+edad+"\"/>");
+                    
+                }
+                
+                else{
+                    
+                     alert("Datos introducidos erróneos "+error);
+                    
+                }
+            }
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Introduce tu fecha de nacimiento(Formato: MES DIA, AÑO [HORAS:MIN:SEG]) <br/>
+        <input type="text" name="fecha" id="fecha"/>
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Aceptar" onclick="recogeFecha()"/>
+    </body>  
+</html>

@@ -1,0 +1,63 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script>
+            document.write("<b>Objeto Navigator:</b><br/><br/>");
+            document.write("Código del nombre del navegador: "+navigator.appCodeName+"<br/>");
+            document.write("Nombre del navegador: "+navigator.appName+"<br/>");
+            document.write("Versión del navegador: "+navigator.appVersion+"<br/>");
+            document.write("Idioma del navegador: "+navigator.language+"<br/>");
+            document.write("Plataforma sobre la que se ejecuta el navegador: "+navigator.platform+"<br/>");
+            document.write("Información copleta del agente de usuario: "+navigator.userAgent+"<br/>");
+            document.write("Información acerca de si están habilitadas las cookies: "+navigator.cookieEnabled+"<br/>");
+            document.write("Información acerca de si está habilitada la ejecución de programas escritos en Java: "+navigator.javaEnabled()+"<br/>");
+            document.write("<br/><br/>");
+            document.write("<b>Objeto Screen</b><br/><br/>");
+            document.write("Altura total: "+screen.height+"<br/>");
+            document.write("Altura disponible: "+screen.availHeight+"<br/>");
+            document.write("Anchura total: "+screen.width+"<br/>");
+            document.write("Anchura disponible: "+screen.availWidth+"<br/>");
+            
+            document.write("<br/><br/>");
+            document.write("<br/><br/>");
+            document.write("<br/><br/>");
+            
+            var navegador=navigator.userAgent;            
+          
+            var compruebaOP=navegador.search("OPR");
+            
+            var compruebaCH=navegador.search("Chrome");
+            
+            var compruebaFF=navegador.search("Firefox");
+            
+            var compruebaIE=navegador.search("Trident");
+            
+            switch(true){                 
+                    
+                    case(compruebaOP!=-1):                    
+                        document.write("<h1>Soy Opera</h1>");
+                        break;
+                    
+                    case(compruebaCH!=-1 && compruebaOP==-1):
+                        document.write("<h1>Soy Chrome</h1>");
+                        break;
+                    
+                    case(compruebaFF!=-1):                    
+                        document.write("<h1>Soy Firefox</h1>");
+                        break;
+                    
+                    case(compruebaIE!=-1):
+                        document.write("<h1>Soy Internet Explorer</h1>");
+                        break;
+                    
+            }
+            
+        </script>    
+    </head>
+    <body>
+     
+    </body>  
+</html>

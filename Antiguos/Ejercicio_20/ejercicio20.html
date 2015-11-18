@@ -1,0 +1,180 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script>
+            
+            function calculaEdad(milis2, milis1){
+                
+                var t1=milis1-milis2;
+                
+                var t2=t1/1000; //Segundos
+                
+                var t3=t2/60;   //Minutos
+                
+                var t4=t3/60;    //Horas
+                
+                var t5=t4/24;    //Dias
+                
+                var edad=t5/365;   //Años
+                
+                return edad;
+                
+            }
+                        
+            function comprueba(fechaArray){
+                
+                var error="";
+                
+                var correcto=true;
+                
+                var hoy=new Date();                 
+                
+                if(parseInt(fechaArray[2])>parseInt(hoy.getFullYear())){
+                    
+                    correcto=false;                    
+                    error+="|Año introducido incorrecto, mayor que el año actual "+hoy.getFullYear();
+                }             
+                
+                if(parseInt(fechaArray[1])>12 || parseInt(fechaArray[1])<0){
+                   
+                        correcto=false;                    
+                        error+="|Mes introducido incorrecto"
+                
+                }
+                
+                if(parseInt(fechaArray[0])>31 || parseInt(fechaArray[0])<1){ 
+                        
+                        correcto=false;                    
+                        error+="|Día introducido incorrecto";
+                    
+                }
+                
+                error+="|";
+                
+                var resp=[correcto,error];
+                
+                return resp;
+            }
+            
+            
+            function compara(fecha1,fecha2){
+                
+                var correcto=true;
+                var error="";
+                
+                var milis1=Date.parse(fecha1);
+                var milis2=Date.parse(fecha2);
+                
+                if(milis1>milis2){
+                    
+                    correcto=false;
+                    
+                    error="La segunda fecha debe ser menor";
+                    
+                }
+                
+                return resp=[correcto,error];
+                
+                
+            }
+            
+            
+            
+            function recogeFechas(){
+                
+                var fecha1=document.getElementById("fecha1").value;
+                var fecha2=document.getElementById("fecha2").value;
+                
+                var fechaArray1=fecha1.split(" ");
+                var fechaArray2=fecha2.split(" ");
+                
+                //[0] [1] [2]
+                //DIA MES AÑO
+                
+                var resp=comprueba(fechaArray1);
+                var resp=comprueba(fechaArray2);                          
+                
+                var correcto=resp[0];
+                var error=resp[1];
+                               
+                if(correcto){
+                    
+                    var respComp=compara(fecha1,fecha2);
+                    
+                    correcto=respComp[0];
+                    
+                    error=respComp[1];
+                    
+                    if(correcto){
+                    
+                        var anio1=fechaArray1[2];
+                        var mes1=fechaArray1[1];
+                        var dia1=fechaArray1[0];                        
+
+                        var anio2=fechaArray2[2];
+                        var mes2=fechaArray2[1];
+                        var dia2=fechaArray2[0];
+                         
+
+                        var fecha1=new Date(anio1,(mes1-1),dia1);
+                        var fecha2=new Date(anio2,(mes2-1),dia2);
+                        
+                        
+                    
+                    var milis1=Date.parse(fecha2);
+                    
+                    var milis2=Date.parse(fecha1);
+                    
+                    var edad=calculaEdad(milis2,milis1);
+                    
+                    edad=parseInt(edad);
+
+
+
+                        document.write("fecha1= "+fecha1.toLocaleDateString()+"<br/>");
+                        document.write("fecha2= "+fecha2.toLocaleDateString()+"<br/>");
+                        document.write(edad+" años<br/>");
+                        document.write((mes2-mes1)+" meses<br/>");
+                        document.write((dia2-dia1)+" dias<br/>");
+                        
+                    }
+                    
+                    else{
+                        
+                        alert("Datos introducidos erróneos "+error);
+                        
+                    }
+                    
+                }
+                
+                else{
+                    
+                     alert("Datos introducidos erróneos "+error);
+                    
+                }
+            }
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Introduce una fecha(Formato: DIA MES AÑO) <br/>
+        <input type="text" name="fecha1" id="fecha1"/>
+        
+        <br/>
+        <br/>
+        
+        Introduce otra fecha mayor que la anterior(Formato: DIA MES AÑO) <br/>
+        <input type="text" name="fecha2" id="fecha2"/>
+        
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Aceptar" onclick="recogeFechas()"/>
+    </body>  
+</html>

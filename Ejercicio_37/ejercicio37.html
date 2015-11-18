@@ -1,0 +1,173 @@
+<html>
+    <head>
+        
+        <style>
+        
+            *{
+                
+                margin: 10px auto;
+                transition: 1s;
+                
+            }
+            
+            img+input{
+                
+                margin-left: 260px;
+                
+            }
+            
+            input{
+                
+                font-size: 1.5em;
+                margin-left: 5px;
+                background-color: darkgrey;
+                transition: 0.3s;
+                border-radius: 50%;
+                
+            }
+            
+            .boton:hover{
+                
+                background-color: crimson;                
+                transform: scale(1.2);
+            }
+            
+            img{
+                
+                width: 60%;
+                display: block;
+                border-radius: 20px;
+                        
+            }
+            
+            div#imagen{
+                
+                width: 800px;
+                height: 600px;
+                
+            }
+        
+        </style>
+        
+        <script>
+            
+            var arrayImg=new Array();
+            
+            arrayImg=["imagen0.jpg","imagen1.jpg","imagen2.jpg","imagen3.jpg","imagen4.jpg","imagen5.jpg"];
+            
+            var indice=0;
+            
+            function comprueba(){
+                
+                if(indice>-1 && indice<6){
+                    
+                    document.getElementById("boton1").removeAttribute("disabled");
+                    document.getElementById("boton2").removeAttribute("disabled");
+                    document.getElementById("boton3").removeAttribute("disabled");
+                    document.getElementById("boton4").removeAttribute("disabled");
+                    
+                    document.getElementById("boton1").setAttribute("class","boton");
+                    document.getElementById("boton2").setAttribute("class","boton");
+                    document.getElementById("boton3").setAttribute("class","boton");
+                    document.getElementById("boton4").setAttribute("class","boton");
+                    
+                }
+                
+                if(indice==0){
+                    
+                    document.getElementById("boton1").setAttribute("disabled","disabled");
+                    document.getElementById("boton2").setAttribute("disabled","disabled");
+                    document.getElementById("boton3").removeAttribute("disabled");
+                    document.getElementById("boton4").removeAttribute("disabled");
+                    
+                    document.getElementById("boton1").removeAttribute("class");
+                    document.getElementById("boton2").removeAttribute("class");
+                    
+                    
+                    
+                }
+                
+                if(indice==5){
+                    
+                    document.getElementById("boton4").setAttribute("disabled","disabled");
+                    document.getElementById("boton3").setAttribute("disabled","disabled");
+                    document.getElementById("boton2").removeAttribute("disabled");
+                    document.getElementById("boton1").removeAttribute("disabled");
+                    
+                    document.getElementById("boton3").removeAttribute("class");
+                    document.getElementById("boton4").removeAttribute("class");
+                    
+                    
+                }
+                
+            }
+            
+            function primera(){
+                
+                document.images[0].src="img/"+arrayImg[0];
+                
+                indice=0;
+                
+                comprueba();
+                
+            }
+            
+            function anterior(){
+                
+                if(indice>0){
+                    
+                    indice--;
+                     
+                } 
+                
+                document.images[0].src="img/"+arrayImg[indice];
+                
+                comprueba();
+            }
+            
+            function siguiente(){
+                
+                if(indice<5){
+                    
+                    indice++;
+                    
+                }
+                
+                document.images[0].src="img/"+arrayImg[indice];
+                
+                comprueba();
+            }           
+            
+            
+            function ultima(){
+                
+                indice=5;
+                
+                document.images[0].src="img/"+(arrayImg[arrayImg.length-1]);
+                
+                comprueba();
+                
+                
+            }
+            
+        </script>
+    </head>
+    
+<body>
+
+
+    
+        
+        <img id="img" src="img/imagen0.jpg"/>      
+            
+    
+        <input type="button" id="boton1" onclick="primera()" value="<<" disabled="disabled"/>
+        <input type="button" id="boton2" onclick="anterior()" value="<"disabled="disabled"/>
+        <input type="button" class="boton" id="boton3" onclick="siguiente()" value=">"/>
+        <input type="button" class="boton" id="boton4" onclick="ultima()" value=">>"/>
+    
+    
+    
+    
+</body>
+</html>

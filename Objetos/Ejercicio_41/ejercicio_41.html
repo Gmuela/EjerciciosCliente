@@ -1,0 +1,78 @@
+<html>
+<head>
+    
+    <style>
+    
+        .contenido{
+            
+            margin: 10px 20px;
+            
+            font-size: 1.2em;
+            
+        }
+        
+        .contenido input{
+            
+            margin: 10px auto;
+        }
+        
+        #matricula{
+            
+            width: 100px;
+        }
+        
+        .nombre{
+            
+            
+        }
+        
+        #fecha{
+            
+            margin-left: 100px
+            
+        }
+        
+        #fecha input{
+            
+            width: 30px;            
+        }
+    
+    </style>
+    
+    <script type="text/javascript">
+        
+        //Matricula autoincrementado
+        //nombre,apellidos max 30 car
+        //curso entre 1 y 4
+        //edad calculada y no se puede modificar
+        //nombre,apellido1,fecha,curso obligatorios
+        //listar -> nueva ventana
+        //añadir,borrar,modificar -> pedir confirmación
+        //
+        
+    </script>
+    
+    
+</head>
+<body>
+    <div class="contenido">
+        Matrícula <input type="text" class="matricula" id="matricula" readonly="readonly"/><br/>
+        Nombre <input type="text" id="nombre"/><br/>
+        Primer Apellido <input type="text" id="apellido1"/><br/>
+        Segundo Apellido<input type="text" id="apellido2"/><br/>
+        Fecha de nacimiento:<div id="fecha">
+            Día <input type="text" id="dia"/><br/>
+            Mes <input type="text" id="mes"/><br/>
+            Año <input type="text" id="anio"/><br/>
+        </div>
+        <input type="text" id="edad" readonly="readonly"/>
+        <input type="text" id="curso"/>
+        <input type="button" id="" value=""/>
+        <input type="button" id="" value=""/>
+        <input type="button" id="" value=""/>
+        <input type="button" id="" value=""/>
+        <input type="button" id="" value=""/>
+        <input type="button" id="" value=""/>
+    </div>
+</body>
+</html>

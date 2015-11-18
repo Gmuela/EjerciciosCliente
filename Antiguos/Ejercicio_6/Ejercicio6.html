@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script>
+            
+            var user="admin";            
+            var pass="admin";
+            
+            var resp=true;
+            
+            while(resp==true){
+            
+                var usuario=prompt("Introduce el usuario");            
+                var password=prompt("Introduce la contrasenia");      
+               
+                if(user==usuario && pass==password){
+                    
+                  document.write("Bienvenid@ D/Dnia "+user); 
+                    
+                  resp=false;  
+                    
+                }
+                
+                else{
+                    
+                    resp=confirm("Usuario/Contrasenia incorrect@.¿Desea volver a intentarlo?");
+                
+                }          
+            }
+        
+        </script>    
+    </head>  
+    <body>  
+    </body>
+</html>

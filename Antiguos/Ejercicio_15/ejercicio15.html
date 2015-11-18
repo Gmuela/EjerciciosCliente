@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+		
+			/*********FUNCIONES{***********/
+		
+			function error(num){
+				
+				res=true;
+				
+				if(num>1){
+				
+					res=isNaN(num);					
+				}
+			
+				return res;		
+			}
+			
+			function fibonacci(fibo,num){
+			
+				fibo[num]=fibo[num-1]+fibo[num-2];			
+			}
+			
+			/*********}FUNCIONES***********/
+		
+            var pos=1;
+			
+			do{			
+				pos=prompt("Escribe la posición que deseas saber de la serie de Fibonacci");			
+			}
+			
+			while(error(pos))
+			
+			var fibo=[1,1];
+			
+			for(var i=2;i<pos;i++){
+					
+				fibonacci(fibo,i);
+			
+			}
+            
+			document.write("El número de la posicion "+pos+" es "+fibo[fibo.length-1]);
+			
+        </script>    
+    </head>
+    <body>
+    </body>
+</html>

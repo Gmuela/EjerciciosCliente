@@ -1,0 +1,73 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            function palindromo(){
+                
+                var frase=document.getElementById("frase").value;                
+                var guardaFrase=frase;
+                
+                frase=frase.toLowerCase();
+                
+                frase=frase.replace(/[`~¡!@#$%^&*()_|+\-=¿?;:'",.<>\{\}\[\]\\\/¨]/g,"");
+                
+                frase=frase.replace(/[áäâà]/g,"a");
+                frase=frase.replace(/[éëêè]/g,"e");
+                frase=frase.replace(/[íïêè]/g,"i");
+                frase=frase.replace(/[óöôò]/g,"o");
+                frase=frase.replace(/[úüûù]/g,"u");
+                
+                frase=frase.split(" ").join("");
+                
+                /*fraseArray=frase.split("");
+                
+                for(var i=0;i<fraseArray.length;i++){ 
+                
+                    fraseArray[i]=fraseArray[i].replace(/[áäâà]/,"a");
+                    fraseArray[i]=fraseArray[i].replace(/[éëêè]/,"e");
+                    fraseArray[i]=fraseArray[i].replace(/[íïêè]/,"i");
+                    fraseArray[i]=fraseArray[i].replace(/[óöôò]/,"o");
+                    fraseArray[i]=fraseArray[i].replace(/[úüûù]/,"u");
+                }
+                
+                frase=fraseArray.join("");                
+                frase=frase.split(" ").join("");*/              
+                
+                var fraseReves="";
+                
+                for(var i=frase.length;i>-1;i--){
+                    
+                    fraseReves+=frase.charAt(i);
+                }
+                
+                //Dar la vuelta a una cadena sin bucle for()
+                //var fraseReves2=frase.split("").reverse().join("");
+                //document.write(fraseReves2);
+                                
+                if(frase==fraseReves){
+                    
+                    document.write("La frase \""+guardaFrase.italics().bold().fontcolor("blue")+"\" SÍ es palídromo");
+                }
+                
+                else{
+                    
+                    document.write("La frase \""+guardaFrase.italics().bold().fontcolor("red")+"\" NO es palídromo"); 
+                }
+            }
+        </script>    
+    </head>
+    <body>
+       
+        Escribe una frase<br/>
+        <input type="text" name="frase" id="frase"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado" onclick="palindromo()"/>
+    </body>  
+</html>

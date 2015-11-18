@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>      
+        <script>
+            
+        var plugNum=document.plugins.length;
+        var imgNum=document.images.length;
+        var linkNum=document.links.length;
+        var formNum=3;
+        var anclaNum=document.anchors.length;        
+
+        ventanaNueva=window.open("","","width=950, height=750");
+        ventanaNueva.moveTo(350,150);
+        ventanaNueva.document.open();              
+
+        ventanaNueva.document.write("Número de plugins: "+plugNum+"</br>");
+        ventanaNueva.document.write("Número de imágenes: "+imgNum+"</br>");     
+
+        for(var i=0;i<(imgNum-1);i++){           
+
+            ventanaNueva.document.write("Link: "+document.images[i].src+" | Tamaño: "+document.images[i].width+"x"+document.images[i].height+"</br>");
+
+        }
+        
+        ventanaNueva.document.write("</br></br>");
+        
+        ventanaNueva.document.write("Número de enlaces: "+linkNum+"</br>");
+
+        for(var i=0;i<(linkNum-1);i++){
+            
+            ventanaNueva.document.write("Enlaces: "+document.links[i].href+"</br>");         
+
+        }
+
+        if(formNum>0){ 
+
+            ventanaNueva.document.write("Número de formularios: "+formNum)+"</br>";
+
+            for(var i=0;i<(formNum-1);i++){
+
+                ventanaNueva.document.write("Archivo que procesa el formulario "+i+": "+document.forms[i].action)+"</br>";
+
+            }
+
+        }
+
+        else{
+
+            ventanaNueva.document.write("No hay formularios</br>");
+
+        }
+
+        ventanaNueva.document.write("Número de anclas: "+anclaNum)+"</br>";
+
+        ventanaNueva.document.close();
+    
+        </script>
+    </head>
+    
+    <body>    
+    </body>
+</html>

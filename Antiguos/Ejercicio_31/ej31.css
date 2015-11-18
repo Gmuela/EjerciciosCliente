@@ -1,0 +1,40 @@
+
+.vel{
+    
+    width: 35px;
+    
+}
+
+.iniciar{
+    
+    width: 49px;
+    height: 40px;
+    transition: all 0.5s;
+    opacity: 0.7;
+    
+}
+
+.parar{   
+   
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s;
+    opacity: 0.7;
+    
+}
+
+.iniciar:hover, .iniciar:focus{
+    
+    opacity: 1;
+    
+}
+
+
+
+.parar:hover, .parar:focus{
+    
+    opacity: 1;
+    
+}
+
+

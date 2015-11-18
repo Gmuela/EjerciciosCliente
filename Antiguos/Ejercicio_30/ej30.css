@@ -1,0 +1,51 @@
+.relojCSS{
+    
+    width: 90px;    
+    border:none;
+    text-align: center;
+    transition: all 1s;
+    margin-left: 6px;
+    font-size: 1.3em;
+    font-family: fantasy;
+}
+
+.iniciar{
+    
+    width: 49px;
+    height: 40px;
+    transition: all 0.5s;
+    opacity: 0.7;
+    
+}
+
+.parar{   
+   
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s;
+    opacity: 0.7;
+    
+}
+
+.iniciar:hover, .iniciar:focus{
+    
+    opacity: 1;
+    
+}
+
+
+
+.parar:hover, .parar:focus{
+    
+    opacity: 1;
+    
+}
+
+
+
+.relojCSS:hover{
+    
+    transform: scale(1.5);
+    margin-left: 10px;
+    
+}

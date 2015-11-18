@@ -1,0 +1,61 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            
+            
+            function comparaCiudad(){
+                
+                var ciudades="madrid,barcelona,sevilla,bilbao";
+                
+                ciudad=document.getElementById("ciudad").value.toLowerCase();
+                
+                if(ciudad==""){
+                    
+                    alert("Campo vacío");
+                    
+                }
+                
+                else{
+                
+                    var encontrado=ciudades.match(ciudad); 
+
+                    if(encontrado==null){
+
+                        document.write("La ciudad introducida no es correcta");
+
+                    }
+
+                    else{
+
+                        var final=encontrado[0].charAt(0).toUpperCase() + encontrado[0].slice(1);
+
+                        document.write("La ciudad introducida es "+final);
+
+                    }
+                }
+            }
+            
+            
+            
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Escribe una ciudad(madrid,barcelona,sevilla,bilbao)<br/>
+        <input type="text" name="ciudad" id="ciudad"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado" onclick="comparaCiudad()"/>
+     
+        
+    </body>  
+</html>

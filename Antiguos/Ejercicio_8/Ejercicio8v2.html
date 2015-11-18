@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script>
+            
+            var resp=prompt("Introduce tu edad");
+            
+            var edad=parseInt(resp);
+            
+            switch(true){
+                  
+                case (edad>4 && edad<8):             
+                    
+                    document.write("Categoría: Pre-Benjamin");
+                    break;
+                
+                case (edad==8 || edad==9):               
+                    
+                    document.write("Categoría: Benjamin");
+                    break;
+                    
+                case (edad==10 || edad==11):               
+                    
+                    document.write("Categoría: Alevin");
+                    break;
+                    
+                case (edad==12 || edad==13):              
+                    
+                    document.write("Categoría: Infantil");
+                    break;
+                    
+                case (edad==14 || edad==15):              
+                    
+                    document.write("Categoría: Cadete");
+                    break;
+                    
+                case (edad>15 && edad<19):               
+                    
+                    document.write("Categoría: Juvenil");
+                    break;
+                    
+                default:
+                    
+                    document.write("Fuera de Categoría");
+                    break;                   
+                    
+            }            
+        
+        </script>    
+    </head>
+    <body>
+    </body>
+</html>

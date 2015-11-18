@@ -1,0 +1,172 @@
+<html>
+<head>
+    
+    <style>
+    
+        *{
+            
+            margin: 10px 10px;
+            
+        }
+        
+        div{
+            
+            font-weight: bold;
+            
+        }
+    
+    
+    </style>
+
+    <script type="text/javascript">
+    
+        //Generar aleatoriamente 7 números entre el 1 y el 74 NO REPETIDOS
+        //Mostrar los números ordenados en orden ascendente
+        //Mostrar los números ordenados en orden descendente
+        //Botones: GENERAR | LIMPIAR | CAMBIAR ORDEN
+        
+        var orden=true;
+        
+        var arrayGuarda=new Array();        
+        var arrayNum=new Array();
+        var arrayNumOrd=new Array();
+        var arrayNumInv=new Array();
+        
+        function ordenar(arrayNum){
+            
+            for(i=0;i<(arrayNum.length-1);i++){
+     
+                for(j=0;j<(arrayNum.length-i);j++){
+ 
+          
+                    if(arrayNum[j]>arrayNum[j+1]){
+                    
+                        var guarda=arrayNum[j];
+                    
+                        arrayNum[j]=arrayNum[j+1];
+                    
+                        arrayNum[j+1]=guarda;
+
+                    }
+                }           
+            }
+        }
+        
+        function generar(){          
+            
+            for(var i=0;i<7;i++){
+            
+                var aleatorio=Math.round((Math.random())*74);
+
+                if(arrayNum.indexOf(aleatorio)==-1){
+                   
+                    arrayNum[i]=aleatorio;                    
+                    
+                }
+                
+                else{
+                    
+                    i-=1;
+                    
+                }
+            }
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+              arrayGuarda[i]=arrayNum[i];  
+                
+            } 
+            
+            ordenar(arrayNum);
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+                arrayNumOrd[i]=arrayNum[i];
+            }
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+                arrayNum[i]=arrayGuarda[i];
+            }
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+                arrayGuarda[i]=arrayNumOrd[i];
+            }
+            
+            arrayNumOrd.reverse();
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+                arrayNumInv[i]=arrayNumOrd[i];
+            }
+            
+            for(var i=0;i<arrayNum.length;i++){
+                
+                arrayNumOrd[i]=arrayGuarda[i];
+            }
+            
+            mostrar();         
+            
+        }
+        
+        function mostrar(){
+            
+            document.getElementById("arrayNum").innerHTML=arrayNum;
+            
+            if(orden){
+                
+                document.getElementById("div1").innerHTML=arrayNumOrd;
+                document.getElementById("div2").innerHTML=arrayNumInv; 
+                
+            }
+            
+            else{
+                
+                document.getElementById("div2").innerHTML=arrayNumOrd;
+                document.getElementById("div1").innerHTML=arrayNumInv;
+                
+            }
+                       
+            
+        }
+        
+        function limpiar(){
+            
+            document.getElementById("arrayNum").innerHTML="";
+            document.getElementById("div1").innerHTML="";
+            document.getElementById("div2").innerHTML="";
+            
+        }
+        
+        function cambiarOrden(){
+            
+            var guarda=document.getElementById("div1").innerHTML;          
+            document.getElementById("div1").innerHTML=document.getElementById("div2").innerHTML;
+            document.getElementById("div2").innerHTML=guarda;
+            
+            guarda=document.getElementById("label1").innerHTML;          
+            document.getElementById("label1").innerHTML=document.getElementById("label2").innerHTML;
+            document.getElementById("label2").innerHTML=guarda;
+            
+            orden=!orden;
+            
+        }
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+    <label>Array de números aleatorios</label><div id="arrayNum"></div>
+    <br/>    
+    <label id="label1">Array ordenado ascendente</label><div id="div1"></div>
+    <br/>
+    <label id="label2">Array ordenado descendente</label><div id="div2"></div>
+    
+    <input type="button" onclick="generar()" value="Generar"><input type="button" onclick="limpiar()" value="Limpiar"/><input type="button" onclick="cambiarOrden()" value="Cambiar orden"/> 
+    
+    
+</body>
+</html>

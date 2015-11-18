@@ -1,0 +1,144 @@
+<html>
+    <head>
+        
+        <style>
+        
+            *{
+                
+                margin: 10px auto;
+                transition: 1s;
+                font-size: 1em;
+                
+            }
+            
+            img+input{
+                
+                margin-left: 210px;
+                
+            }
+            
+            input{
+                               
+                background-color: darkgrey;
+                transition: 0.3s;
+                border-radius: 10%;
+                margin-left: 5px;
+                
+            }
+            
+            input.boton:hover{
+                
+                background-color: crimson;                
+                transform: scale(1.1);
+            }
+            
+            img{
+                
+                width: 60%;
+                display: block;
+                border-radius: 20px;
+                transition: all 1s;
+                        
+            }
+            
+            div#imagen{
+                
+                width: 800px;
+                height: 600px;
+                
+            }
+            
+            .velocidad{
+                
+                width: 30px;
+                background-color: darkgrey;
+                margin-left: 10px;
+                
+            }
+                             
+            
+        
+        </style>
+        
+        <script>
+            
+            var arrayImg=new Array();
+            
+            arrayImg=["imagen0.jpg","imagen1.jpg","imagen2.jpg","imagen3.jpg","imagen4.jpg","imagen5.jpg"];
+            
+            var control=0;
+            
+            var indice=0;
+            
+            var intervalo="";
+            
+            function moverGaleria(){             
+                
+                document.images[0].src="img/"+arrayImg[indice];
+                
+                indice++;
+                
+                if(indice==5){
+                    
+                    indice=0;
+                    
+                }
+                
+            }
+            
+            function iniciar(){
+                
+                if(control==0){
+                    
+                    var velocidad=document.getElementById("velocidad").value;
+
+                    intervalo=window.setInterval(moverGaleria,(velocidad)*1000);
+                    
+                    document.getElementById("boton1").setAttribute("disabled","disabled");
+                    document.getElementById("boton1").removeAttribute("class");
+                    document.getElementById("boton2").setAttribute("class","boton");
+                    document.getElementById("boton2").removeAttribute("disabled");
+                    document.getElementById("velocidad").setAttribute("disabled","disabled");
+                    
+                }
+                
+                control=1;
+                
+            }
+            
+            function parar(){
+                
+                window.clearInterval(intervalo);
+                
+                document.getElementById("boton2").setAttribute("disabled","disabled");
+                document.getElementById("boton2").removeAttribute("class");
+                document.getElementById("boton1").setAttribute("class","boton");
+                document.getElementById("boton1").removeAttribute("disabled");
+                document.getElementById("velocidad").removeAttribute("disabled");
+                
+                control=0;
+                
+            }
+            
+            
+            
+        </script>
+    </head>
+    
+<body>
+
+
+    
+        
+        <img  id="img" src="img/imagen0.jpg"/>      
+              
+        <input type="button" class="boton" id="boton1" onclick="iniciar()" value="Iniciar"/>
+        <input type="button" id="boton2" onclick="parar()" value="Parar" disabled="disabled"/>
+        <input type="text" id="velocidad" class="velocidad" value="3"/>
+        Velocidad(segundos)
+    
+    
+    
+    
+</body>
+</html>

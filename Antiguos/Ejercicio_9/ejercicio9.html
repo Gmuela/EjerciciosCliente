@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+            
+            var fin=true;
+            
+            while(fin){
+            
+                var resp=prompt("Introduce el nivel de PH");
+
+                var nivel=parseInt(resp);
+
+                switch(true){
+
+                    case (nivel==7):                                 
+                        document.write(nivel+" es PH Neutro<br>");
+                        break;             
+
+                    case (nivel>7):               
+
+                        document.write(nivel+" es PH Basico<br>");
+                        break;
+
+                    case (nivel <7):
+
+                        document.write(nivel+" es PH Acido<br>");
+                        break;
+                    
+                }
+                
+                fin=confirm("¿Desea introducir un nuevo PH?");
+            }
+        
+        </script>    
+    </head>
+    <body>
+    </body>
+</html>

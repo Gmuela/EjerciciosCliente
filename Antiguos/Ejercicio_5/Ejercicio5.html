@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>        
+        <script>
+            
+            resp=prompt("Introduce el numero","");
+            
+            while(isNaN(resp)){
+            
+                resp=prompt("Debe de ser un numero","");
+                
+            }
+            
+            numero=parseInt(resp);
+            
+            if(numero==0 || numero==1){
+                
+                document.write("El numero introducido es "+numero+" que no es ni primo ni compuesto");
+                
+            }
+            
+            else if(numero==2 || numero==3){
+                
+                document.write("El numero "+numero+" es primo");
+                
+            }
+            
+            else if(numero%numero==0 && numero%1==0 && numero%2!=0 && numero%3!=0){
+              
+                document.write("El numero "+numero+" es primo");
+                
+            }
+            
+            else{
+                
+                document.write("El numero "+numero+" no es primo");
+                
+            }
+            
+            
+        </script>
+	</head>
+	<body>   
+	</body>
+</html>

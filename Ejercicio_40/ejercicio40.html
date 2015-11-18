@@ -1,0 +1,111 @@
+<html>
+<head>
+    
+    <style>
+        
+        .contenido, input{
+            
+            text-align: center;
+            margin: 3px auto;
+            
+        }
+        
+        .resultado{
+            
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+    
+    
+    </style>
+
+    <script type="text/javascript">
+        
+        var arrayCapitales=new Array();
+        
+        arrayCapitales["madrid"]="españa";
+        arrayCapitales['berlin']="alemania";
+        arrayCapitales["moscú"]="rusia";
+        arrayCapitales["atenas"]="grecia";
+        arrayCapitales["helsinki"]="finlandia";
+        arrayCapitales["parís"]="francia";
+                
+        function mayus(string) {
+            
+                return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+        
+        function buscar(){
+            
+            var pais=document.getElementById("pais").value;
+            
+            if(pais=="" || !(isNaN(pais))){
+                
+                document.getElementById("resultado").innerHTML="Debes escribir un país";
+            }
+            
+            else{          
+            
+                pais=pais.toLowerCase();
+
+                pais=pais.replace(/[`~¡!@#$%^&*()_|+\-=¿?;:'",.<>\{\}\[\]\\\/¨]/g,"");
+
+                pais=pais.replace(/[áäâà]/g,"a");
+                pais=pais.replace(/[éëêè]/g,"e");
+                pais=pais.replace(/[íïêè]/g,"i");
+                pais=pais.replace(/[óöôò]/g,"o");
+                pais=pais.replace(/[úüûù]/g,"u");
+
+                pais=pais.split(" ").join("");
+
+                var encontrado=false;
+
+                for(var capitales in arrayCapitales){
+
+                    if(arrayCapitales[capitales]==pais){
+
+                        encontrado=true;
+
+                        capitales=mayus(capitales);
+                        
+                        pais=mayus(pais);
+
+                    document.getElementById("resultado").innerHTML="La capital de "+pais+" es "+capitales.fontcolor("red");
+
+                    }       
+                }
+
+                if(!encontrado){
+
+                    document.getElementById("resultado").innerHTML="País no encontrado en base de datos";
+
+                }
+            }
+        }
+        
+        function limpiar(){
+            
+            document.getElementById("resultado").innerHTML="";
+            document.getElementById("pais").value="";
+            
+        }
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+    <div class="contenido">
+        <input type="text" id="pais" placeholder="Escribe un país"/> <br/>
+        <input type="button" value="Buscar capital" onclick="buscar()"/>
+        <input type="button" value="Limpiar" onclick="limpiar()"/>
+        
+        <div class="resultado" id="resultado"></div>
+    </div>    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>primer ejemplo para crear ventanas</title>
+    
+    <script>
+        
+        var ventanaNueva="";
+        var contador=0;
+        var repetir=0;
+            
+        function abreVentana(){
+            
+            if(repetir==0){
+
+                ventanaNueva=window.open("","","width=400, height=450");
+
+                ventanaNueva.moveTo(400,300);
+
+                ventanaNueva.document.open();
+
+                var titulo=document.getElementById("titulo").value;
+                var cabecera=document.getElementById("cabecera").value;
+
+                ventanaNueva.document.write("<title>"+titulo+"</title>");                
+                ventanaNueva.document.write("<h1>"+cabecera+"</h1>");
+                ventanaNueva.document.write("<input type=\"button\" onclick=\"window.opener.cierraVentana()\" value=\"Cierra esta ventana\"/>");
+
+                ventanaNueva.document.close(); 
+
+                repetir=window.setInterval(moverVentana,3000);
+            }                   
+        }
+        
+        function cierraVentana(){
+            
+            if(repetir!=0){
+
+                ventanaNueva.close(); 
+                
+                clearInterval(repetir);
+                
+                repetir=0;
+            }                   
+        }
+        
+        
+        
+        function moverVentana(){
+            
+            contador++;
+            
+            if(contador>20){
+                
+                ventanaNueva.close(); 
+                
+                repetir=0;
+            }
+            
+            var num1=Math.round(Math.random()*1300);
+            
+            var num2=Math.round(Math.random()*1000);
+            
+            ventanaNueva.moveTo(num1,num2);            
+            
+        }
+    </script>
+</head>
+    
+<body>
+    
+    <h1>Cuerpo de primera ventana</h1>
+
+    Titulo <input type="text" id="titulo" name="titulo"/>
+    </br></br>
+    Cabecera <input type="text" id="cabecera" name="cabecera"/>
+    </br></br>
+    <input type="button" onclick="abreVentana()" value="Abre nueva ventana"/>      
+    <input type="button" onclick="cierraVentana()" value="Cierra la nueva ventana"/>      
+</body>
+</html>	

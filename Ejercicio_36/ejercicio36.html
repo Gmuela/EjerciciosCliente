@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script>
+            
+            var arrayColoresOri=["rojo","verde","azul"];
+            
+            var arrayColores=["rojo","verde","azul"];         
+            
+            var arrayNum=[1,2,3];
+            
+            var arrayOrd=["rojo","verde","Rojo",5]
+            
+            document.write("1. ");
+            
+            function mostrar(value, index, array){
+                
+                document.write(value+" ");
+                
+            }
+            
+            arrayColores.forEach(mostrar);
+            
+            document.write("</br>");
+            
+            var arrayRes=arrayColores.concat(arrayNum);
+            
+            document.write("2. "+arrayRes+"</br>");
+            
+            var cadena=arrayColores.join("+");
+            
+            document.write("3. "+cadena+"</br>");
+            
+            var inv=arrayColores.reverse();
+            
+            document.write("4. "+inv+"</br>");
+            
+            var primer=arrayColores.pop();
+            
+            document.write("5. "+primer+"</br>");
+            
+            var ultimo=arrayColores.slice((arrayColores.length-1),arrayColores.length);
+            
+            document.write("6. "+ultimo+"</br>");
+            
+            var ordenado=arrayOrd.sort();
+            
+            document.write("7. "+ordenado+"</br>");
+            
+            arrayColores=arrayColoresOri;
+                          
+            arrayColores.splice(1,2,"naranja","rosa","violeta");
+            
+            document.write("8. "+arrayColores+"</br>");
+            
+            arrayColores.splice(1,0,"amarillo");
+            
+            document.write("8. "+arrayColores+"</br>");
+            
+            arrayColores=arrayColoresOri;
+            
+            var longitud=arrayColores.unshift("amarillo");
+            
+            document.write("9. Longitud: "+longitud+" | Array: "+arrayColores);
+                    
+            
+            
+    
+        </script>
+    </head>
+</html>

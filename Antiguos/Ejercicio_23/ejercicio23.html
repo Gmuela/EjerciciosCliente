@@ -1,0 +1,144 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            function comparaAnimal1(){
+                
+                var arrayAnimal=["loro","papagayo","escalopendra","jaguar"];
+                
+                var resp="";
+                
+                var continua=true;
+                
+                animal=document.getElementById("animal").value.toLowerCase();
+                
+                if(animal==""){
+                    
+                    alert("Campo vacío");
+                    
+                }
+                
+                else{
+                
+                    for(var i=0;i<arrayAnimal.length;i++){
+
+                        if(animal==arrayAnimal[i]){
+
+                            continua=false;
+
+                            resp="El animal introducido es "+arrayAnimal[i];                        
+
+                        }
+
+                        else if(continua){
+
+                            resp="El animal introducido no es correcto";
+
+                        }
+
+
+                    }
+
+                    document.write(resp);
+                }
+                
+            }
+            
+            function comparaAnimal2(){
+                
+                var animales="loro,papagayo,escalopendra,jaguar";
+                
+                animal=document.getElementById("animal").value.toLowerCase();
+                
+                if(animal==""){
+                    
+                    alert("Campo vacío");
+                    
+                }
+                
+                else{
+                
+                    var encontrado=animales.match(animal); 
+
+                    if(encontrado==null){
+
+                        document.write("El animal introducido no es correcto");
+
+                    }
+
+                    else{
+
+                        document.write("El animal introducido es "+encontrado[0]);
+
+                    }
+                }
+            }
+            
+            function comparaAnimal3(){
+                
+                var animales="loro,papagayo,escalopendra,jaguar";
+                
+                var resp="";
+                
+                animal=document.getElementById("animal").value.toLowerCase();
+                
+                if(animal==""){
+                    
+                    alert("Campo vacío");
+                    
+                }
+                
+                else{
+                
+                    var encontrado=animales.search(animal); 
+
+                    if(encontrado==-1){
+
+                        document.write("El animal introducido no es correcto");
+
+                    }
+
+                    else{
+
+                        for(var i=0;i<animales.length;i++){
+
+                            if(animales.charAt(encontrado)!=","){
+
+                            resp+=animales.charAt(encontrado);
+
+                            encontrado++;
+
+                            }
+                        }
+
+                        document.write("El animal introducido es "+resp);
+                    }
+                }
+            }
+            
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Escribe un animal(loro,papagayo,escalopendra,jaguar)<br/>
+        <input type="text" name="animal" id="animal"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado Método 1" onclick="comparaAnimal1()"/>
+        <br/>
+        <br/>
+        <input type="button" value="Mostrar Resultado Método 2" onclick="comparaAnimal2()"/>
+        <br/>
+        <br/>      
+        <input type="button" value="Mostrar Resultado Método 3" onclick="comparaAnimal3()"/>
+        
+    </body>  
+</html>

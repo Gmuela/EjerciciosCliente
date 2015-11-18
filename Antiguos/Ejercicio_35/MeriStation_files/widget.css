@@ -1,0 +1,1326 @@
+@charset "utf-8";
+/* CSS Document */
+*{  
+ margin:0;  
+ padding:0;  
+} 
+a {
+	text-decoration: none;
+	outline: none;
+}
+element:hover, element:active {
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-user-select: none;
+-webkit-touch-callout: none
+}
+.contenedor {
+	margin: 0;
+}
+.cajatitular {
+	display: none;
+	background-color: #000000;
+	height: 45px;
+	border: 1px solid #E0E0E0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.titular {
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 46px;
+	text-transform: uppercase;
+	margin: 0 10px 0 8px;
+}
+.titular a,
+.player_txt_cancion a,
+.player_txt_playlist a,
+.player_txt_artista a {
+	white-space: nowrap;
+	color: #FFFFFF;
+}
+.titular a:hover {
+	color: #777777;
+}
+span.ico_radio a {
+	width: 24px;
+	height: 24px;
+	margin: 10px 0 0 7px;
+	background: url(../img/sprite.png) 0 0 no-repeat transparent;
+	float: left;
+	display: block;
+}
+span.ico_usuario a {
+	width: 24px;
+	height: 24px;
+	background: url(../img/sprite.png) 0 -48px no-repeat transparent;
+	margin: 10px 10px 0 7px;
+	float: right;
+	display: block;
+}
+
+span.ico_usuario_activo a {
+	width: 24px;
+	height: 24px;
+	margin: 10px 10px 0 7px;
+	float: right;
+	display: block;
+}
+.cont_mejores_canciones {
+	background-color: #FFFFFF;
+}
+.caratula a,
+.caratula_track a {
+	border: none;
+}
+.cont_radio_g .caratula {
+	display: none;
+	height: 260px;
+	background-color: #2a2a2a;
+	padding-top: 24px;
+}
+.cont_radio_g .caratula img {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 260px;
+	height: 260px;
+	border: none;
+}
+.cont_radio_g .player {
+	height: 86px;
+	background-color: #2a2a2a;
+	display: block;
+	overflow: hidden;
+}
+.player_txt_radio,
+.player_txt_playlist {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 14px;
+	padding-top: 13px;
+	margin-right: 10px;
+	text-transform: uppercase;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.cont_radio_g .tracks {
+	display: none;
+	overflow-y: auto;
+	position: fixed;
+	bottom: 32px;
+	top:138px;
+	left:0;
+	right:0;
+	/*margin-right:21px;*/
+}
+.cont_radio_g .track,
+.cont_radio_g .track_album {
+	height: 45px;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	background-color: #EEEEEE;
+	padding-left: 6px;
+	position:relative;
+}
+.cont_radio_g .track_album a {
+	height: 45px;
+	display: block;
+}
+.player .ico_reducir_playlist a {
+	display:block;
+	width: 24px;
+	height: 24px;
+	margin: -13px 62px 0 0;
+	display: block;
+	float: right;
+	background: url(../img/sprite.png) -342px 0 no-repeat transparent;
+}
+.player .logoyes_playlist a {
+	display:block;
+	width: 60px;
+	height: 24px;
+	margin: -13px 3px;
+	display: block;
+	float: right;
+	background: url(../img/sprite.png) -48px 0 no-repeat transparent;
+}
+.footer {
+	display:none;
+}
+.cancion_anterior a {
+    width: 30px;
+    height: 24px;
+    margin: 14px 0 25px 10px;
+    background: url(../img/sprite.png) -108px -72px no-repeat transparent;
+    float: left;
+    display: block;
+}
+.cancion_anterior_inactivo a {
+    width: 30px;
+    height: 24px;
+    margin: 14px 0 25px 10px;
+    background: url(../img/sprite.png) -108px 0 no-repeat transparent;
+    float: left;
+    display: block;
+}
+.cancion_play a {
+	width: 30px;
+	height: 24px;
+	margin: 14px 0 25px 3px;
+	background: url(../img/sprite.png) -138px 0 no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cancion_play_premium a {
+	width: 30px;
+	height: 24px;
+	margin: 14px 0 25px 3px;
+	background: url(../img/sprite.png) -24px -24px no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cancion_siguiente a {
+	width: 30px;
+	height: 24px;
+	margin: 14px 8px 25px 0;
+	background: url(../img/sprite.png) -168px 0 no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cancion_pause a {
+    width: 30px;
+    height: 24px;
+    margin: 14px 0 25px 3px;
+    background: url(../img/sprite.png) -138px -24px no-repeat transparent;
+    float: left;
+    display: block;
+}
+.player_txt_cancion {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	margin-right: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.player_txt_artista {
+	color: #666666;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 13px;
+	margin-right: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.player_txt_cancion a {
+	color: #FFFFFF;
+}
+.player_txt_artista a,
+.datos_track .txt_artista a,
+.player_txt_artista_playlist a,
+.datos_track .txt_album a {
+	color: #666666;
+}
+.cont_mejores_canciones .player_txt_artista a {
+	color: #FFFFFF;
+}
+.player_txt_cancion a:hover,
+.player_txt_artista a:hover,
+.player_txt_radio a:hover,
+.datos_track .txt_cancion a:hover,
+.datos_track .txt_artista a:hover,
+.datos_track .txt_album a:hover,
+.player_txt_playlist a:hover,
+.player_txt_cancion_playlist a:hover,
+.player_txt_artista_playlist a:hover,
+.player_txt_artista a:hover,
+.player_txt_megusta a:hover,
+.player_txt_albumes a:hover,
+.player_txt_canciones a:hover {
+	color: #888888;
+	text-decoration: none;
+}
+.cont_radio_g .artistas_incluidos {
+	clear:both;
+	display: none;
+	height: 66px;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	background-color: #EEEEEE;
+}
+.cont_radio_g .radios_relacionadas {
+	display: none;
+	height: 65px;
+	border-right: 1px solid #E0E0E0;
+	background-color: #EEEEEE;
+	/*margin-bottom: 34px;*/
+	
+}
+.cont_mejores_canciones_track {
+	overflow-y: auto;
+	position: fixed;
+	bottom: 32px;
+	top:148px;
+	left:0;
+	right:0;
+	/*margin-right:21px;*/
+}
+.artistas_incluidos span.ico_artista {
+	width: 24px;
+	height: 24px;
+	margin: 0 0 0 8px;
+	background: url(../img/sprite.png) -222px 0 no-repeat transparent;
+	float: left;
+	display: block;
+}
+.artistas_incluidos .ico_artista_titulo,
+.radios_relacionadas .ico_radio_titulo {
+	color: #666666;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 24px;
+}
+.artistas_incluidos .foto_artistas_incluidos,
+.radios_relacionadas .foto_radios_relacionadas {
+	height: 38px;
+	display: block;
+	margin: 0 12px 2px 9px;
+	overflow: hidden;
+}
+.artistas_incluidos .foto_artistas_incluidos .artista a,
+.radios_relacionadas .foto_radios_relacionadas .radio a {
+	width: 36px;
+	height: 36px;
+	float: left;
+	display: block;
+	margin: 0 0 0 4px;
+}
+.cont_radio_g .artistas_incluidos .foto_artistas_incluidos .artista img,
+.cont_radio_g .radios_relacionadas .foto_radios_relacionadas .radio img,
+.cont_radio_g .artistas_incluidos .foto_artistas_incluidos .artista img,
+.cont_radio_g .radios_relacionadas .foto_radios_relacionadas .radio img {
+	width:36px;
+	height: 36px;
+	border: none;
+}
+.cont_radio_g .radios_relacionadas span.ico_radio_relacionada {
+	width: 24px;
+	height: 24px;
+	margin: 0 0 0 9px;
+	background: url(../img/sprite.png) -198px 0 no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cont_mejores_canciones .caratula img {
+	width: 80px;
+	height: 80px;
+	border: none;
+}
+.cont_mejores_canciones .player_txt_artista {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	margin-left: 100px;
+	font-size: 14px;
+	line-height: 24px;
+	padding-top: 20px;
+	margin-right: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.cont_mejores_canciones_track .caratula_track img {
+	width: 45px;
+	height: 45px;
+	border: none;
+}
+.footer {
+	background-color: #000000;
+	height: 32px;
+	-webkit-border-bottom-right-radius: 5px;
+  	-moz-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+  	-moz-border-bottom-left-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 1px solid #E0E0E0;
+	position: fixed;
+	bottom: 0;
+	left:0;
+	right:0;
+	/*margin-right:21px;*/
+}
+.footer .ico_reducir a {
+	width: 24px;
+	height: 24px;
+	margin: 4px;
+	display: block;
+	float: left;
+	background: url(../img/sprite.png) -24px 0 no-repeat transparent;
+}
+.footer .logoyes a {
+	width: 60px;
+	height: 24px;
+	margin: 4px 6px;
+	display: block;
+	float: right;
+	background: url(../img/sprite.png) -48px 0 no-repeat transparent;
+}
+.cont_radio_g {
+	display: block;
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
+}
+.cajatitular span.ico_playlist a,
+.cajatitular span.ico_playlist a {
+	width: 24px;
+	height: 24px;
+	margin: 10px 0 0 7px;
+	background: url(../img/sprite.png) 0 -24px no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cont_radio_g .track .number_track,
+.cont_radio_g .track_album .number_track {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 15px;
+	margin-top: 15px;
+	margin-left: 10px;
+	width: 36px;   /* Si es pequeño es 26px; */
+	display: block;
+	float: left;
+}
+.cont_radio_g .track .datos_track .txt_cancion,
+.cont_radio_g .track .datos_track .txt_cancion {
+	color: #333333;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.cont_radio_g .track .datos_track .txt_artista,
+.cont_radio_g .track .datos_track .txt_artista,
+.cont_radio_g .track_album .datos_track .txt_artista,
+.cont_radio_g .track_album .datos_track .txt_artista {
+	color: #666666;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+	margin-right: 10px;
+	float: left;
+	display: block;
+	width: 200px;
+}
+.cont_radio_g .track .datos_track .txt_cancion a,
+.cont_radio_g .track_album .datos_track .txt_cancion a,
+.cont_mejores_canciones_track .track .datos_track .txt_cancion a  {
+	color: #333333;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.cont_radio_g .track .datos_track .duracion_track,
+.cont_mejores_canciones_track .track .datos_track .duracion_track {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 1px;
+	position: absolute;
+	right:0;
+	top:0:
+}
+.cajatitular span.ico_album a {
+	width: 24px;
+	height: 24px;
+	margin: 10px 10px 0 7px;
+	background: url(../img/sprite.png) -54px -24px no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cont_radio_g .track_album .datos_track .txt_cancion {
+	color: #333333;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	padding-top: 16px;
+	margin-right: 42px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.cont_radio_g .track_album .datos_track .duracion_track {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 1px;
+	margin: 24px 10px 0 0;
+	position: absolute;
+	right:0;
+	top:0;
+}
+.cont_mejores_canciones {
+	height: 100px;
+	background-color: #2a2a2a;
+	display: block;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	border-left: 1px solid #E0E0E0;
+}
+.cont_mejores_canciones .caratula {
+	width: 80px;
+	height: 80px;
+	padding: 10px 10px 0 10px;
+	position: absolute;
+}
+.cont_mejores_canciones .player_txt_megusta {
+	color: #737373;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 13px;
+	margin-left: 100px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+.cont_mejores_canciones .player_txt_albumes {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 14px;
+	margin-left: 100px;
+	margin-right: 10px;
+}
+.cont_mejores_canciones .player_txt_megusta a,
+.cont_mejores_canciones .player_txt_megusta a,
+.cont_discografia_artista .player_txt_megusta a,
+.cont_discografia_artista .player_txt_megusta a,
+.cont_artistas_similares .player_txt_megusta a,
+.cont_artistas_similares .player_txt_megusta a  {
+	color: #737373;
+	text-decoration: none;
+}
+.cont_mejores_canciones .player_txt_albumes a,
+.cont_mejores_canciones .player_txt_albumes a,
+.cont_discografia_artista .player_txt_albumes a,
+.cont_discografia_artista .player_txt_albumes a,
+.cont_artistas_similares .player_txt_albumes a,
+.cont_artistas_similares .player_txt_albumes a,
+.cont_artistas_similares .player_txt_canciones a,
+.cont_artistas_similares .player_txt_canciones a {
+	color: #999999;
+	text-decoration: none;
+}
+.cont_mejores_canciones_track .track {
+	height: 45px;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	background-color: #EEEEEE;
+	padding-left: 1px;
+}
+.cont_mejores_canciones_track .caratula_track {
+	width: 45px;
+	height: 45px;
+	float: left;
+	margin-right: 5px;
+	display:block;
+}
+.cont_mejores_canciones_track .track .number_track {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 15px;
+	margin-top: 15px;
+	margin-left: 10px;
+	width: 32px;
+	display: block;
+	float: left;
+}
+.cont_mejores_canciones_track .track .datos_track {
+	position: relative;
+}
+.cont_mejores_canciones_track .track .datos_track .txt_cancion {
+	color: #333333;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	padding-top: 10px;
+	margin-right: 36px;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.cont_mejores_canciones_track .track .datos_track .txt_album {
+	color: #666666;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+	margin-right: 36px;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.cont_mejores_canciones_track .track .datos_track .duracion_track {
+	font-size: 10px;
+	width:34px;
+	top:25px;
+}
+/* ARTISTAS SIMILARES */
+.cont_discografia_artista,
+.cont_artistas_similares {
+	background-color: #2a2a2a;
+	height: 99px;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	border-left: 1px solid #E0E0E0;
+	position: relative;
+}
+.cont_discografia_artista .caratula,
+.cont_discografia_artista_albumes .track .caratula_track,
+.cont_artistas_similares .caratula,
+.cont_artistas_similares_artistas .track .caratula_track {
+	width: 80px;
+	height: 80px;
+	float: left;
+	display: block;
+	margin: 10px;
+	border:none;
+}
+.cont_discografia_artista .player_txt_artista,
+.cont_artistas_similares .player_txt_artista {
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 13px;
+	line-height: 14px;
+}
+.cont_discografia_artista .player_txt_artista {
+	padding-top: 20px;
+	margin: 0 0 5px 0;
+}
+.cont_artistas_similares .player_txt_artista {
+	padding-top: 15px;
+	margin: 0 0 5px 0;
+}
+.cont_discografia_artista .player_txt_artista a,
+.cont_artistas_similares .player_txt_artista  a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.cont_discografia_artista_albumes .track,
+.cont_artistas_similares_artistas .track {
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	border-left: 1px solid #E0E0E0;
+	background-color: #EEEEEE;
+	height:100px;
+}
+.cont_artistas_similares_artistas,
+.cont_discografia_artista_albumes {
+	position:fixed;
+	top: 148px;
+	bottom: 35px;
+	left:0;
+	right:0;
+	overflow-y: auto;
+	/*margin-right:20px;*/
+	white-space: nowrap;
+}
+.cont_discografia_artista_albumes .track .txt_album,
+.cont_artistas_similares_artistas .track .nombre_artista {
+	color: #222222;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	padding-top: 10px;
+	margin-right: 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.cont_discografia_artista_albumes .track .numero_canciones,
+.cont_discografia_artista_albumes .track .duracion_album,
+.cont_artistas_similares_artistas .track .numero_canciones,
+.cont_artistas_similares_artistas .track .numero_albumes,
+.cont_artistas_similares_artistas .track .duracion_album {
+	color: #737373;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin-right: 10px;
+}
+.cont_discografia_artista_albumes .track  .txt_tipo,
+.cont_artistas_similares_artistas .track  .txt_megusta {
+	color: #737373;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin-right: 10px;
+	display: block;
+	text-transform: uppercase;
+}
+.cont_discografia_artista_albumes .caratula_track img,
+.cont_discografia_artista_albumes .track .caratula_track img,
+.cont_discografia_artista .caratula img,
+.cont_artistas_similares_artistas .caratula_track img,
+.cont_artistas_similares_artistas .track .caratula_track img,
+.cont_artistas_similares .caratula img {
+	width: 80px;
+	height: 80px;
+	border: none;
+}
+.cajatitular span.ico_discografia a,
+.cajatitular span.ico_discografia a {
+	width: 24px;
+	height: 24px;
+	margin: 10px 0 0 7px;
+	background: url(../img/sprite.png) -78px -24px no-repeat transparent;
+	float: left;
+	display: block;
+}
+.cont_artistas_similares_artistas a,
+.cont_discografia_artista_albumes a {
+	text-decoration: none;
+}
+.cont_discografia_artista_albumes .track .txt_album a,
+.cont_discografia_artista_albumes .track .txt_album a,
+.cont_artistas_similares_artistas .track .nombre_artista a,
+.cont_artistas_similares_artistas .track .nombre_artista a {
+	color: #222222;
+	text-decoration: none;
+}
+.cont_discografia_artista .player_txt_megusta,
+.cont_discografia_artista .player_txt_megusta,
+.cont_artistas_similares .player_txt_megusta,
+.cont_artistas_similares .player_txt_megusta {
+    color: #737373;
+    font-family: "Arial Rounded MT Bold",Arial,sans-serif;
+    font-size: 11px;
+    line-height: 12px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+.cont_discografia_artista .player_txt_albumes,
+.cont_artistas_similares .player_txt_albumes {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	margin-right: 10px;
+}
+.cont_artistas_similares .player_txt_canciones,
+.cont_artistas_similares .player_txt_canciones {
+	color: #999999;
+	text-decoration: none;
+	font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 10px;
+	line-height: 12px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.cont_discografia_artista_albumes .track .numero_canciones a,
+.cont_discografia_artista_albumes .track .numero_canciones .duracion_album a,
+.cont_discografia_artista_albumes .track .txt_tipo a,
+.cont_discografia_artista_albumes .track .numero_canciones a,
+.cont_discografia_artista_albumes .track .numero_canciones .duracion_album a,
+.cont_discografia_artista_albumes .track .txt_tipo a,
+.cont_artistas_similares_artistas .track .numero_canciones a,
+.cont_artistas_similares_artistas .track .numero_canciones .duracion_album a,
+.cont_artistas_similares_artistas .track .numero_albumes a,
+.cont_artistas_similares_artistas .track .numero_albumes .duracion_album a,
+.cont_artistas_similares_artistas .track .txt_megusta a,
+.cont_artistas_similares_artistas .track .numero_canciones a,
+.cont_artistas_similares_artistas .track .numero_canciones .duracion_album a,
+.cont_artistas_similares_artistas .track .numero_albumes a,
+.cont_artistas_similares_artistas .track .numero_albumes .duracion_album a,
+.cont_artistas_similares_artistas .track .txt_megusta a {
+	color: #737373;
+	text-decoration: none;
+}
+.cont_discografia_artista_albumes .track .txt_album a:hover,
+.cont_discografia_artista_albumes .track .numero_canciones a:hover,
+.cont_discografia_artista_albumes .track .numero_canciones .duracion_album a:hover,
+.cont_discografia_artista_albumes .track .txt_tipo a:hover,
+.cont_discografia_artista_albumes .track .txt_album a:hover,
+.cont_discografia_artista_albumes .track .numero_canciones a:hover,
+.cont_discografia_artista_albumes .track .numero_canciones .duracion_album a:hover,
+.cont_discografia_artista_albumes .track .txt_tipo a:hover,
+.cont_artistas_similares_artistas .track .nombre_artista a:hover,
+.cont_artistas_similares_artistas .track .numero_canciones a:hover,
+.cont_artistas_similares_artistas .track .numero_canciones .duracion_album a:hover,
+.cont_artistas_similares_artistas .track .numero_albumes a:hover,
+.cont_artistas_similares_artistas .track .numero_albumes .duracion_album a:hover,
+.cont_artistas_similares_artistas .track .txt_megusta a:hover,
+.cont_artistas_similares_artistas .track .nombre_artista a:hover,
+.cont_artistas_similares_artistas .track .numero_canciones a:hover,
+.cont_artistas_similares_artistas .track .numero_canciones .duracion_album a:hover,
+.cont_artistas_similares_artistas .track .numero_albumes a:hover,
+.cont_artistas_similares_artistas .track .numero_albumes .duracion_album a:hover,
+.cont_artistas_similares_artistas .track .txt_megusta a:hover {
+	color: #AAAAAA;
+	text-decoration: none;
+}
+.cont_discografia_artista_albumes .track a,
+.cont_artistas_similares_artistas .track a {
+	border: none;
+}
+.cajatitular span.ico_artistas_similares a,
+.cajatitular span.ico_artistas_similares a {
+	width: 30px;
+	height: 24px;
+	margin: 10px 0 0 7px;
+	background: url(../img/sprite.png) -108px -24px no-repeat transparent;
+	float: left;
+	display: block;
+}
+.footer .logoyes a:hover,
+.footer .ico_reducir a:hover,
+.cajatitular span.ico_radio a:hover,
+.cajatitular span.ico_playlist a:hover,
+.cajatitular span.ico_discografia a:hover,
+.cajatitular span.ico_album a:hover,
+.cajatitular span.ico_artistas_similares a:hover,
+.cont_radio_g .player .cancion_siguiente a:hover,
+.cont_radio_g .player .cancion_play a:hover,
+.cont_radio_g .player .cancion_play_premium a:hover,
+.cont_radio_g .player .cancion_pause a:hover,
+.cont_radio_g .player .ico_reducir_playlist a:hover,
+.cont_radio_g .player .logoyes_playlist a:hover,
+.cont_radio_g .artistas_incluidos .foto_artistas_incluidos .artista a:hover,
+.cont_radio_g .radios_relacionadas .foto_radios_relacionadas .radio a:hover,
+.cont_mejores_canciones .caratula:hover,
+.cont_mejores_canciones_track .caratula_track a:hover,
+.cont_discografia_artista .caratula:hover,
+.cont_discografia_artista_albumes .track .caratula_track a:hover,
+.cont_artistas_similares .caratula:hover,
+.cont_artistas_similares_artistas .track .caratula_track a:hover,
+.cont_artistas_similares .caratula:hover,
+.cajatitular span.ico_usuario a:hover,
+.cajatitular span.ico_usuario_activo a:hover,
+.radios img:hover {
+	opacity:0.60;
+	filter:alpha(opacity=60);
+}
+.cont_radio_g .caratula img:hover {
+	opacity:0.40;
+	filter:alpha(opacity=40);
+}
+.cont_radio_g .track:hover,
+.cont_radio_g .track:hover,
+.cont_radio_g .track_album:hover,
+.cont_radio_g .track_album:hover,
+.cont_mejores_canciones_track .track:hover,
+.cont_mejores_canciones_track .track:hover,
+.cont_discografia_artista_albumes .track:hover,
+.cont_discografia_artista_albumes .track:hover,
+.cont_artistas_similares_artistas .track:hover,
+.cont_artistas_similares_artistas .track:hover {
+	opacity:0.60;
+	filter:alpha(opacity=60);
+	background-color:#000000;
+}
+
+
+
+
+
+
+
+
+.player .barra{
+	clear:both;
+	position:relative;
+	height: 24px;
+	width: 100%;
+	float: left;
+	margin: 0 0 10px 11px;
+}
+.player .barra .num_izq{
+	text-decoration: none;
+	font-family: font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 12px;
+	color: #CCC;
+	float: left;
+	padding-top: 6px;
+	text-align:right;
+	width: 30px;
+}
+.player .barra .num_drch{
+	text-decoration: none;
+	font-family: font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 12px;
+	color: #CCC;
+	float: left;
+	padding-top: 6px;
+	width: 30px;
+}
+.player .barra-volumen {
+	margin: 0 20px 0 11px;
+	float:left;
+}
+#volumen{
+	height: 24px;
+	width: 100%;
+	float: right;
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	background-position: -83px -48px;
+	position: relative;	
+	z-index: 1;
+	border-radius: 2px;
+}
+#player-barra {
+	margin: 0 10px;
+	float:left;
+	position: relative;
+	width: 100%;
+	height: 24px;
+	background: url(../img/sprite.png) 0px -137px no-repeat transparent;
+	border-radius: 2px;
+}
+.player .ico_bajo{
+	height: 24px;
+	width: 24px;
+	float: right;
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	background-position: -24px -119px;
+}
+.player .ico_medio{
+	height: 24px;
+	width: 24px;
+	float: right;
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	background-position: -20px -95px;
+	margin-right: 5px;
+}
+.player .ico_alto{
+	height: 24px;
+	width: 24px;
+	float: right;
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	background-position: -24px -71px;
+}
+#volumen .bola{
+	position: absolute;	
+	height: 24px;
+	width: 24px;
+	margin-left: -11px;
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	background-position: -54px -48px;
+	z-index: 9999;
+}
+
+#player-barra .bola{
+    background-image: url("../img/sprite.png");
+    background-position: 0 -70px;
+    background-repeat: no-repeat;
+    height: 24px;
+    margin-left: -11px;
+    margin-top: 0;
+    position: absolute;
+    width: 24px;
+    z-index: 9999;
+}
+
+
+
+
+
+.widget_usuario{
+	background-color: #333333;
+	color: white;
+	z-index: 99999;
+	position: absolute;
+	top: 1%;
+	padding: 5px;
+	left: 1%;
+	right: 1%;
+	max-width: 560px;
+}
+.widget_usuario .inputs-group {
+	float: left;
+}
+.widget_usuario .input {
+	float: left;
+	width: 200px;
+}
+.widget_usuario .user_data label {
+	text-align: left;
+	font-family: 'lato-regular',arial,sans-serif;
+	font-size: 11px;
+	margin: 3px 0;
+	display: block;
+}
+.widget_usuario .user_data>p a {
+	color: #FFF;
+	font-family: 'lato-regular',arial,sans-serif;
+	font-size: 12px;
+	text-decoration: underline;
+}
+.widget_usuario .user_data>p a:hover {
+	color: #CCC;
+	text-decoration: underline;
+}
+.widget_usuario .user_data input {
+	font-size: 12px;
+	color: #999;
+	width: 170px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	height: 20px;
+	margin: 3px 0 3px 0;
+	display: block;
+}
+.widget_usuario .olvidado {
+	clear: both;
+}
+.widget_usuario .error-pass-login-modal {
+	clear: both;
+	display: none;
+	color: #da006a;
+	margin: 5px;
+}
+.widget_usuario .button_cont {
+	/*clear:both;*/
+	padding-top:3px;
+}
+.widget_usuario .eres-nuevo {
+	/*clear: both;*/
+	padding: 10px 0;
+	font-size: 13px;
+	float: right;
+}
+.widget_usuario .button_cont button {
+	background: #359aff;
+	background: -moz-linear-gradient(top,#444444 1%,#555555 16%,#666666 35%,#777777 67%,#888888 84%,#999999 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(1%,#444444),color-stop(16%,#555555),color-stop(35%,#666666),color-stop(67%,#777777),color-stop(84%,#888888),color-stop(100%,#999999));
+	background: -webkit-linear-gradient(top,#444444 1%,#555555 16%,#666666 35%,#777777 67%,#888888 84%,#999999 100%);
+	background: -o-linear-gradient(top,#444444 1%,#555555 16%,#666666 35%,#777777 67%,#888888 84%,#999999 100%);
+	background: -ms-linear-gradient(top,#444444 1%,#555555 16%,#666666 35%,#777777 67%,#888888 84%,#999999 100%);
+	background: linear-gradient(to bottom,#444444 1%,#555555 16%,#666666 35%,#777777 67%,#888888 84%,#999999 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444',endColorstr='#999999',GradientType=0);
+	color: #fff;
+	font-family: 'lato-regular',arial,sans-serif;
+	font-size: 12px;
+	border: 0;
+	border-radius: 2px;
+	margin: 6px 0 0 0;
+	padding: 4px 12px;
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	cursor: pointer;
+}
+.widget_usuario .user_data .button_cont button:hover {
+	color: #000;
+	text-decoration: none;
+}
+.widget_usuario .user_data {
+	color: #FFF;
+	font-family: 'lato-regular',arial,sans-serif;
+	font-size: 12px;
+}
+.widget_usuario .user_data a {
+	color: #FFF;
+	text-decoration: underline;
+	font-size: 11px;
+}
+.user_data a:hover {
+	color: #CCC;
+	text-decoration: underline;
+}
+.widget_usuario .cab_cont .close_icon a {
+	float: right;
+	margin: 0 4px 0 0;
+}
+.widget_usuario .cab_cont .close_icon a {
+	height: 13px;
+	width: 13px;
+	background: url(../img/sprite.png) -60px -78px no-repeat transparent;
+}
+.widget_usuario .cab_cont .close_icon:hover {
+	background: url(../img/sprite.png) -60px -102px no-repeat transparent;
+}
+
+
+.radios {
+	display: block;
+	background-color: #000000;
+	/*border-top: 1px solid #E0E0E0;*/
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.radios ul li {
+	list-style-type: none;
+}
+.radios img {
+	width:100%;
+	min-width:48px;
+	max-width:100px;
+	float: left;
+	margin: 4px;
+}
+/* A partir de 150px de altura mostramos cajatitular y footer */
+@media all and (min-height:168px){
+.cont_radio_g .tracks{
+	display:block;
+}
+.cajatitular {
+	display:block;
+}
+.player_txt_playlist {
+	display:none;
+}
+.player .ico_reducir_playlist a {
+	display:none;
+}
+.player .logoyes_playlist a {
+	display:none;
+}
+.player_txt_cancion {
+	padding-top: 10px;
+}
+.footer {
+	display:block;
+}
+.cancion_anterior_inactivo a,
+.cancion_anterior a,
+.cancion_play a,
+.cancion_play_premium a,
+.cancion_pause a,
+.cancion_siguiente a {
+	margin-bottom: 9px
+}
+.player .barra-volumen {
+	float:right;
+}
+}
+@media all and (min-height:234px){
+.cont_radio_g .artistas_incluidos{
+    display:block;
+}
+}
+@media all and (min-height:299px){
+.cont_radio_g .radios_relacionadas{
+    display:block;
+}
+}
+/* A partir de 500px de altura mostramos la caratula (modo vertical) */
+@media all and (min-height:451px){
+.cont_radio_g .caratula {
+	display:block;
+}
+.cont_radio_g .tracks {
+	top: 422px;
+}
+}
+/* Control de artistas y radios en formato vertical con caratula grande arriba */
+@media all and (max-width:399px) and (min-height:451px) {
+.cont_radio_g .artistas_incluidos,
+.cont_radio_g .radios_relacionadas{
+	display:none;
+}
+}
+@media all and (max-width:399px) and (min-height:518px){
+.cont_radio_g .artistas_incluidos{
+    display:block;
+}
+}
+@media all and (max-width:399px) and (min-height:583px){
+.cont_radio_g .radios_relacionadas{
+    display:block;
+}
+}
+/* a partir de 400px de anchura mostramos los tracks ajustados a la izquierda y caratula pequeña */
+@media all and (min-width:400px){
+.cont_radio_g .caratula {
+	display:block;
+}
+.titular{
+	font-size: 16px;
+}
+.cont_radio_g .caratula {
+	padding: 0;
+	width: 86px;
+	height: 86px;
+	border: medium none;
+	position: absolute;
+}
+.cont_radio_g .caratula img {
+	margin:0;
+	width: 86px;
+	height: 86px;
+}
+.cont_radio_g .player {
+	margin-left: 86px;
+	border-right: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	
+}
+.cont_radio_g .tracks {
+	display:block;
+	top: 138px;
+}
+.cont_radio_g .track_album,
+.cont_radio_g .artistas_incluidos,
+.cont_radio_g .radios_relacionadas {
+	margin-left: 0;
+}
+}
+/* a partir de 550px de anchura mostramos los tracks con caratula grande a la izquierda */
+@media all and (min-height:300px) and (min-width:550px){
+.cont_radio_g .caratula {
+	width: 219px;
+	height: 219px;
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
+}
+.cont_radio_g .caratula img {
+	width: 219px;
+	height: 219px;
+}
+.cont_radio_g .player {
+	margin-left: 221px;
+}
+.cont_radio_g .tracks {
+	top: 135px;
+	display:block;
+}
+.cont_radio_g .track_album,
+.cont_radio_g .artistas_incluidos,
+.cont_radio_g .radios_relacionadas {
+	margin-left: 222px;
+}
+}
+@media all and (min-width:550px){
+.cont_discografia_artista,
+.cont_artistas_similares {
+	padding: 9px;
+	position:fixed;
+	width: 80px;
+	height: auto;
+	top: 47px;
+	bottom: 34px;
+}
+.cont_discografia_artista .caratula,
+.cont_artistas_similares .caratula {
+	margin: 0 0 10px 0;
+}
+.cont_discografia_artista_albumes .track,
+.cont_artistas_similares_artistas .track {
+	height:80px;
+}
+.cont_discografia_artista_albumes .track .caratula_track,
+.cont_artistas_similares_artistas .track .caratula_track {
+	margin: 0 20px 0 0;
+}
+.cont_discografia_artista .player_txt_artista,
+.cont_artistas_similares .player_txt_artista {
+	margin: 10px 0;
+	padding: 0;
+	white-space: normal;
+	overflow: visible;
+}
+.cont_discografia_artista .player_txt_artista a,
+.cont_artistas_similares .player_txt_artista  a{
+	white-space: normal;
+}
+.cont_artistas_similares_artistas,
+.cont_discografia_artista_albumes {
+	top: 47px;
+	left: 100px;
+}
+.cont_discografia_artista_albumes .track,
+.cont_artistas_similares_artistas .track {
+	height: 80px;
+	border-left: none;
+}
+.widget_usuario .button_cont {
+	clear: none;
+	float: left;
+}
+.widget_usuario .button_cont button {
+	margin-top: 20px;
+}
+}
+@media all and (max-width: 2000px){
+.player .barra{
+	width:180px;
+}
+}
+@media all and (max-width: 500px){
+.player .barra{
+	width:160px;
+}
+}
+@media all and (max-width: 2000px){
+#player-barra{
+	width:100px;
+}
+}
+@media all and (max-width: 500px){
+#player-barra{
+	width:80px;
+}
+}
+@media all and (max-width: 2000px){
+#volumen{
+	width:50px;
+}
+}
+@media all and (max-width: 500px){
+#volumen{
+	width:40px;
+}
+}
+@media all and (max-width: 2000px){
+.radios {
+	height:110px;
+}
+}
+@media all and (max-width: 800px){
+.radios {
+	height:58px;
+}
+}
+@media all and (max-width: 1000px){
+.radios img {
+	width:100px;
+}
+}
+@media all and (max-width: 800px){
+.radios img {
+	width:48px;
+}
+}
+

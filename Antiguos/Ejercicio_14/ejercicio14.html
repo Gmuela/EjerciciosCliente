@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            
+            var max=prompt("Escribe el número maximo");
+                     
+            for(var i=1;i<=max;i++){ 
+                    
+                switch(true){
+
+                    case(i%4==0 && i%9==0):
+
+                        document.write("<font color=lime size=+2>"+i+"</font>, ");
+
+                        break;
+
+                    case(i%10==0):
+
+                        document.write(i+"<br>");
+
+                        break;                      
+
+                    case(i%4==0):
+
+                        document.write("<font color=green size=+4>"+i+"</font>, ");
+
+                        break;
+
+                    case(i%9==0):
+
+                        document.write("<font color=red size=-2>"+i+"</font>, ");
+
+                        break;
+
+
+                    default:
+
+                        document.write(i+", ");
+
+                }
+
+            }
+            
+        </script>    
+    </head>
+    <body>
+    </body>
+</html>

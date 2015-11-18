@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+            
+            var resp=0;
+                
+            while(resp<=0 || resp>=7){
+            
+                resp=prompt("¿Cuantas cabeceras de nivel quieres hacer?(1-6)"); 
+                
+            }
+            
+            var num=parseInt(resp);
+            
+            var texto="";
+            
+            while(texto==""){
+                  
+                var texto=prompt("Escribe el texto a escribir en las cabeceras");
+            
+                texto.trim();
+            }
+            
+            var n=1;
+            
+            while(n<=num){
+                
+                document.write("<h"+n+">"+texto+"</h"+n+">");
+                
+                n++;
+                
+            }
+            
+        </script>    
+    </head>
+    <body>
+    </body>
+</html>

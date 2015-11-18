@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>primer ejemplo para crear ventanas</title>
+    
+    <script>
+        
+        var ventanaNueva="";
+        var repetir=0;
+        
+        function abreVentana(){
+                        
+            if(repetir==0){
+                
+                for(var i=0;i<6;i++){
+                    
+                    var num1=Math.round(Math.random()*1200);            
+                    var num2=Math.round(Math.random()*1000);
+
+                    ventanaNueva=window.open("","ventana"+i,"width=400, height=450");
+                    
+                    ventanaNueva.moveTo(num1,num2);
+
+                    ventanaNueva.document.open();
+
+                    var titulo=document.getElementById("titulo").value;
+                    var cabecera=document.getElementById("cabecera").value;
+
+                    ventanaNueva.document.write("<title>"+titulo+"</title>");                
+                    ventanaNueva.document.write("<h1>"+cabecera+"</h1>");
+                    ventanaNueva.document.write("<input type=\"button\" onclick=\"window.close()\" value=\"Cierra esta ventana\"/>");
+                    
+                    ventanaNueva.document.close();                   
+                }
+            }                   
+        }
+        
+        function cierraVentana(){
+            
+            if(repetir!=0){
+
+                ventanaNueva.close(); 
+                
+                clearInterval(repetir);
+                
+                repetir=0;
+            }                   
+        }
+        
+    </script>
+</head>
+    
+<body>
+    
+    <h1>Ventana Principal</h1>
+
+    Titulo <input type="text" id="titulo" name="titulo"/>
+    </br></br>
+    Cabecera <input type="text" id="cabecera" name="cabecera"/>
+    </br></br>
+    <input type="button" onclick="abreVentana()" value="Abre nueva ventana"/>      
+    <input type="button" onclick="cierraVentana()" value="Cierra la nueva ventana"/>      
+</body>
+</html>

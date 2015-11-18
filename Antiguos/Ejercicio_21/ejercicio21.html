@@ -1,0 +1,41 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            function operaString(){
+                
+                var frase=document.getElementById("frase").value;                
+                frase=frase.trim();                
+                var fraseArray=frase.split(" ");
+                
+                document.write(frase+"<br/>");
+                document.write("Numero de caracteres contando espacios: "+frase.length+"<br/>");
+                
+                for(var i=0;i<fraseArray.length;i++){
+                    
+                    document.write("\""+fraseArray[i]+"\" "+"Numero de caracteres: "+fraseArray[i].length+"<br/>");
+                    
+                }
+                
+            }
+            
+            
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Escribe una frase<br/>
+        <input type="text" name="frase" id="frase"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado" onclick="operaString()"/>
+    </body>  
+</html>

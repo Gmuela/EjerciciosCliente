@@ -1,0 +1,107 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="ej31.css" type="text/css"/>
+        
+        <script>
+            
+            var contador=0;
+            
+            var frase="";
+            
+            var dir="";
+
+            function izquierda(){
+                
+                dir="izquierda";                                          
+            }
+            
+            function derecha(){
+                
+                dir="derecha";                                            
+            }
+            
+            function operaFrase(){
+                
+                if(dir=="derecha"){
+                    
+                    var primer=frase.charAt(0);
+                
+                    var resto=frase.substr(1,frase.length-1);
+                
+                    frase=resto+primer;
+                    
+                }
+                
+                else if(dir=="izquierda"){
+                    
+                    var ultimo=frase.charAt(frase.length-1);
+                
+                    var resto=frase.substr(0,frase.length-1);
+                    
+                    frase=ultimo+resto;
+                    
+                }
+                
+                document.getElementById("result").value=frase;                                            
+            }
+                
+            function iniciar(){
+                
+                if(contador==0){
+                    
+                    if(document.getElementById("vel").value==""){
+                        
+                        var velocidad=500;
+                    }
+                    
+                    else{              
+                        
+                        var velocidad=document.getElementById("vel").value*1000; 
+                        
+                        
+                    }
+                    
+                    frase=document.getElementById("frase").value;
+                    
+                    contador=window.setInterval(operaFrase,velocidad);                    
+                }
+            }
+            
+            function parar(){
+                
+                clearInterval(contador);
+                
+                contador=0;
+                
+            }
+            
+        
+        </script>   
+    </head>
+    
+    <body>
+        
+        <input type="text" id="frase" class="texto"/>
+        
+        </br></br> 
+
+        <input type="image"  src="img/play.png" onclick="iniciar()" class="iniciar"/>
+        <input type="image" src="img/stop.png" onclick="parar()" class="parar"/>
+
+        <input type="button" name="izq" value="<" onclick="izquierda()"/>
+        <input type="button" name="der" value=">" onclick="derecha()"/>
+        
+        Velocidad(seg)<input type="text" id="vel" class="vel"/>
+
+        </br>
+        </br>
+
+        <input type="text" readonly="readonly" id="result"/>
+        
+
+        
+        
+    
+    </body>   
+</html>

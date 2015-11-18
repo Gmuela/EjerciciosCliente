@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title</title>
+    
+    <script>
+        
+         var repetir=0;
+        
+        function prefijos(){
+            
+            if(repetir==0){              
+
+                ventanaNueva=window.open("","","width=650, height=550");
+
+                ventanaNueva.moveTo(350,150);
+
+                ventanaNueva.document.open();              
+                
+                ventanaNueva.document.write("<script>location.href=\"prefijos.html\"<\/script>")
+                ventanaNueva.document.close();                   
+            }
+        } 
+        
+        function llamar(){
+            
+            ventanaNueva=window.open("","","width=350, height=250");
+
+            ventanaNueva.moveTo(350,150);
+
+            ventanaNueva.document.open();              
+
+            ventanaNueva.document.write("Llamando a "+document.getElementById("prefijo").value+" "+document.getElementById("numtel").value)
+            ventanaNueva.document.close();            
+            
+        }
+        
+    </script>
+</head>
+    
+<body>
+
+    Prefijo <input type="text" id="prefijo" name="prefijo"/> <input type="button" onclick="prefijos()" value="?"/>
+    </br></br>
+    Nº de Teléfono <input type="text" id="numtel" name="numtel"/>
+    </br></br>
+    <input type="button" onclick="llamar()" value="Llamar"/></br> 
+    
+</body>
+</html>

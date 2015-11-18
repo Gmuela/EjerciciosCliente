@@ -1,0 +1,123 @@
+<html>
+    
+    <head>
+    
+        <meta charset="UTF-8">
+        
+        <script> 
+            
+            function operaString(){
+                
+                var frase=document.getElementById("frase").value;                
+                frase=frase.trim();                
+                var fraseArray=frase.split(" ");
+                
+                if(fraseArray.length<7){
+                    
+                    alert("Solo has escrito "+fraseArray.length+" palabras");                    
+                }
+                
+                else{
+                    
+                    var encontrado=false;
+                    var cont=0;                        
+                    var palab5=""; 
+                                       
+                    
+                    for(var i=0;i<fraseArray.length;i++){
+                        
+                        if(fraseArray[i].length<5){
+                            
+                            cont++;
+                            
+                            palab5+=fraseArray[i]+", ";
+                            
+                            encontrado=true;                            
+                        }                   
+                    }
+                    
+                    if(encontrado){
+                    
+                        document.write("Hay "+cont+" palabras con menos de 5 letras, son: "+palab5+"<br/>");
+                    }
+                    
+                    var frasepepe="";
+                    var continua=true;
+                    var comprueba="";
+                    
+                    for(var i=0;i<fraseArray.length;i++){
+                        
+                        comprueba=fraseArray[i].replace("co","pepe");                        
+                        
+                        if((comprueba!=fraseArray[i]) && continua){
+                            
+                            frasepepe+=comprueba+", ";
+                            continua=false;                                                        
+                        }
+                        
+                        else{                          
+                            
+                            frasepepe+=fraseArray[i]+", ";
+                        }
+                    }
+                    
+                    if(continua){
+                        
+                        document.write("No se ha encontrado \"co\" en ninguna palabra<br/>");
+                    }
+                    
+                    else{
+                        
+                        document.write("Se ha encontrado \"co\" entre las palabras introducidas"+"<br/>"); 
+                        document.write(frasepepe+"<br/>");
+                    }
+                    
+                    var fraseos="";
+                    
+                    for(var i=0;i<fraseArray.length;i++){
+                        
+                        for(var j=0;j<fraseArray[i].length;j++){
+                            
+                            fraseos+=fraseArray[i].charAt(j).replace("a","o");
+                        }
+                        
+                        fraseos+=" ";
+                    }
+                    
+                    document.write(fraseos+"<br/>");
+                    
+                    var fraseguion="";
+                    
+                    for(var i=0;i<fraseArray.length;i++){
+                        
+                        if(i<9){
+                            
+                            fraseguion+=fraseArray[i]+" - ";                            
+                        }
+                        
+                        else{
+                            
+                            fraseguion+=fraseArray[i]+" ";                            
+                        }
+                        
+                    }
+                    
+                    document.write(fraseguion);
+                }
+            }
+            
+        </script>
+    
+    </head>
+
+    <body>
+       
+        Escribe una frase que tenga mínimo 7 palabras<br/>
+        <input type="text" name="frase" id="frase"/>   
+        
+        <br/>
+        <br/>
+        
+        <input type="button" value="Mostrar Resultado" onclick="operaString()"/>
+    </body>  
+</html>

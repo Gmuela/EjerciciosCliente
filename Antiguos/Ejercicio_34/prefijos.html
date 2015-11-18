@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>primer ejemplo para crear ventanas</title>
+    
+    <style>
+    
+        *{
+            
+            margin: 2px;
+            
+        }
+    
+    </style>
+    
+    <script>
+        
+        function seleccion(prefijo){
+                        
+            window.opener.document.getElementById("prefijo").value=prefijo;
+                              
+            window.close();
+        }
+        
+        function seleccion2(){
+            
+            prefijo=document.getElementById("prefijoSelect").value;
+                        
+            window.opener.document.getElementById("prefijo").value=prefijo;
+                              
+            window.close();
+        }
+        
+        
+        
+    </script>
+</head>
+    
+    <body>
+        <title>Prefijos</title>                
+        <h1>Prefijos Internacionales</h1>
+        España <input type="button" onclick="seleccion(this.value)" value="+34"/></br>      
+        Holanda <input type="button" onclick="seleccion(this.value)" value="+31"/></br>      
+        Gran Bretaña <input type="button" onclick="seleccion(this.value)" value="+44"/></br>      
+        Estados Unidos <input type="button" onclick="seleccion(this.value)" value="+01"/></br>    
+        Bélgica <input type="button" onclick="seleccion(this.value)" value="+32"/></br>      
+        Grecia <input type="button" onclick="seleccion(this.value)" value="+30"/>
+
+        </br>
+        </br>
+
+        <select id="prefijoSelect">
+            
+            <option value="+34">España</option>
+            <option value="+31">Holanda</option>
+            <option value="+44">Gran Bretaña</option>
+            <option value="+01">Estados Unidos</option>
+            <option value="+32">Bélgica</option>
+            <option value="+30">Grecia</option>
+
+        </select> 
+        
+       <input type="button" onclick="seleccion2()" value="Enviar Select"/></br>
+            
+        
+    </body>
+</html>

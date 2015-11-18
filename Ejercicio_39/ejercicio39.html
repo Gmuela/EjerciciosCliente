@@ -1,0 +1,273 @@
+<html>
+<head>
+    
+    <style>
+    
+        *{
+            
+            margin: 15px auto;            
+            
+        }
+        
+        .contenido, #mensajes{
+            
+           text-align: center;
+        
+        }
+        
+        #mensajes{
+            
+            font-weight: bold;
+            display: table;
+            border: 1px solid red;
+            padding: 5px;
+            
+        }
+    
+    
+    </style>
+
+    <script type="text/javascript">
+        
+        var arrayNumeros=new Array();        
+       
+        //FUNCIÓN PARA AÑADIR ELEMENTOS AL ARRAY**************************************
+        
+        function add(){
+            
+            var entradaUsuario=prompt("Escribe en qué posición deseas añadir el número");
+            
+            var posicion=(entradaUsuario-1);
+            
+            while(isNaN(entradaUsuario) || entradaUsuario==0 || posicion>arrayNumeros.length){
+                
+                posicion=(entradaUsuario-1);
+                switch(true){
+                    
+                    case(isNaN(entradaUsuario)):
+                    var entradaUsuario=prompt("Debes escribir un número");
+                    break;  
+                        
+                    case(entradaUsuario==0):
+                        
+                        entradaUsuario=prompt("0 no es una posición válida");
+                        break;
+                
+                    case(posicion>arrayNumeros.length):
+                        
+                        var mensaje="No puedes añadir el número en la posición "+entradaUsuario+". Posición máxima posible "+(arrayNumeros.length+1);
+                        
+                        entradaUsuario=prompt(mensaje); 
+                        break;
+                }
+                
+            } 
+            
+            posicion=(entradaUsuario-1);
+            
+            if(entradaUsuario==null){
+                
+              document.getElementById("mensajes").innerHTML="Inserción cancelada por el usuario";  
+                
+            }
+            
+            else{
+                
+                var numero=prompt("Introduce el número a insertar");
+                
+                while(isNaN(numero)){
+                    
+                    numero=prompt("Debes escribir un número");
+                  
+                }
+                
+                if(numero==null){
+                        
+                    document.getElementById("mensajes").innerHTML="Inserción cancelada por el usuario";
+                }
+                    
+                else{
+                
+                    numero=parseInt(numero);
+                    arrayNumeros.splice(posicion,0,numero);
+                    document.getElementById("mensajes").innerHTML="Número añadido en la posición "+entradaUsuario;
+                }
+            }            
+        }
+        
+        //FUNCIÓN PARA ELIMINAR ELEMENTOS DEL ARRAY*****************************************
+        
+        function del(){
+            
+            if(arrayNumeros.length==0){
+                
+                document.getElementById("mensajes").innerHTML="Aún no hay elementos para poder borrar.";
+                
+            }
+            
+            else{
+            
+                var entradaUsuario=prompt("Escribe la posición que deseas eliminar");
+                var posicion=(entradaUsuario-1);
+                while(isNaN(entradaUsuario) || entradaUsuario==0 || posicion>arrayNumeros.length){
+                    posicion=(entradaUsuario-1);
+                    switch(true){
+                        case(isNaN(entradaUsuario)):
+                        var entradaUsuario=prompt("Debes escribir un número");
+                        break;  
+                        case(entradaUsuario==0):
+                            entradaUsuario=prompt("0 no es una posición válida");
+                            break;
+                        case(posicion>arrayNumeros.length):
+                            var mensaje="No puedes eliminar la posición "+entradaUsuario+". La posición no existe";
+                            entradaUsuario=prompt(mensaje); 
+                            break;
+                    }
+                } 
+                posicion=(entradaUsuario-1);
+                if(entradaUsuario==null){
+                  document.getElementById("mensajes").innerHTML="Borrado cancelado por el usuario";  
+                }
+                else{
+                    for(var i=posicion;i<(arrayNumeros.length-1);i++){
+                        var guarda=arrayNumeros[i];
+                        arrayNumeros[i]=arrayNumeros[i+1];
+                        arrayNumeros[i+1]=guarda;
+                    }
+                    var numBorrado=arrayNumeros.pop();
+                    document.getElementById("mensajes").innerHTML="Posición "+entradaUsuario+" borrada. Elemento borrado: "+numBorrado;
+                }
+            }            
+        }
+        
+        //FUNCIÓN PARA LISTAR LOS ELEMENTOS DEL ARRAY******************************************
+        
+        function show(){
+            
+            if(arrayNumeros.length==0){
+                
+                document.getElementById("mensajes").innerHTML="No hay elementos en el array";
+                
+            }
+            
+            else{
+                
+                document.getElementById("mensajes").innerHTML="Elementos actuales del array:<br/> "+arrayNumeros;
+            
+                
+            }            
+        }
+        
+        //FUNCIÓN PARA MODIFICAR EL ARRAY*******************************************
+        
+        function update(){
+                        
+            if(arrayNumeros.length==0){
+                
+                document.getElementById("mensajes").innerHTML="Aún no hay elementos para poder modificar.";
+                
+            }
+            
+            else{
+            
+                var entradaUsuario=prompt("Escribe la posición que deseas modificar");
+                var posicion=(entradaUsuario-1);
+                while(isNaN(entradaUsuario) || entradaUsuario==0 || posicion>arrayNumeros.length){
+                    posicion=(entradaUsuario-1);
+                    switch(true){
+                        case(isNaN(entradaUsuario)):
+                        var entradaUsuario=prompt("Debes escribir un número");
+                        break;  
+                        case(entradaUsuario==0):
+                            entradaUsuario=prompt("0 no es una posición válida");
+                            break;
+                        case(posicion>arrayNumeros.length):
+                            var mensaje="No puedes modificar la posición "+entradaUsuario+". La posición no existe. Posición máxima "+arrayNumeros.length;
+                            entradaUsuario=prompt(mensaje); 
+                            break;
+                    }
+                } 
+                posicion=(entradaUsuario-1);
+                if(entradaUsuario==null){
+                  document.getElementById("mensajes").innerHTML="Modificación cancelada por el usuario";  
+                }
+                else{
+                    
+                    var numero=prompt("Introduce el número nuevo");
+                
+                    while(isNaN(numero)){
+                        numero=prompt("Debes escribir un número");
+                    }
+                    
+                    if(numero==null){
+                        
+                        document.getElementById("mensajes").innerHTML="Borrado cancelado por el usuario";
+                        
+                    }
+                    
+                    else{
+                        
+                        var guarda=arrayNumeros[posicion];
+                        arrayNumeros[posicion]=numero;
+                        document.getElementById("mensajes").innerHTML="Posición "+entradaUsuario+" modificada. Elemento modificado: "+guarda+" >> "+numero;
+                    } 
+                }
+            }
+        }
+        
+        //FUNCIÓN PARA ORDENAR EL ARRAY********************************************
+        
+        function order(){
+            
+            if(arrayNumeros.length<2){
+                
+                document.getElementById("mensajes").innerHTML="Se necesitan al menos 2 elementos para ordenar el array. Elementos actuales del array: "+arrayNumeros.length;
+                
+            }
+            
+            else{
+                
+                for(i=0;i<(arrayNumeros.length-1);i++){
+     
+                for(j=0;j<(arrayNumeros.length-1);j++){ 
+          
+                    if(arrayNumeros[j]>arrayNumeros[j+1]){
+                    
+                        var guarda=arrayNumeros[j];
+                    
+                        arrayNumeros[j]=arrayNumeros[j+1];
+                    
+                        arrayNumeros[j+1]=guarda;
+                    }
+                }           
+            }
+            
+            document.getElementById("mensajes").innerHTML="Array ordenado";                
+                
+            }
+        }
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+    <div id="mensajes">Aquí se mostrarán los mensajes del sistema</div>
+    
+    <div class="contenido">
+    
+        <input type="hidden" id="array"/>
+        <input type="button" id="add" onclick="add()" value="Añadir"/>
+        <input type="button" id="del" onclick="del()" value="Borrar"/>
+        <input type="button" id="list" onclick="show()" value="Listar"/>
+        <input type="button" id="up" onclick="update()" value="Modificar"/>
+        <input type="button" id="order" onclick="order()" value="Ordenar"/>
+        
+    </div>
+    
+    
+    
+    
+</body>
+</html>

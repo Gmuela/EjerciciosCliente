@@ -1,0 +1,72 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="ej30.css" type="text/css"/>
+        
+        <script>
+            
+            var contador=0;
+            
+            function reloj(){
+                
+                var hoy=new Date();
+                
+                var horas=hoy.getHours();
+                var minutos=hoy.getMinutes();
+                var seg=hoy.getSeconds();
+
+                    
+
+                if(horas<10){
+
+                    horas="0"+horas;
+
+                }
+
+                if(minutos<10){
+
+                    minutos="0"+minutos;
+
+                }
+
+                if(seg<10){
+
+                    seg="0"+seg;
+
+                }
+                
+                document.getElementById("cajaReloj").value=(horas+":"+minutos+":"+seg);                
+            }
+                
+            function iniciar(){
+                
+                if(contador==0){
+                    
+                    contador=window.setInterval(reloj,1000);
+                    
+                }
+            }
+            
+            function parar(){
+                
+                clearInterval(contador);
+                
+                contador=0;
+                
+                document.getElementById("cajaReloj").value=("HH:MM:SS");
+                
+            }
+            
+        
+        </script>   
+    </head>
+    
+    <body>
+        
+        <input type="text" id="cajaReloj" class="relojCSS" readonly="readonly" value="HH:MM:SS"/>
+        </br></br>  
+        <input type="image"  src="img/play.png" onclick="iniciar()" class="iniciar"/>
+        <input type="image" src="img/stop.png" onclick="parar()" class="parar"/>
+    
+    </body>   
+</html>

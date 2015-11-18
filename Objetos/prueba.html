@@ -1,0 +1,42 @@
+<html>
+<head>
+    
+    <script type="text/javascript">
+        
+        function Humano(edad, peso){
+            
+            this.edad=edad;
+            
+            this.peso=peso;
+            
+            this.comer=function(){this.peso++;}
+            
+            this.correr=function(){this.peso--;}
+            
+        }
+        
+        
+        var humano1=new Humano(30,80);
+        alert(humano1.peso);
+        humano1.correr();
+        alert(humano1.peso);
+        humano1.correr();
+        alert(humano1.peso);
+        humano1.comer();
+        alert(humano1.peso);
+        humano1.comer();
+        alert(humano1.peso);
+        alert(humano1.edad);
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+      
+    
+    
+    
+</body>
+</html>
