@@ -1,78 +1,69 @@
 <html>
 <head>
     
-    <style>
+    <link rel="stylesheet" type="text/css" href="ejercicio_41.css"/>
     
-        .contenido{
-            
-            margin: 10px 20px;
-            
-            font-size: 1.2em;
-            
-        }
-        
-        .contenido input{
-            
-            margin: 10px auto;
-        }
-        
-        #matricula{
-            
-            width: 100px;
-        }
-        
-        .nombre{
-            
-            
-        }
-        
-        #fecha{
-            
-            margin-left: 100px
-            
-        }
-        
-        #fecha input{
-            
-            width: 30px;            
-        }
+    <script src="persona.js">
     
-    </style>
+        
+        var arrayPersonas=new Array();
+        
     
-    <script type="text/javascript">
-        
-        //Matricula autoincrementado
-        //nombre,apellidos max 30 car
-        //curso entre 1 y 4
-        //edad calculada y no se puede modificar
-        //nombre,apellido1,fecha,curso obligatorios
-        //listar -> nueva ventana
-        //añadir,borrar,modificar -> pedir confirmación
-        //
-        
+    
     </script>
     
     
 </head>
 <body>
     <div class="contenido">
-        Matrícula <input type="text" class="matricula" id="matricula" readonly="readonly"/><br/>
-        Nombre <input type="text" id="nombre"/><br/>
-        Primer Apellido <input type="text" id="apellido1"/><br/>
-        Segundo Apellido<input type="text" id="apellido2"/><br/>
-        Fecha de nacimiento:<div id="fecha">
-            Día <input type="text" id="dia"/><br/>
-            Mes <input type="text" id="mes"/><br/>
-            Año <input type="text" id="anio"/><br/>
+        <fieldset>
+            <legend>Datos vehículo</legend>
+            
+            Matrícula * <input type="text" class="matricula" id="matricula" readonly="readonly" maxlength="14"/><br/>
+            Curso * <input type="text" id="curso" class="curso" maxlength="1"/>
+            <span class="oculto">Cursos posibles: 1, 2, 3 y 4</san>
+        </fieldset>
+        
+        <fieldset>
+            
+            <legend>Datos Personales</legend>
+
+            Nombre * <input type="text" id="nombre" class="nombre" maxlength="40"/><br/>
+            Primer Apellido * <input type="text" id="apellido1" maxlength="40"/><br/>
+            Segundo Apellido <input type="text" id="apellido2" maxlength="40"/><br/>
+
+            <div id="fecha">            
+                Fecha de nacimiento *<br/>
+
+                Día <input type="text" id="dia" maxlength="2"/>
+                Mes <input type="text" id="mes" maxlength="2"/>
+                Año <input type="text" id="anio" class="anio" maxlength="4"/><br>
+
+            </div>
+            
+            Edad <input type="text" id="edad" readonly="readonly"/><br/>
+            
         </div>
-        <input type="text" id="edad" readonly="readonly"/>
-        <input type="text" id="curso"/>
-        <input type="button" id="" value=""/>
-        <input type="button" id="" value=""/>
-        <input type="button" id="" value=""/>
-        <input type="button" id="" value=""/>
-        <input type="button" id="" value=""/>
-        <input type="button" id="" value=""/>
+        
+        </fieldset>
+
+        <div class="botones">
+            <input type="button" id="" value="Añadir"/>
+            <input type="button" id="" value="Borrar"/>
+            <input type="button" id="" value="Modificar"/>
+            <input type="button" id="" value="Listar"/>
+            <input type="button" id="" value="Limpiar"/>
+            <input type="button" id="" value="Salir"/>
+        </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    
+    var matricula=0;
+    document.getElementById("matricula").value=matricula;
+        
+</script>
+
 </html>
+

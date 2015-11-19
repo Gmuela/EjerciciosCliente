@@ -1,0 +1,70 @@
+.contenido{
+            
+    margin: 10px 20px;
+
+    font-size: 1.1em;
+            
+}
+
+.contenido input{
+
+    margin: 10px auto;
+    color: cornflowerblue;
+    font-weight: bold; 
+}
+
+fieldset{
+
+    margin: 10px;
+
+}
+
+#matricula{
+
+    width: 103px;
+    text-align: right;
+}
+
+.curso{
+
+    width: 12px;
+
+}
+
+.oculto{
+
+    visibility: hidden;
+    font-size: 0.8em;
+    color: darkgrey;    
+    font-style: italic;
+
+}
+
+.curso:focus+.oculto{
+
+    visibility: visible;
+
+}
+
+.nombre{
+
+    width: 220px;
+}
+
+#fecha .anio{
+
+    width: 35px;
+}
+
+#fecha input{
+
+    width: 20px; 
+
+}
+
+.botones{
+
+    position: relative;
+    float: right;
+    margin-right: 30px;            
+}
