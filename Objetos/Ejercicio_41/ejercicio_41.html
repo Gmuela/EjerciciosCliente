@@ -3,11 +3,161 @@
     
     <link rel="stylesheet" type="text/css" href="ejercicio_41.css"/>
     
-    <script src="persona.js">
+    <script src="persona.js">    
+        
+           
     
+    </script>
+    
+    <script>
         
         var arrayPersonas=new Array();
         
+        function comprobarFechas(anio,mes,dia){
+            
+            var hoy=new Date();
+            
+            var fecha=new Date(anio,mes,dia);
+            
+            var validar=true;
+            
+            switch(true){
+                    
+                case(Date.parse(fecha) > Date.parse(hoy)):
+                     
+                    document.getElementById("edad").value="Fecha errónea";
+                    validar=false;
+                    break;
+                    
+                case(dia>31 || dia<1):
+                     
+                    document.getElementById("edad").value="Día incorrecto";
+                    validar=false;
+                    break;
+                
+                case(mes>11 || mes<0):
+
+                    document.getElementById("edad").value="Mes incorrecto";
+                    validar=false;
+                    break;
+                
+                case(mes==1 && dia>29):
+                     
+                    document.getElementById("edad").value="Día incorrecto.";
+                    validar=false;
+                    break;
+            }
+            
+            return validar;
+        }       
+        
+        function calcularEdad(){
+            
+            var edad=0;
+            
+            var dia=document.getElementById("dia").value;
+            var mes=(document.getElementById("mes").value-1);
+            var anio=document.getElementById("anio").value;
+            
+            var validar=comprobarFechas(anio,mes,dia);
+            
+            if(validar){
+                
+                var hoy=new Date();
+            
+                var hoyDia=hoy.getDate();                
+                var hoyMes=hoy.getMonth();                
+                var hoyAnio=hoy.getFullYear();
+                
+                var controla=0;
+                
+                for(var i=anio;i<hoyAnio;i++){
+                    
+                    if(anio%100==0 && anio%400==0){
+                        
+                        edad+=366;
+                        
+                    }
+                    
+                    else{
+                        
+                        edad+=365;
+                        
+                    }
+                                        
+                }
+                
+                if(edad/365<120){
+                    
+                    document.getElementById("edad").value=(edad/365);
+                } 
+                
+                else{
+                    
+                    document.getElementById("edad").value=("");
+                    
+                }
+            }
+        }
+        
+        function comprobarDatos(){
+            
+            
+            
+        }
+    
+        function aniadir(){
+            
+            var nombre=document.getElementById("nombre").value;
+            var apellido1=document.getElementById("apellido1").value;
+            var apellido2=document.getElementById("apellido2").value;
+            var dia=document.getElementById("dia").value;
+            var mes=document.getElementById("mes").value;
+            var anio=document.getElementById("anio").value;
+            var curso=document.getElementById("curso").value;
+            
+            var fecha=new Date(anio,mes,dia);
+            
+            arrayPersonas[matricula-1]=new Persona(matricula,curso,nombre, apellido1,apellido2,fecha)
+            
+            matricula++;
+            
+            document.getElementById("matricula").value=matricula;
+            
+            alert(arrayPersonas[0].nombre);
+            
+            
+        }
+        
+        function borrar(){
+            
+            alert("Borrar");
+            
+        }
+        
+        function modificar(){
+            
+            alert("Modificar");
+            
+        }
+        
+        function listar(){
+            
+            alert("Listar");
+            
+        }
+        
+        function limpiar(){
+            
+            alert("Limpiar");
+            
+        }
+        
+        function salir(){
+            
+            alert("Salir");
+            
+        }
     
     
     </script>
@@ -17,11 +167,11 @@
 <body>
     <div class="contenido">
         <fieldset>
-            <legend>Datos vehículo</legend>
+            <legend>Datos académicos</legend>
             
             Matrícula * <input type="text" class="matricula" id="matricula" readonly="readonly" maxlength="14"/><br/>
             Curso * <input type="text" id="curso" class="curso" maxlength="1"/>
-            <span class="oculto">Cursos posibles: 1, 2, 3 y 4</san>
+            <span class="oculto">Cursos posibles: 1, 2, 3 y 4</span>
         </fieldset>
         
         <fieldset>
@@ -35,9 +185,9 @@
             <div id="fecha">            
                 Fecha de nacimiento *<br/>
 
-                Día <input type="text" id="dia" maxlength="2"/>
-                Mes <input type="text" id="mes" maxlength="2"/>
-                Año <input type="text" id="anio" class="anio" maxlength="4"/><br>
+                Día <input type="text" id="dia" maxlength="2" onkeyup="calcularEdad()"/>
+                Mes <input type="text" id="mes" maxlength="2" onkeyup="calcularEdad()"/>
+                Año <input type="text" id="anio" class="anio" maxlength="4" onkeyup="calcularEdad()"/><br>
 
             </div>
             
@@ -48,19 +198,20 @@
         </fieldset>
 
         <div class="botones">
-            <input type="button" id="" value="Añadir"/>
-            <input type="button" id="" value="Borrar"/>
-            <input type="button" id="" value="Modificar"/>
-            <input type="button" id="" value="Listar"/>
-            <input type="button" id="" value="Limpiar"/>
-            <input type="button" id="" value="Salir"/>
+            <input type="button" id="" value="Añadir" onclick="aniadir()"/>
+            <input type="button" id="" value="Borrar" onclick="borrar()"/>
+            <input type="button" id="" value="Modificar" onclick="modificar()"/>
+            <input type="button" id="" value="Listar" onclick="listar()"/>
+            <input type="button" id="" value="Limpiar" onclick="limpiar()"/>
+            <input type="button" id="" value="Salir" onclick="salir()"/>
         </div>
     </div>
 </body>
 
 <script type="text/javascript">
     
-    var matricula=0;
+    var matricula=1;
+    
     document.getElementById("matricula").value=matricula;
         
 </script>
