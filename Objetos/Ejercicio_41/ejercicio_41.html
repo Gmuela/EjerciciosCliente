@@ -11,7 +11,7 @@
     
     <script>
         
-        var arrayPersonas=new Array();
+        var arrayPersonas=new Array();  
         
         function comprobarFechas(anio,mes,dia){
             
@@ -100,13 +100,7 @@
             }
         }
         
-        function comprobarDatos(){
-            
-            
-            
-        }
-    
-        function aniadir(){
+        function comprobarDatos(){   
             
             var nombre=document.getElementById("nombre").value;
             var apellido1=document.getElementById("apellido1").value;
@@ -118,20 +112,74 @@
             
             var fecha=new Date(anio,mes,dia);
             
-            arrayPersonas[matricula-1]=new Persona(matricula,curso,nombre, apellido1,apellido2,fecha)
+            if(nombre=="" || apellido1=="" || curso=="" || dia=="" || mes=="" || anio==""){
+                
+                alert("No se han rellenado todos los campos obligatorios");
+                
+                return false;
+                
+            }
+            
+            else{
+                
+                return true;
+                
+            }
+            
+        }
+    
+        function aniadir(){
+            
+            var comprueba=comprobarDatos();
+            
+            var nombre=document.getElementById("nombre").value;
+            var apellido1=document.getElementById("apellido1").value;
+            var apellido2=document.getElementById("apellido2").value;
+            var dia=document.getElementById("dia").value;
+            var mes=document.getElementById("mes").value;
+            var anio=document.getElementById("anio").value;
+            var curso=document.getElementById("curso").value;
+            
+            if(comprueba){
+                
+                if(apellido2==""){
+                
+                 apellido2="//";
+                
+            } 
+            
+            arrayPersonas[matricula-1]=new Persona(matricula,curso,nombre,apellido1,apellido2,fecha)
             
             matricula++;
             
-            document.getElementById("matricula").value=matricula;
-            
-            alert(arrayPersonas[0].nombre);
-            
-            
+            document.getElementById("matricula").value=matricula;  
+                
+            document.getElementById("mensaje").innerHTML="<h3>Alumno añadido correctamente</h3>";                
+                
+            }               
         }
         
         function borrar(){
             
-            alert("Borrar");
+            var comprueba=comprobarDatos();
+            
+            if(comprueba){
+                
+                var alumno=document.getElementById("nombre");
+                
+                for(var i=0;i<arrayPersonas.length;i++){
+                    
+                    var nombre=arrayPersonas[i].getNombre();
+                    
+                    if(nombre==alumno){
+                        
+                        arrayPersonas.splice(i,1);
+                        
+                    }
+                    
+                }
+                
+            }
             
         }
         
@@ -206,6 +254,7 @@
             <input type="button" id="" value="Salir" onclick="salir()"/>
         </div>
     </div>
+    <div id="mensaje"></div>
 </body>
 
 <script type="text/javascript">
