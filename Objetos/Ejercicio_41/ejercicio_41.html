@@ -84,7 +84,7 @@
             
             else{
 
-                var mostrar="<table class=\"tabla\"><tr><th>Matricula</th><th>Curso</th><th>Nombre</th><th>Apellidos</th><th>Fecha de Nacimiento</th></tr>";
+                var mostrar="<table border=\"1px\" class=\"tabla\"><tr><th>Matricula</th><th>Curso</th><th>Nombre</th><th>Apellidos</th><th>Fecha de Nacimiento</th></tr>";
 
                 for(var i=0;i<arrayPersonas.length;i++){
 
@@ -97,8 +97,10 @@
                 }
 
                 mostrar+="</table>";
+                
+                miLista=window.open("","","width=550, height=450");              
 
-                document.getElementById("mensaje").innerHTML=mostrar;
+                miLista.document.write(mostrar);
             }
         }
         
