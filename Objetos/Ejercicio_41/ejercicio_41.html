@@ -3,131 +3,15 @@
     
     <link rel="stylesheet" type="text/css" href="ejercicio_41.css"/>
     
-    <script src="persona.js">    
-        
-           
-    
-    </script>
+    <script src="persona.js"></script>
+    <script src="utilJS.js"></script>
     
     <script>
         
-        var arrayPersonas=new Array();  
+        var arrayPersonas=new Array();
         
-        function comprobarFechas(anio,mes,dia){
-            
-            var hoy=new Date();
-            
-            var fecha=new Date(anio,mes,dia);
-            
-            var validar=true;
-            
-            switch(true){
-                    
-                case(Date.parse(fecha) > Date.parse(hoy)):
-                     
-                    document.getElementById("edad").value="Fecha errónea";
-                    validar=false;
-                    break;
-                    
-                case(dia>31 || dia<1):
-                     
-                    document.getElementById("edad").value="Día incorrecto";
-                    validar=false;
-                    break;
-                
-                case(mes>11 || mes<0):
-
-                    document.getElementById("edad").value="Mes incorrecto";
-                    validar=false;
-                    break;
-                
-                case(mes==1 && dia>29):
-                     
-                    document.getElementById("edad").value="Día incorrecto.";
-                    validar=false;
-                    break;
-            }
-            
-            return validar;
-        }       
+        var numero=0;
         
-        function calcularEdad(){
-            
-            var edad=0;
-            
-            var dia=document.getElementById("dia").value;
-            var mes=(document.getElementById("mes").value-1);
-            var anio=document.getElementById("anio").value;
-            
-            var validar=comprobarFechas(anio,mes,dia);
-            
-            if(validar){
-                
-                var hoy=new Date();
-            
-                var hoyDia=hoy.getDate();                
-                var hoyMes=hoy.getMonth();                
-                var hoyAnio=hoy.getFullYear();
-                
-                var controla=0;
-                
-                for(var i=anio;i<hoyAnio;i++){
-                    
-                    if(anio%100==0 && anio%400==0){
-                        
-                        edad+=366;
-                        
-                    }
-                    
-                    else{
-                        
-                        edad+=365;
-                        
-                    }
-                                        
-                }
-                
-                if(edad/365<120){
-                    
-                    document.getElementById("edad").value=(edad/365);
-                } 
-                
-                else{
-                    
-                    document.getElementById("edad").value=("");
-                    
-                }
-            }
-        }
-        
-        function comprobarDatos(){   
-            
-            var nombre=document.getElementById("nombre").value;
-            var apellido1=document.getElementById("apellido1").value;
-            var apellido2=document.getElementById("apellido2").value;
-            var dia=document.getElementById("dia").value;
-            var mes=document.getElementById("mes").value;
-            var anio=document.getElementById("anio").value;
-            var curso=document.getElementById("curso").value;
-            
-            var fecha=new Date(anio,mes,dia);
-            
-            if(nombre=="" || apellido1=="" || curso=="" || dia=="" || mes=="" || anio==""){
-                
-                alert("No se han rellenado todos los campos obligatorios");
-                
-                return false;
-                
-            }
-            
-            else{
-                
-                return true;
-                
-            }
-            
-        }
-    
         function aniadir(){
             
             var comprueba=comprobarDatos();
@@ -146,15 +30,19 @@
                 
                  apellido2="//";
                 
-            } 
+            }
+                
+            var fecha=new Date(anio,mes,dia);
             
-            arrayPersonas[matricula-1]=new Persona(matricula,curso,nombre,apellido1,apellido2,fecha)
+            arrayPersonas[matricula-1]=new Persona(matricula,curso,nombre,apellido1,apellido2,fecha);
             
             matricula++;
             
             document.getElementById("matricula").value=matricula;  
                 
-            document.getElementById("mensaje").innerHTML="<h3>Alumno añadido correctamente</h3>";                
+            document.getElementById("mensaje").innerHTML="<h3>Alumno añadido correctamente</h3>";
+                
+            limpiarFormulario();
                 
             }               
         }
@@ -176,11 +64,8 @@
                         arrayPersonas.splice(i,1);
                         
                     }
-                    
                 }
-                
             }
-            
         }
         
         function modificar(){
@@ -191,13 +76,37 @@
         
         function listar(){
             
-            alert("Listar");
+            if(arrayPersonas.length<1){
+                
+                document.getElementById("mensaje").innerHTML="No hay alumnos registrados";
+                
+            }
             
+            else{
+
+                var mostrar="<table class=\"tabla\"><tr><th>Matricula</th><th>Curso</th><th>Nombre</th><th>Apellidos</th><th>Fecha de Nacimiento</th></tr>";
+
+                for(var i=0;i<arrayPersonas.length;i++){
+
+                    var informacion=arrayPersonas[i].getInfo();
+                    
+                    mostrar+="<tr><td>"+informacion[0]+"</td><td>"+informacion[1]+"</td><td>"+informacion[2]+"</td><td>"+informacion[3]+" "+informacion[4]+"</td><td>"+informacion[5].toLocaleDateString()+"</td></tr>"
+
+                    
+
+                }
+
+                mostrar+="</table>";
+
+                document.getElementById("mensaje").innerHTML=mostrar;
+            }
         }
         
         function limpiar(){
             
-            alert("Limpiar");
+            limpiarFormulario();
+            
+            document.getElementById("mensaje").innerHTML="";
             
         }
         
@@ -206,6 +115,21 @@
             alert("Salir");
             
         }
+        
+        
+function rellenar(){
+    
+    document.getElementById("curso").value=numero;
+    document.getElementById("nombre").value=numero;
+    document.getElementById("apellido1").value=numero;
+    document.getElementById("apellido2").value=numero;
+    document.getElementById("dia").value=12;
+    document.getElementById("mes").value=10;
+    document.getElementById("anio").value=1992;
+    
+    numero++;
+    
+}
     
     
     </script>
@@ -218,8 +142,8 @@
             <legend>Datos académicos</legend>
             
             Matrícula * <input type="text" class="matricula" id="matricula" readonly="readonly" maxlength="14"/><br/>
-            Curso * <input type="text" id="curso" class="curso" maxlength="1"/>
-            <span class="oculto">Cursos posibles: 1, 2, 3 y 4</span>
+            Curso * <input type="text" id="curso" class="curso" maxlength="1" onkeyup="comprobarCurso()"/>
+            <span class="oculto" id="oculto">Cursos posibles: 1, 2, 3 y 4</span>
         </fieldset>
         
         <fieldset>
@@ -252,6 +176,7 @@
             <input type="button" id="" value="Listar" onclick="listar()"/>
             <input type="button" id="" value="Limpiar" onclick="limpiar()"/>
             <input type="button" id="" value="Salir" onclick="salir()"/>
+            <input type="button" id="" value="Rellenar" onclick="rellenar()"/>
         </div>
     </div>
     <div id="mensaje"></div>

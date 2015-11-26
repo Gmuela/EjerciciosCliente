@@ -5,11 +5,23 @@ function Persona(matricula, curso, nombre, apellido1, apellido2, fecha){
     this.nombre=nombre;
     this.apellido1=apellido1;
     this.apellido2=apellido2;
-    this.fecha=new Date(fecha);
+    this.fecha=fecha;
 
-    this.getNombre()=function{
+    this.getNombre=function(){return this.nombre;}
+    
+    this.getInfo=function(){
         
-        return this.nombre;
+        var arrayInfo=[
+            this.matricula,
+            this.curso,
+            this.nombre,
+            this.apellido1,
+            this.apellido2,
+            this.fecha
+        ];
+        
+        return arrayInfo;
+        
     }
     
 }
