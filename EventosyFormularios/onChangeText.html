@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8"/>
+   
+    <script>
+	  function onChangeTest(changeVal) {
+        alert("Value is " + changeVal.value);
+      }
+	  function onFocusText(){
+	  miform.mitexto.value='Tengo el focus';
+	  miform.mitexto.style.backgroundColor='yellow';
+	  }
+	  function onBlurText(){
+	  miform.mitexto.value='Perdi el focus';
+	  miform.mitexto.style.backgroundColor='#ddd';
+	  }
+	 window.onbeforeunload=confirmarSalida;
+	 function confirmarSalida(){
+	     return "Va a abandonar es página";
+	 }
+    </script>
+  </head>
+  <body>
+    <form name="miform">
+      <div>
+          <input type="text" id="test" value ="ABS" onchange="onChangeTest(this)"> onChange <br>
+     	  <input type="text" value="onkeypress" onkeypress="alert('Has pulsado una tecla.')"> onKeyPress<br>
+          <input type="text" value="onkeydown" onkeydown="alert('Has presionado una tecla.')"> onKeyDown<br>
+		  <input type="text" value="onkeyup" onkeyup="alert('Has liberado una tecla.')"> onKeyUp<br>
+          <input type="text" value="onselect" onselect="alert('Has seleccionado texto')"> onSelect <br>
+          <input type="text" name="mitexto" value="onfocus/onblur" onfocus="onFocusText();" onblur="onBlurText();">onFocus/onBlur <br>
+<h3>¿Cómo usar los eventos del ratón o mouse de Javascript?</h3><br>
+Los siguientes eventos del ratón reaccionan a diferentes acciones del usuario, pueden ser insertados en cualquier elemento HTML de bloque.<br>
+
+<table class="tabla">
+<tr><td><input type="text" onclick="alert('Clic');return false">onclick</td><td> Al dar un clic con el botón izquierdo del ratón sobre un elemento</td></tr>
+<tr><td><input type="text" style="text-decoration:underline;color:blue;" ondblclick="alert('Dos clics');">ondblclick</td><td>  Dar doble clic sobre un elemento</td></tr>
+<tr><td><input type="text" onmousedown="alert('Presionaste aquí con cualquier botón')">onmousedown</td><td> Cualquier botón del ratón es presionado sobre un elemento</td></tr>
+<tr><td><input type="text" onmouseup="alert('Soltaste un botón')">onmouseup</td><td> Se libera un botón del ratón sobre un elemento</td></tr>
+<tr><td><input type="text" onmouseover="alert('Estás encima de un vínculo')">onmouseover</td><td> Solo situar el ratón sobre un elemento</td></tr>
+<tr><td><input type="text" onmousemove="alert('Estás encima de un vínculo');">onmousemove</td><td> Mover el ratón</td></tr>
+<tr><td><input type="text" onmouseout="alert('Retiraste el ratón del vínculo')">onmouseout</td><td>  Es retirado el ratón de un elemento</td></tr>
+</table>
+      </div>
+    </form>
+  </body>
+</html>
