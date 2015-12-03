@@ -3,7 +3,7 @@
 <head>
 
     <style>
-        input {
+        input, fieldset {
             display: block;
             margin-bottom: 10px;
         }
@@ -36,14 +36,42 @@
             return validado;
 
         }
+        
+        function enviarDatos1(formulario){
+            
+            formulario.target="_blank";
+            
+            formulario.method="post";
+            
+            if(validar(formulario)){
+                
+                formulario.submit();
+                
+            }
+        }
+        
+        function enviarDatos2(formulario){
+            
+            formulario.target="_self";
+            
+            formulario.method="get";
+            
+            if(validar(formulario)){
+                
+                formulario.submit();
+                
+            }
+        }
 
     </script>
 
 </head>
 
 <body>
-
-    <form action="onChangeText.html" onsubmit="return validar(this);" target="_blank" />
+     <fieldset>
+        
+        <legend>Formulario 1</legend>
+    <form name="formulario1" action="onChangeText.html" onsubmit="return validar(this);" target="_blank" />
     
         Nombre:
         <input type="text" name="nombre" /> 
@@ -54,6 +82,24 @@
         <input type="submit" value="Enviar" />
 
     </form>
+    
+    </fieldset>
+    <fieldset>
+        
+        <legend>Formulario 2</legend>
+        <form name="formulario1" action="onChangeText.html"/>
+
+            Nombre:
+            <input type="text" name="nombre" /> 
+
+            Edad:
+            <input type="text" name="edad" />
+
+            <input type="button" value="Enviar1" onclick="enviarDatos1(this.form)"/>
+            <input type="button" value="Enviar2" onclick="enviarDatos2(this.form)"/>
+
+        </form>
+    </fieldset>
 
 </body>
 
