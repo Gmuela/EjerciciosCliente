@@ -3,23 +3,45 @@
 <head>
 
     <style>
-        input, fieldset {
+        input,
+        fieldset {
             display: block;
             margin-bottom: 10px;
         }
-
     </style>
 
     <script>
-        
-        
+        function copiaTexto(formulario) {
 
+            formulario.texto2.value = formulario.texto1.value;
+
+        }
+
+        function copiaPassword(formulario) { 
+
+            formulario.pass2.value = formulario.pass1.value;
+
+        }
     </script>
 
 </head>
 
 <body>
-     
+    <form method="get" action="ej43_action.html" target="_blank" name="formulario1">
+
+        <input type="text" name="texto1" onkeyup="copiaTexto(this.form)" />
+        <input type="text" name="texto2" disabled/>
+
+        <br/>
+
+        <input type="password" name="pass1" onkeyup="copiaPassword(this.form)" />
+        <input type="text" name="pass2" readonly/>
+
+        <br/>
+
+        <input type="submit" value="Enviar" />
+
+    </form>
 </body>
 
 </html>

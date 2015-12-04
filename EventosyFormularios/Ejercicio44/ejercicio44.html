@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+    <style>
+        input,
+        fieldset {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        function comprueba() {
+
+            if (formulario1.user.value.trim() == "") {
+
+                formulario1.pass.disabled = true;
+                formulario1.pass.value = "";
+
+
+            } else {
+
+                formulario1.pass.disabled = false;
+            }
+
+            if (formulario1.pass.value.trim() == "" || formulario1.user.value.trim() == "") {
+
+                formulario1.envio.disabled = true;
+
+            } else {
+
+                formulario1.envio.disabled = false;
+
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form method="get" action="ej43_action.html" target="_blank" name="formulario1">
+
+        Usuario
+        <input type="text" name="user" onkeyup="comprueba()" />
+
+
+        <br/> Contraseña
+        <input type="password" name="pass" onkeyup="comprueba()" disabled/>
+
+        <br/>
+
+        <input type="submit" value="Enviar" name="envio" disabled/>
+
+    </form>
+</body>
+
+</html>
