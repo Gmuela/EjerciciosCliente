@@ -1,0 +1,98 @@
+<html>
+
+<head>
+
+    <style>
+        input,
+        fieldset {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+    <script>
+        var intentos = 0;
+
+        function validaDatos() {
+
+            if (formulario1.user.value.trim() == "") {
+
+                formulario1.pass.disabled = true;
+                formulario1.pass.value = "";
+
+
+            } else {
+
+                formulario1.pass.disabled = false;
+            }
+
+            if (formulario1.pass.value.trim() == "" || formulario1.user.value.trim() == "") {
+
+                formulario1.envio.disabled = true;
+
+            } else {
+
+                formulario1.envio.disabled = false;
+
+            }
+
+        }
+
+        function compruebaDatos() {
+
+            var usuario = formulario1.user.value;
+            var pass = formulario1.pass.value;
+
+            if (usuario == "usuario" && pass == "usuario") {
+
+                formulario1.method = "post";
+                formulario1.action = "altausuario.html";
+                formulario1.target = "_self";
+                formulario1.submit();
+
+            } else {
+
+                intentos++;
+
+                if (intentos > 3) {
+
+                    intentos = 0;
+
+                }
+
+            }
+
+            if (intentos == 3) {
+
+                formulario1.method = "get";
+                formulario1.action = "errorusuario.html";
+                formulario1.target = "_blank";
+                formulario1.submit();
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form method="" action="" target="" name="formulario1">
+
+        Usuario
+        <input type="text" name="user" onkeyup="validaDatos()" />
+
+
+        <br/> Contraseña
+        <input type="password" name="pass" onkeyup="validaDatos()" disabled/>
+
+        <br/>
+
+        <input type="button" value="Enviar" name="envio" disabled onclick="compruebaDatos()" />
+
+    </form>
+</body>
+
+</html>
