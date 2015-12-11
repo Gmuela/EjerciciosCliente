@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+    <style>
+        input,
+        fieldset {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+    <script>
+        function validarDatos() {
+
+            var nombre = formulario1.nombre.value;
+            var ciudad = formulario1.ciudad.value;
+            var telefono = formulario1.telefono.value;
+
+            if (validarNombre(nombre) && validarCiudad(ciudad) && validarTlf(telefono)) {
+
+
+
+            }
+
+        }
+
+
+        function validar() {
+
+            var rellenar = "";
+
+            if (formulario1.nombre.value.trim() == "") {
+
+                rellenar += "Nombre\n";
+
+            }
+
+            if (formulario1.ciudad.value.trim() == "") {
+
+                rellenar += "Ciudad\n";
+
+            }
+
+            if (formulario1.telefono.value.trim() == "") {
+
+                rellenar += "Teléfono\n";
+
+            }
+
+
+            if (rellenar != "") {
+
+                alert("Debe rellenar las cajas:\n" + rellenar);
+
+            }
+
+            darFoco();
+
+        }
+
+        function darFoco() {
+
+            if (formulario1.nombre.value.trim() == "") {
+
+                formulario1.nombre.focus() == "";
+
+            } else if (formulario1.ciudad.value.trim() == "") {
+
+                formulario1.ciudad.focus() == "";
+
+            } else if (formulario1.telefono.value.trim() == "") {
+
+                formulario1.telefono.focus() == "";
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form name="formulario1">
+
+        Nombre
+        <input type="text" name="nombre" maxlength="20" />
+
+
+        <br/> Ciudad
+        <input type="text" name="ciudad" maxlength="15" />
+
+        <br/> Teléfono
+        <input type="text" name="telefono" maxlength="9" />
+
+        <br/>
+
+        <input type="button" value="Validar" name="envio" onclick="validar()" />
+
+
+
+    </form>
+</body>
+
+</html>

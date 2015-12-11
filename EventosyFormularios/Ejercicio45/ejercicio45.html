@@ -8,7 +8,6 @@
             display: block;
             margin-bottom: 10px;
         }
-
     </style>
 
     <script>
@@ -72,8 +71,9 @@
 
             }
 
-        }
+            document.getElementById("mensaje").innerHTML = "Tienes " + (3 - intentos) + " intentos."
 
+        }
     </script>
 
 </head>
@@ -90,7 +90,9 @@
 
         <br/>
 
-        <input type="button" value="Enviar" name="envio" disabled onclick="compruebaDatos()" /> Hola esto es un cambio
+        <input type="button" value="Enviar" name="envio" disabled onclick="compruebaDatos()" />
+
+        <div id="mensaje">Tienes 3 intentos</div>
 
     </form>
 </body>
