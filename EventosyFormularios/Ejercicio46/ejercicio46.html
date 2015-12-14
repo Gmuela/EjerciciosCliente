@@ -12,65 +12,117 @@
     </style>
 
     <script>
-        function validarDatos() {
+        var errores = "";
 
-            var nombre = formulario1.nombre.value;
-            var ciudad = formulario1.ciudad.value;
-            var telefono = formulario1.telefono.value;
+        var nomVal = "";
+        var ciuVal = "";
+        var tlfVal = "";
 
-            if (validarNombre(nombre) && validarCiudad(ciudad) && validarTlf(telefono)) {
+        function validarNombre(nombre) {
 
+            validado = true;
 
+            if (nombre.length < 2) {
+
+                validado = false;
+
+                errores += "Nombre\n";
 
             }
+
+            return validado;
+
+        }
+
+        function validarCiudad(ciudad) {
+
+            validado = true;
+
+            if (ciudad.length < 2) {
+
+                validado = false;
+
+                errores += "Ciudad\n";
+
+            }
+
+            return validado;
+
+        }
+
+        function validarTlf(telefono) {
+
+            validaLongitud = true;
+
+            if (telefono.length < 9 || telefono.length > 9) {
+
+                validaLongitud = false;
+
+                errores += "Teléfono\n";
+
+            }
+
+            validaPrefijo = true;
+
+            var prefijo = parseInt(telefono.slice(0, 1));
+
+            if (prefijo < 6 || prefijo > 9) {
+
+                validaPrefijo = false;
+
+                errores += "Teléfono\n";
+
+            }
+
+            validado = false;
+
+            if (validaLongitud && validaPrefijo) {
+
+                validado = true;
+
+            }
+
+
+            return validado;
 
         }
 
 
-        function validar() {
+        function validarDatos() {
 
-            var rellenar = "";
+            var nombre = formulario1.nombre.value.trim();
+            var ciudad = formulario1.ciudad.value.trim();
+            var telefono = formulario1.telefono.value.trim();
 
-            if (formulario1.nombre.value.trim() == "") {
+            nomVal = validarNombre(nombre);
+            ciuVal = validarCiudad(ciudad);
+            tlfVal = validarTlf(telefono);
 
-                rellenar += "Nombre\n";
+            if ((nomVal && ciuVal) && tlfVal) {
 
-            }
+                alert("Formulario correcto");
 
-            if (formulario1.ciudad.value.trim() == "") {
+            } else {
 
-                rellenar += "Ciudad\n";
-
-            }
-
-            if (formulario1.telefono.value.trim() == "") {
-
-                rellenar += "Teléfono\n";
-
-            }
-
-
-            if (rellenar != "") {
-
-                alert("Debe rellenar las cajas:\n" + rellenar);
+                alert("Campos Erróneos:\n" + errores);
+                errores = "";
 
             }
 
             darFoco();
-
         }
 
         function darFoco() {
 
-            if (formulario1.nombre.value.trim() == "") {
+            if (!nomVal) {
 
                 formulario1.nombre.focus() == "";
 
-            } else if (formulario1.ciudad.value.trim() == "") {
+            } else if (!ciuVal) {
 
                 formulario1.ciudad.focus() == "";
 
-            } else if (formulario1.telefono.value.trim() == "") {
+            } else if (!tlfVal) {
 
                 formulario1.telefono.focus() == "";
 
@@ -97,7 +149,7 @@
 
         <br/>
 
-        <input type="button" value="Validar" name="envio" onclick="validar()" />
+        <input type="button" value="Validar" name="envio" onclick="validarDatos()" />
 
 
 
