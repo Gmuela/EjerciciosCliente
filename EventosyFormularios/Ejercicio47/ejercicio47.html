@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+    <style>
+        input,
+        fieldset {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+    <script>
+        var cambia = true;
+
+        function habilitar(habilitado) {
+
+            for (var indice in formulario.elements) {
+
+                if (formulario.elements[indice].type == "text") {
+
+                    formulario.elements[indice].disabled = !habilitado;
+
+                }
+            }
+
+            if (cambia) {
+
+                formulario.des.disabled = true;
+                formulario.hab.disabled = false;
+
+                cambia = !cambia;
+
+            } else {
+
+                formulario.des.disabled = false;
+                formulario.hab.disabled = true;
+
+                cambia = !cambia;
+
+            }
+        }
+
+        function colorTexto(color) {
+
+            for (var indice in formulario.elements) {
+
+                if (formulario.elements[indice].type == "text") {
+
+                    formulario.elements[indice].style.color = color;
+
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form name="formulario">
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" maxlength="20" />
+
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" maxlength="15" />
+
+        <label>Teléfono</label>
+        <input type="text" name="telefono" maxlength="9" />
+
+        <input type="button" value="Texto Azul" name="azul" onclick="colorTexto('#0000FF')" />
+        <input type="button" value="Texto Rojo" name="rojo" onclick="colorTexto('#FF0000')" />
+
+        <input type="button" value="Habilitar" name="hab" onclick="habilitar(true)" disabled/>
+        <input type="button" value="Deshabilitar" name="des" onclick="habilitar(false)" />
+
+
+
+    </form>
+</body>
+
+</html>

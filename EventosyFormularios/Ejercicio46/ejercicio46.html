@@ -26,8 +26,35 @@
 
                 validado = false;
 
-                errores += "Nombre\n";
+                errores += "Nombre(Longitud no válida)\n";
 
+            }
+
+            nombre = nombre.toUpperCase();
+
+            var letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
+
+            var comprobado = "";
+
+            var primera = false;
+
+            for (var i = 0; i < nombre.length; i++) {
+
+                var comprobado = letras.search(nombre.charAt(i));
+
+                if (comprobado == -1) {
+
+                    validado = false;
+
+                    if (!primera) {
+
+                        errores += "Nombre(Caracter no válido)\n";
+
+                    }
+
+                    primera = true;
+
+                }
             }
 
             return validado;
@@ -42,8 +69,35 @@
 
                 validado = false;
 
-                errores += "Ciudad\n";
+                errores += "Ciudad(Longitud no válida)\n";
 
+            }
+
+            ciudad = ciudad.toUpperCase();
+
+            var letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
+
+            var comprobado = "";
+
+            var primera = false;
+
+            for (var i = 0; i < ciudad.length; i++) {
+
+                var comprobado = letras.search(ciudad.charAt(i));
+
+                if (comprobado == -1) {
+
+                    validado = false;
+
+                    if (!primera) {
+
+                        errores += "Ciudad(Caracter no válido)\n";
+
+                    }
+
+                    primera = true;
+
+                }
             }
 
             return validado;
@@ -58,7 +112,7 @@
 
                 validaLongitud = false;
 
-                errores += "Teléfono\n";
+                errores += "Teléfono(Longitud no válida)\n";
 
             }
 
@@ -70,7 +124,7 @@
 
                 validaPrefijo = false;
 
-                errores += "Teléfono\n";
+                errores += "Teléfono(prefijo no válido)\n";
 
             }
 
@@ -82,6 +136,32 @@
 
             }
 
+            telefono = telefono.toUpperCase();
+
+            var letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
+
+            var comprobado = "";
+
+            var primera = false;
+
+            for (var i = 0; i < telefono.length; i++) {
+
+                var comprobado = letras.search(telefono.charAt(i));
+
+                if (comprobado != -1) {
+
+                    validado = false;
+
+                    if (!primera) {
+
+                        errores += "Teléfono(Caracter no válido)\n";
+
+                    }
+
+                    primera = true;
+
+                }
+            }
 
             return validado;
 
@@ -138,16 +218,10 @@
     <form name="formulario1">
 
         Nombre
-        <input type="text" name="nombre" maxlength="20" />
-
-
-        <br/> Ciudad
-        <input type="text" name="ciudad" maxlength="15" />
-
-        <br/> Teléfono
+        <input type="text" name="nombre" maxlength="20" /> Ciudad
+        <input type="text" name="ciudad" maxlength="15" /> Teléfono
         <input type="text" name="telefono" maxlength="9" />
 
-        <br/>
 
         <input type="button" value="Validar" name="envio" onclick="validarDatos()" />
 
