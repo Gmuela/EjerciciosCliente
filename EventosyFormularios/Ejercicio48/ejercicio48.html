@@ -1,0 +1,119 @@
+<html>
+
+<head>
+
+    <style>
+        input,
+        fieldset {
+            margin-bottom: 10px;
+        }
+        
+        #calle {
+            width: 300px;
+        }
+        
+        #numero,
+        #piso,
+        #puerta {
+            width: 35px;
+        }
+        
+        #codigo {
+            width: 80px;
+        }
+        
+        #ciudad,
+        #pais {
+            width: 130px;
+        }
+    </style>
+
+    <script>
+        
+        function validarDatos(dato){
+            
+            var caracteres="AÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÓVWXYZÇ-.1234567890";
+            
+            for(var i=0;i<caracteres.length;i++){
+                
+               if(dato.search(caracteres.charAt(i))==-1){
+                   
+                   return false;
+                   
+               }                 
+            }
+        } 
+        
+        function validacion(){
+            
+            var validar=true;
+            
+            var camposForm=formulario.elements;
+            
+            for(indice in camposForm){
+                
+                validarDatos(camposForm[indice]);
+                
+            }
+            
+        }
+        
+        
+    </script>
+
+</head>
+
+<body>
+
+    <p>Por favor, complete su domicilio:</p>
+
+    <form name="formulario">
+
+        <label>Calle</label>
+        <input type="text" name="calle" maxlength="25" id="calle" />
+
+        <label>Nro.</label>
+        <input type="text" name="numero" maxlength="4" id="numero" />
+
+        <br/>
+
+        <label>Piso</label>
+        <input type="text" name="piso" maxlength="2" id="piso" />
+
+        <label>Puerta</label>
+        <input type="text" name="puerta" maxlength="2" id="puerta" />
+
+        <br/>
+
+        <label>Código Postal</label>
+        <input type="text" name="codigo" maxlength="5" id="codigo" />
+
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" maxlength="20" id="ciudad" />
+
+        <label>País</label>
+        <input type="text" name="pais" maxlength="20" id="pais" />
+
+        <br/>
+        <br/>
+
+        <label>Verifique su domicilio:</label>
+
+        <br/>
+        <textarea cols="45" rows="5" name="verificaDom"></textarea>
+
+        <br/>
+        <label>Si los datos no son correctos, presione aquí y realice los cambios en los campos correspondientes</label>
+
+        <br/>
+
+        <input type="button" value="Confirmar" name="confirmar" onclick="" />
+
+        <input type="button" value="Enviar" name="enviar" onclick="" />
+
+
+
+    </form>
+</body>
+
+</html>
