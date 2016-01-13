@@ -1,46 +1,51 @@
 <html>
-    
-    <head>
-    
-        <script>
-        
-            function comprobarCP(){
+
+<head>
+
+    <script>
+        function comprobarCP(texto) {
+
+            codPostal=texto.value;
+
+            var expresion = /^[2]\d{4}$/;
+
+            if (expresion.test(codPostal)) {
+
+                texto.style.color = "green";
+
+
+            } 
+            
+            else {
+                texto.style.color = "red";
+
+            }
+            
+            if(codPostal==""){
                 
-                var codigoPostal=form.cp.value;
-                
-                var expresion=/^\d{5}$/;
-                
-                if(expresion.test(codigoPostal)){
-                    
-                    alert("Código Postal correcto");
-                                        
-                }   
-                
-                else{
-                    
-                    alert("Código Postal incorrecto");
-                    
-                }
+                texto.style.color="black";
                 
             }
-        
-        
-        </script>
-    
-    
-    </head>
 
-    <body>
-        
-        <form name="form">
-        
-            Código Postal <input type="text" name="cp">
-            
-            <input type="button" value="Validar" onclick="comprobarCP">
-        
-        </form>
-    
-    </body>
+        }
 
-    
+    </script>
+
+
+</head>
+
+<body>
+
+    <form name="form">
+
+        Código Postal
+        <input type="text" name="cp" onkeyup="comprobarCP(this)" placeholder="Código Postal">
+
+        <input type="button" value="Validar">
+
+    </form>
+
+</body>
+
+
 </html>

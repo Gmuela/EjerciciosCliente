@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+    <script>
+        function validarMatricula() {
+
+            var expresion=/^\d{4}\-[B-DF-HJ-NP-TV-Z]{3}$/;
+            
+            var matricula=form.matricula.value;
+            
+            if(expresion.test(matricula)){
+                
+                form.matricula.style.color="blue";
+                
+            }
+            
+            else{
+                
+                form.matricula.style.color="red";
+                
+            }
+
+        }
+        
+        function validarSalario() {
+
+            var expresion1=/^[+-]?\d+([\,\.]\d+)?$/;                    
+            
+            var numero=form.numero.value;
+            
+            
+            if((expresion1.test(numero))){
+                
+                form.numero.style.color="blue";
+                
+            }
+            
+            else{
+                
+                form.numero.style.color="red";
+                
+            }
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <form name="form">
+
+        Código Postal
+        <input type="text" name="matricula" onkeyup="validarMatricula()" placeholder="0000-BBB">
+        
+        <br>
+        <br>
+        
+        Numero
+        <input type="text" name="numero" onkeyup="validarSalario()" placeholder="Ej: 1084,34 / 978.56"> €
+
+        <br>
+        <br>
+        
+        
+        
+        
+        <input type="button" value="Validar">
+
+    </form>
+
+</body>
+
+
+</html>
