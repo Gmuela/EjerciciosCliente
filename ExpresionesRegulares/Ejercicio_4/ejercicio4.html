@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+    <script>
+        function comprueba() {
+            
+            var subscripcion = form.sub;
+            var aficiones = form.aficion;
+
+            if (subscripcion[0].checked) {
+
+                for (var i = 0; i < aficiones.length; i++) {
+
+                    aficiones[i].disabled = false;
+
+                }
+
+            } 
+            
+            else {
+
+                for (var i = 0; i < aficiones.length; i++) {
+
+                    aficiones[i].disabled = true;
+                    aficiones[i].checked = false;
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <form name="form">
+
+        Subscripción
+        <input type="radio" name="sub" onchange="comprueba()" />Sí
+        <input type="radio" name="sub" onchange="comprueba()" />No
+
+        <br>
+        <br> Afición
+        <input type="checkbox" name="aficion" onkeyup="validarURL()" id="af1" disabled/>Música
+        <input type="checkbox" name="aficion" onkeyup="validarURL()" id="af2" disabled/>Deporte
+        <input type="checkbox" name="aficion" onkeyup="validarURL()" id="af3" disabled/>Cine
+
+
+
+
+    </form>
+
+</body>
+
+
+</html>
