@@ -1,0 +1,97 @@
+<html>
+
+<head>
+
+    <script>
+        function opciones() {
+
+            var tiposRock = ["Genero...", "Rock de los 80", "Nu Metal", "Heavy Metal"];
+            var tiposElec = ["Genero...", "Trance", "House"];
+
+            if (form.listaMusica.value == 0) {
+
+                form.tipos.hidden = true;
+
+            }
+
+            if (form.listaMusica.value == 1) {
+
+                form.tipos.hidden = false;
+                form.tipos[0].selected = true;
+
+                for (var i = 0; i < form.tipos.length; i++) {
+
+                    if (tiposRock[i] == undefined) {
+
+                        form.tipos[i].hidden = true;
+
+                    } 
+                    
+                    else {
+
+                        form.tipos[i].hidden = false;
+
+                        form.tipos[i].text = tiposRock[i];
+
+                    }
+
+                }
+            }
+
+            if (form.listaMusica.value == 2) {
+
+                form.tipos.hidden = false;
+                form.tipos[0].selected = true;
+
+                for (var i = 0; i < form.tipos.length; i++) {
+
+                    if (tiposElec[i] == undefined) {
+
+                        form.tipos[i].hidden = true;
+
+                    } 
+                    
+                    else {
+
+                        form.tipos[i].hidden = false;
+
+                        form.tipos[i].text = tiposElec[i];
+
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <form name="form">
+
+        <select name="listaMusica" onchange="opciones()">
+
+            <option value="0" selected="selected">Seleccione música...</option>
+            <option value="1">Rock</option>
+            <option value="2">Electrónica</option>
+
+        </select>
+
+        <select name="tipos" hidden="hidden">
+
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+
+        </select>
+
+
+    </form>
+
+</body>
+
+
+</html>
