@@ -1,0 +1,123 @@
+<html>
+
+<head>
+
+    <style>
+        * {
+            margin: 2px;
+        }
+        
+        .listaTlf {
+            height: 200px;
+            width: 150px;
+        }
+        
+        .botonCentro {}
+
+    </style>
+
+    <script>
+        /*Ejercicio del día que no vine*/
+
+        /*Escribir un número de teléfono(validado por expresión regular) y buscar en una lista si ya existe
+        Si no existe, insertamos en otra lista el teléfono(new Option(valor))
+        
+        expresiónRegular=/^\(\+34\)\-d{2}\-d{3}\-d{2}\-d{2}$/
+        */
+
+        function copiarOpciones(cOrigen, cDestino) {
+
+            var elementos = cOrigen.options.length;
+
+            for (var i = 0; i < elementos; i++) {
+
+                if (cOrigen.options[i].selected) {
+
+                    cDestino.options[cDestino.options.length] = new Option(cOrigen.options[i].text, cOrigen.options[i].text);
+
+                }
+            }
+        }
+
+        function moverOpciones(cOrigen, cDestino) {
+
+            var elementos = cOrigen.options.length;
+
+            for (var i = (elementos-1); i > 0; i--) {
+
+                if (cOrigen.options[i].selected) {
+
+                    cDestino.options[cDestino.options.length] = new Option(cOrigen.options[i].text, cOrigen.options[i].text);
+                    cOrigen.options[i]=null;
+
+                }
+            }
+        }
+        
+        function borrarOpciones(cOrigen) {
+
+            var elementos = cOrigen.options.length;
+
+            for (var i = 0; i < elementos; i++) {
+
+                if (cOrigen.options[i].selected) {
+
+                   cOrigen.options[i]=null;
+
+                }
+            }
+        }
+        
+        
+
+    </script>
+
+</head>
+
+<body>
+
+    <form name="form">
+
+        Teléfono
+        <input type="text" name="telefono">
+        <input type="button" value="Añadir">
+
+        <br>
+
+        <select name="listaI" class="listaTlf" multiple>
+
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+
+        </select>
+
+
+        <input type="button" value=">>" class="botonCentro">
+        <input type="button" value=">" class="botonCentro" onclick="moverOpciones(listaI,listaD)">
+        <input type="button" value="<" class="botonCentro" onclick="moverOpciones(listaD,listaI)">
+        <input type="button" value="<<" class="botonCentro">
+
+        <select name="listaD" multiple class="listaTlf">
+
+            <option>Telefono</option>
+            <option>Telefono</option>
+            <option>Telefono</option>
+
+        </select>
+        <br>
+        <input type="button" value="Copiar" onclick="copiarOpciones(listaI,listaD)">
+        <input type="button" value="Borrar" onclick="borrarOpciones">
+        <input type="button" value="Copiar" onclick="copiarOpciones(listaD,listaI)">
+        <input type="button" value="Borrar">
+
+    </form>
+
+</body>
+
+
+</html>
