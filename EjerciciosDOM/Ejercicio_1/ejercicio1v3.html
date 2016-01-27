@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            color: white;
+            top: 60px
+        }
+
+        #cuadrado {
+            background-color: blue;
+            left: 100px;
+        }
+
+    </style>
+
+    <script>
+        function mover() {
+
+            var ejeX = Math.round(Math.random() * 500);
+
+            var ejeY = Math.round(Math.random() * 500);
+
+            document.getElementById("cuadrado").style.left = ejeX;
+            document.getElementById("cuadrado").style.top = ejeY;
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="cuadrado" onmouseover="mover()">Capa1</div>
+
+</body>
+
+
+</html>
