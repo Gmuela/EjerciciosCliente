@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+    <style>
+
+        div{
+
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            color: white;
+        }
+
+        #capa1{
+
+            background-color: blue;
+            left: 100px;
+
+
+        }
+
+        #capa2{
+
+            background-color: red;
+            left: 200px;
+
+
+        }
+
+
+    </style>
+
+    <script>
+
+        function visible(){
+
+
+            if(document.getElementById("capa2").hidden){
+
+                document.getElementById("capa2").hidden=false;
+
+            }
+
+            else{
+
+                document.getElementById("capa2").hidden=true;
+
+            }
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="capa1" onmouseover="visible()" onmouseout="visible()">Capa1</div>
+    <div id="capa2" hidden="hidden">Capa2</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+    <style>
+
+        div{
+
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            color: white;
+            top: 60px
+        }
+
+        #cuadrado{
+
+            background-color: blue;
+            left: 100px;
+
+
+        }
+
+
+        .flechita{
+
+            position: relative;
+
+            left: 33px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+
+    </style>
+
+    <script>
+
+        var pixelesX=100;
+        var pixelesY=60;
+
+        function mover(direccion){
+
+            var cuadrado= document.getElementById("cuadrado");
+
+            if(direccion=="izq"){
+
+                if(pixelesX-5>=100){
+
+                    pixelesX-=5;
+                }
+
+
+                cuadrado.style.left=pixelesX;
+
+            }
+
+            if(direccion=="der"){
+
+                pixelesX+=5;
+
+                cuadrado.style.left=pixelesX;
+
+            }
+
+            if(direccion=="arr"){
+
+
+                if(pixelesY-5>=60){
+
+                    pixelesY-=5;
+
+                }
+
+                cuadrado.style.top=pixelesY;
+
+            }
+
+            if(direccion=="aba"){
+
+                pixelesY+=5;
+
+                cuadrado.style.top=pixelesY;
+
+            }
+
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <input type="button" onclick="mover('arr')" value="↑" class="flechita"/>
+    <br>
+    <input type="button" onclick="mover('izq')" value="←"/>
+    <input type="button" onclick="mover('aba')" value="↓"/>
+    <input type="button" onclick="mover('der')" value="→"/>
+
+
+
+
+    <div id="cuadrado">Capa1</div>
+
+
+
+</body>
+
+
+</html>
