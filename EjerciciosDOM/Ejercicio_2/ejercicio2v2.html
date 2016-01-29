@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+    <style>
+        div#destino {
+            border: 1px solid blue;
+            margin: 10px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        function insertar() {
+
+            var expresion=/^[1-6]$/;
+
+            var nivel = document.getElementsByName("nivel")[0].value;
+
+            if(expresion.test(nivel)){
+
+                document.getElementById("destino").innerHTML += "<br><h"+nivel+" name='cabecera'>Cabecera de nivel "+nivel+"</h"+nivel+">";
+
+            }
+
+            else{
+
+                document.getElementByName("nivel")[0].value = "Nivel erróneo";
+
+            }
+        }
+
+        function cambiarColor() {
+
+            for(var i=0;i<document.getElementsByName("cabecera").length;i++){
+
+                document.getElementsByName("cabecera")[i].style.color="blue";
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <input type="text" name="nivel" />
+    <input type="button" onclick="insertar()" value="Insertar" />
+    <input type="button" onclick="cambiarColor()" value="Cambiar Color" />
+    <br>
+    <div id="destino"></div>
+
+</body>
+
+
+</html>
