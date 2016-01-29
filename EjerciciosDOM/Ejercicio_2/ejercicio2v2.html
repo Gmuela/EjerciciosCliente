@@ -17,7 +17,7 @@
 
             var expresion=/^[1-6]$/;
 
-            var nivel = document.getElementsByName("nivel")[0].value;
+            var nivel = parseInt(document.getElementsByName("nivel")[0].value);
 
             if(expresion.test(nivel)){
 
@@ -38,6 +38,24 @@
 
                 document.getElementsByName("cabecera")[i].style.color="blue";
 
+            }
+        }
+
+
+        function cambiarColor2(){
+
+            for(var i=1;i<7;i++){
+
+                var nivel = "h"+i;
+
+                if(document.getElementsByTagName(nivel).length>0){
+
+                    for(var j=0;j<document.getElementsByTagName(nivel).length;j++){
+
+                        document.getElementsByTagName(nivel)[j].style.color="blue";
+
+                    }
+                }
             }
         }
 
