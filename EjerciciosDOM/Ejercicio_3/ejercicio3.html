@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Titulo de la pagina </title>
+</head>
+
+
+<div>
+    <p id="miP">Un simple texto, <a>un enlace </a><strong>y una parte enfatizada</strong></p>
+</div>
+<script>
+    var nodosHijo = document.getElementById("miP").childNodes.length;
+
+
+    var nameP = document.getElementById("miP").firstChild.nodeName.toLowerCase();
+    var valueP = document.getElementById("miP").firstChild.nodeValue;
+
+    var nameA = document.getElementById("miP").childNodes[1].nodeName.toLowerCase();
+    var valueA = document.getElementById("miP").childNodes[1].firstChild.nodeValue;
+    //var valueA = document.getElementById("miP").firstChild.nextSibling.firstChild.nodeValue;
+
+    var nameS = document.getElementById("miP").lastChild.nodeName.toLowerCase();
+    var valueS = document.getElementById("miP").childNodes[2].firstChild.data;
+
+    document.write("Número de nodos hijo" + nodosHijo + "<br>");
+
+    document.write("nodeName → " + nameP + " || nodeValue → " + valueP + "<br>");
+
+    document.write("nodeName → " + nameA + " || nodeValue → " + valueA + "<br>");
+
+    document.write("nodeName → " + nameS + " || nodeValue → " + valueS) + "<br>";
+
+</script>
+</body>
+
+
+</html>
