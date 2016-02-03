@@ -12,23 +12,24 @@
     </div>
     <div id="d"></div>
     <script>
-        var nodosHijo = document.getElementById("miP").childNodes.length;
+        var hijoDeP = document.getElementById("miP").firstChild;
 
-        var hijosDeP = document.getElementById("miP").childNodes;
+        while (hijoDeP != null) {
 
-        for (var i = 0; i < nodosHijo; i++) {
+            if (hijoDeP.hasChildNodes()) {
 
-            if (hijosDeP[i].hasChildNodes()) {
-
-                document.getElementById("d").innerHTML += "Este es el nodo hoja del primer hijo → " + hijosDeP[i].firstChild.data + "<br>";
-
-            } else {
-
-                document.getElementById("d").innerHTML += "Este es un nodo hoja → " + hijosDeP[i].data + "<br>";
+                document.getElementById("d").innerHTML += "Este es el nodo hoja del primer hijo → " + hijoDeP.firstChild.data + "<br>";
 
             }
-        }
 
+            else {
+
+                document.getElementById("d").innerHTML += "Este es un nodo hoja → " + hijoDeP.data + "<br>";
+
+            }
+
+            hijoDeP = hijoDeP.nextSibling;
+        }
     </script>
 
     <body>
