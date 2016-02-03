@@ -4,11 +4,6 @@
 
     <style>
 
-        ul{
-
-            list-style:
-
-        }
 
     </style>
 
@@ -22,9 +17,7 @@
     <h1>Cabecera de nivel 1.2</h1>
     <h1>Cabecera de nivel 1.3</h1>
     <h2>Cabecera de nivel 2.1</h2>
-    <h2>Cabecera de nivel 2.2</h2>
-
-    1. Buscadores
+    <h2>Cabecera de nivel 2.2</h2> 1. Buscadores
     <ol>
         <li>Google</li>
         <li>Yahoo</li>
@@ -38,35 +31,39 @@
         <li>PIE</li>
     </ol>
     <br>
-    <input type="button" value="Añadir">
+    <input type="button" value="Añadir" onclick="listas()">
 
 
 </body>
 
-    <script>
+<script>
+    var cabeceras = ["1", "2"];
 
-        var cabecerasH1 = document.getElementsByTagName("h1");
-        var cabecerasH2 = document.getElementsByTagName("h2");
+    for (var i = 0; i < cabeceras.length; i++) {
 
-        var cabeceras = ["h1","h2"];
+        for (var j = 0; j < document.getElementsByTagName("h" + cabeceras[i]).length; j++) {
 
-        for(var i=0;i<cabeceras.length;i++){
+            document.getElementsByTagName("h" + cabeceras[i])[j].onclick = function() {
 
-            alert(document.getElementsByTagName(cabeceras[i]).length);
+                var posicion = this.textContent[this.textContent.length - 1];
 
-            for(var j=0;j<document.getElementsByTagName(cabeceras[i]).length;i++){
+                var nivel = this.textContent[this.textContent.length - 3];
 
-                document.getElementsByTagName(cabeceras[i])[j].onclick=function(){
+                this.innerHTML = posicion + "ª cabecera de nivel " + nivel;
 
-                var guarda = this.textContent[this.textContent.length-1];
-
-                this.innerHTML = guarda+"ª cabecera de nivel";
-
-                }
             }
         }
+    }
 
-    </script>
+    function listas() {
+
+        var misListas = document.getElementsByTagName("ol");
+
+        misListas.style.color = "blue";
+
+    }
+
+</script>
 
 
 </html>
