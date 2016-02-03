@@ -1,0 +1,38 @@
+<! DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Titulo de la pagina</title>
+</head>
+
+<body>
+    <div>
+        <p id="miP">un poco de texto <a>y un enlace</a></p>
+    </div>
+    <div id="d"></div>
+    <script>
+        var hijoDeP = document.getElementById("miP").firstChild;
+
+        while (hijoDeP != null) {
+
+            if (hijoDeP.hasChildNodes()) {
+
+                document.getElementById("d").innerHTML += "Este es el nodo hoja del primer hijo → " + hijoDeP.firstChild.data + "<br>";
+
+            }
+
+            else {
+
+                document.getElementById("d").innerHTML += "Este es un nodo hoja → " + hijoDeP.data + "<br>";
+
+            }
+
+            hijoDeP = hijoDeP.nextSibling;
+        }
+
+    </script>
+
+    <body>
+
+</html>
