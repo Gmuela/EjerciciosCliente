@@ -1,0 +1,72 @@
+<html>
+
+<head>
+
+    <style>
+
+        ul{
+
+            list-style:
+
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <h1>Cabecera de nivel 1.1</h1>
+    <h1>Cabecera de nivel 1.2</h1>
+    <h1>Cabecera de nivel 1.3</h1>
+    <h2>Cabecera de nivel 2.1</h2>
+    <h2>Cabecera de nivel 2.2</h2>
+
+    1. Buscadores
+    <ol>
+        <li>Google</li>
+        <li>Yahoo</li>
+        <li>Ole</li>
+        <li>El índice</li>
+    </ol>
+
+    2. Links
+    <ol>
+        <li>Pangea</li>
+        <li>PIE</li>
+    </ol>
+    <br>
+    <input type="button" value="Añadir">
+
+
+</body>
+
+    <script>
+
+        var cabecerasH1 = document.getElementsByTagName("h1");
+        var cabecerasH2 = document.getElementsByTagName("h2");
+
+        var cabeceras = ["h1","h2"];
+
+        for(var i=0;i<cabeceras.length;i++){
+
+            alert(document.getElementsByTagName(cabeceras[i]).length);
+
+            for(var j=0;j<document.getElementsByTagName(cabeceras[i]).length;i++){
+
+                document.getElementsByTagName(cabeceras[i])[j].onclick=function(){
+
+                var guarda = this.textContent[this.textContent.length-1];
+
+                this.innerHTML = guarda+"ª cabecera de nivel";
+
+                }
+            }
+        }
+
+    </script>
+
+
+</html>
