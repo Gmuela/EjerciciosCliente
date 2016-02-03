@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+    <style>
+        div {
+            border: 1px solid blue;
+            width: 150px;
+            height: 120px;
+            margin: 10px;
+            float: left;
+        }
+
+    </style>
+
+    <script>
+        function boton1() {
+
+            document.getElementById("elm").insertAdjacentHTML("beforebegin","<h2>¿Cómo</h2> ");
+
+
+        }
+
+        function boton2() {
+
+            document.getElementById("elm").insertAdjacentHTML("afterbegin","<h3>podemos</h3> ");
+
+        }
+
+        function boton3() {
+
+            document.getElementById("elm").insertAdjacentHTML("beforeend", "<i>código</i> ");
+        }
+
+        function boton4() {
+
+            document.getElementById("elm").insertAdjacentHTML("afterend","<h1>HTML?</h1>");
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+    <input type="button" onclick="boton1()" value="beforebegin" />
+    <input type="button" onclick="boton2()" value="afterbegin" />
+    <input type="button" onclick="boton3()" value="beforebnd" />
+    <input type="button" onclick="boton4()" value="afterend" />
+    <br>
+    <i id="elm">insertar </i>
+
+</body>
+
+
+</html>

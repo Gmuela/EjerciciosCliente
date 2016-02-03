@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+    <style>
+        div {
+            border: 1px solid blue;
+            width: 150px;
+            height: 120px;
+            margin: 10px;
+            float: left;
+        }
+
+    </style>
+
+    <script>
+        function boton1() {
+
+            var texto = document.getElementById("miP").innerHTML;
+
+            document.getElementById("destino1").textContent = texto;
+
+
+        }
+
+        function boton2() {
+
+            var texto = document.getElementById("miP").outerHTML;
+
+            document.getElementById("destino2").textContent = texto;
+
+
+        }
+
+        function boton3() {
+
+            var texto = document.getElementById("miP").textContent;
+
+            document.getElementById("destino3").textContent = texto;
+
+
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <p id="miP">Saludos <i>a todos</i></p>
+    <input type="button" onclick="boton1()" value="innerHTML" />
+    <input type="button" onclick="boton2()" value="outerHTML" />
+    <input type="button" onclick="boton3()" value="textContent" />
+    <br>
+    <div id="destino1"></div>
+    <div id="destino2"></div>
+    <div id="destino3"></div>
+
+</body>
+
+
+</html>
