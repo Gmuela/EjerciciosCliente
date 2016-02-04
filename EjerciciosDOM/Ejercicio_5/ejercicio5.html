@@ -1,35 +1,31 @@
 <html>
-
 <head>
-
     <style>
-
-
     </style>
-
-
 </head>
-
 <body>
-
 
     <h1>Cabecera de nivel 1.1</h1>
     <h1>Cabecera de nivel 1.2</h1>
     <h1>Cabecera de nivel 1.3</h1>
     <h2>Cabecera de nivel 2.1</h2>
-    <h2>Cabecera de nivel 2.2</h2> 1. Buscadores
+    <h2>Cabecera de nivel 2.2</h2>
+
     <ol>
-        <li>Google</li>
-        <li>Yahoo</li>
-        <li>Ole</li>
-        <li>El índice</li>
+        <li>Buscadores</li>
+        <ol>
+            <li>Google</li>
+            <li>Yahoo</li>
+            <li>Ole</li>
+            <li>El índice</li>
+        </ol>
+        <li>Links</li>
+        <ol>
+            <li>Pangea</li>
+            <li>PIE</li>
+        </ol>
     </ol>
 
-    2. Links
-    <ol>
-        <li>Pangea</li>
-        <li>PIE</li>
-    </ol>
     <br>
     <input type="button" value="Añadir" onclick="listas()">
 
@@ -59,11 +55,12 @@
 
         var misListas = document.getElementsByTagName("ol");
 
-        misListas.style.color = "blue";
+        for (var i = 0; i < misListas.length; i++) {
 
+            misListas[i].style.color = "blue";
+            misListas[i].insertAdjacentHTML("beforeend", "<li>Nuevo Elemento</li>");
+
+        }
     }
-
 </script>
-
-
 </html>
