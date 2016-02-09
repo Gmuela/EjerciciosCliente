@@ -11,6 +11,10 @@
 
             var datos = ["Primero","Tercero","Quinto"];
 
+            var posicion = [0, 3, 6];
+
+            var miLista = document.getElementById("miLista");
+
             for (var i = 0; i < datos.length; i++) {
 
                 var liNuevo = document.createElement("li");
@@ -19,7 +23,7 @@
 
                 liNuevo.appendChild(liTexto);
 
-                document.getElementsByTagName("ol")[0].appendChild(liNuevo);
+                miLista.insertBefore(liNuevo,miLista.childNodes[posicion[i]]);
 
             }
 
@@ -31,12 +35,12 @@
 
 <body>
 
-    <ol>
+    <ul id="miLista">
 
         <li>Segundo</li>
         <li>Cuarto</li>
 
-    </ol>
+    </ul>
 
     <br>
     <input type="button" value="Añadir" onclick="insertar()">
