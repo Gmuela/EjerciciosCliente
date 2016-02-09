@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <style>
+
+
+    </style>
+
+    <script>
+        function insertar() {
+
+            var datos = ["Primero","Tercero","Quinto"];
+
+            for (var i = 0; i < datos.length; i++) {
+
+                var liNuevo = document.createElement("li");
+
+                var liTexto = document.createTextNode(datos[i]);
+
+                liNuevo.appendChild(liTexto);
+
+                document.getElementsByTagName("ol")[0].appendChild(liNuevo);
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <ol>
+
+        <li>Segundo</li>
+        <li>Cuarto</li>
+
+    </ol>
+
+    <br>
+    <input type="button" value="Añadir" onclick="insertar()">
+
+
+</body>
+
+
+
+</html>
