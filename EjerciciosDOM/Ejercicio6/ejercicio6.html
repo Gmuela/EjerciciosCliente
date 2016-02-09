@@ -9,9 +9,9 @@
     <script>
         function insertar() {
 
-            var datos = ["Primero","Tercero","Quinto"];
+            var datos = ["Primero", "Tercero", "Quinto"];
 
-            var posicion = [0, 3, 6];
+            var posicion = 0;
 
             var miLista = document.getElementById("miLista");
 
@@ -23,7 +23,9 @@
 
                 liNuevo.appendChild(liTexto);
 
-                miLista.insertBefore(liNuevo,miLista.childNodes[posicion[i]]);
+                miLista.insertBefore(liNuevo, miLista.childNodes[posicion]);
+
+                posicion += 3;
 
             }
 
