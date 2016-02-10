@@ -4,11 +4,34 @@
     <style>
 
 
-
     </style>
 
     <script>
+        function aniadir() {
 
+            var texto = document.getElementById("texto").value;
+
+            var parr = document.createElement("p");
+
+            texto = document.createTextNode(texto);
+
+            parr.appendChild(texto);
+
+            document.getElementById("destino").appendChild(parr);
+
+            document.getElementById("texto").value = "";
+
+        }
+
+        function borrar() {
+
+            var destino = document.getElementById("destino");
+
+            var ultimoHijo = destino.lastChild;
+
+            destino.removeChild(ultimoHijo);
+
+        }
 
     </script>
 
@@ -16,9 +39,16 @@
 
 <body>
 
+    Texto a añadir
+    <input type="text" id="texto">
 
-    <input type="button" value="Diferentes filas" onclick="">
-    <input type="button" value="Misma fila" onclick="">
+    <div id="destino"></div>
+
+
+    <br>
+    <br>
+    <input type="button" value="Añadir nodo de texto" onclick="aniadir()">
+    <input type="button" value="Eliminar nodo de texto" onclick="borrar()">
 
     <br>
     <br>
@@ -30,4 +60,5 @@
     </div>
 
 </body>
+
 </html>
