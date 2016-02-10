@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+
+    <script>
+        function insertar1() {
+
+            var tabla = document.getElementById("miTabla");
+
+            for (var i = 0; i < 5; i++) {
+
+                var miTR = document.createElement("tr");
+
+                var miTD = document.createElement("td");
+
+                var texto = document.createTextNode("Celda " + (i + 1));
+
+                miTD.appendChild(texto);
+
+                miTR.appendChild(miTD);
+
+                tabla.appendChild(miTR);
+
+            }
+
+        }
+
+        function insertar2() {
+
+            var tabla = document.getElementById("miTabla");
+
+            var miTR = document.createElement("tr");
+
+            for (var i = 0; i < 5; i++) {
+
+                var miTD = document.createElement("td");
+
+                var texto = document.createTextNode("Celda " + (i + 1));
+
+                miTD.appendChild(texto);
+
+                miTR.appendChild(miTD);
+
+                tabla.appendChild(miTR);
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+
+        <table id="miTabla"></table>
+
+    </div>
+
+    <br>
+    <input type="button" value="Diferentes filas" onclick="insertar1()">
+    <input type="button" value="Misma fila" onclick="insertar2()">
+
+
+</body>
+
+
+
+</html>
