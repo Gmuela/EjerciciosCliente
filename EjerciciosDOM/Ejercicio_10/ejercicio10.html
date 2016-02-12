@@ -51,16 +51,19 @@
 
             for (var i = 0; i < 100; i++) {
 
-                var opcion = "<option value='" + (i + 1) + "'>" + (i + 1) + "</option>";
+                var opcion = document.createElement("option");
 
-                miLista.insertAdjacentHTML("beforeend", opcion);
+                var texto = document.createTextNode((i+1));
+
+                opcion.setAttribute("value", (i+1));
+
+                opcion.appendChild(texto);
+
+                miLista.appendChild(opcion);
 
             }
 
             miLista.addEventListener("change", funcionLista, false);
-
-
-
         }
 
         function cambia() {
@@ -77,23 +80,40 @@
 
             var miLista = document.getElementById("idMiLista");
 
-            var seleccionado = miLista.options.item(miLista.options.selectedIndex).value;
+            var seleccionado = miLista.value;
 
             destino.textContent = "";
 
             for (var i = 0; i < seleccionado; i++) {
 
-                var cajasBoton = "<input type='text' id='" + i + "'><input type='button' onclick='copiaTexto(this)' value='Click'><br>";
+                var caja = document.createElement("input");
 
-                destino.insertAdjacentHTML("beforeend", cajasBoton);
+                caja.setAttribute("type","text");
 
+
+                var boton = document.createElement("input");
+
+                boton.setAttribute("type","button");
+
+                boton.addEventListener("click", copiaTexto, false);
+
+                boton.setAttribute("value","click");
+
+
+                var salto = document.createElement("br");
+
+
+                destino.appendChild(caja);
+
+                destino.appendChild(boton);
+
+                destino.appendChild(salto);
             }
-
         }
 
-        function copiaTexto(boton) {
+        function copiaTexto() {
 
-            var texto = boton.previousSibling.value;
+            var texto = this.previousSibling.value;
 
             document.getElementById("textos").innerHTML = "";
 
