@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <style>
+        table {
+            font-size: 75px;
+        }
+
+        table,
+        td,
+        tr {
+            border: 5px solid blue;
+            border-collapse: collapse;
+            padding: 9px;
+            text-align: center;
+        }
+
+        table tr {
+            background-color: orangered;
+        }
+
+        table tr:first-child {
+            background-color: lime;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", cargado, false);
+
+        function cargado() {
+
+            var celdas = document.getElementsByTagName("td");
+
+            celdas[0].addEventListener("click", cambia, false);
+
+        }
+
+        function cambia() {
+
+            document.getElementsByTagName("td")[1].textContent = "TRES"
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>UNO</td>
+        </tr>
+        <tr>
+            <td>DOS</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
