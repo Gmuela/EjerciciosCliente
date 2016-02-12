@@ -53,9 +53,9 @@
 
                 var opcion = document.createElement("option");
 
-                var texto = document.createTextNode((i+1));
+                var texto = document.createTextNode((i + 1));
 
-                opcion.setAttribute("value", (i+1));
+                opcion.setAttribute("value", (i + 1));
 
                 opcion.appendChild(texto);
 
@@ -88,16 +88,16 @@
 
                 var caja = document.createElement("input");
 
-                caja.setAttribute("type","text");
+                caja.setAttribute("type", "text");
 
 
                 var boton = document.createElement("input");
 
-                boton.setAttribute("type","button");
+                boton.setAttribute("type", "button");
 
                 boton.addEventListener("click", copiaTexto, false);
 
-                boton.setAttribute("value","click");
+                boton.setAttribute("value", "click");
 
 
                 var salto = document.createElement("br");
@@ -115,10 +115,21 @@
 
             var texto = this.previousSibling.value;
 
-            document.getElementById("textos").innerHTML = "";
+            var nodoTexto = document.createTextNode(texto);
 
-            document.getElementById("textos").innerHTML = texto;
+            var divTextos = document.getElementById("textos");
 
+            if (divTextos.firstChild != undefined) {
+
+                divTextos.removeChild(divTextos.firstChild);
+
+                divTextos.appendChild(nodoTexto);
+
+            } else {
+
+                divTextos.appendChild(nodoTexto);
+
+            }
         }
 
     </script>
@@ -142,9 +153,7 @@
 
     <div id="textos"></div>
 
-    <br>
-
-    Cantidad
+    <br> Cantidad
     <select name="miLista" id="idMiLista">
         <option value="0">Seleccione un número...</option>
     </select>
