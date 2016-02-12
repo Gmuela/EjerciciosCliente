@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <style>
+
+
+    </style>
+
+    <script>
+
+        function cargado(){
+
+            var miBoton = document.getElementById("miBoton");
+
+            miBoton.onmousedown = function(){
+
+               miBoton.style.color="red";
+
+            }
+
+            miBoton.addEventListener("mouseup",cambio,false);
+
+            miBoton.onmouseover = function(){
+
+               miBoton.style.color="blue";
+
+            }
+
+            miBoton.onmouseout = function(){
+
+               miBoton.style.color="green";
+
+            }
+
+            miBoton.onmousewheel = function(){
+
+                miBoton.style.fontSize ="25";
+
+            }
+
+            miBoton.ondblclick = function(){
+
+                miBoton.style.fontSize ="13.5";
+
+            }
+
+
+        }
+
+        function cambio(){
+
+            document.getElementById("miBoton").style.color="black";
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <input type="button" value="Hola soy un botón" id="miBoton">
+
+</body>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded",cargado,false);
+
+    </script>
+
+
+</html>
