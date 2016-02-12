@@ -23,6 +23,17 @@
             background-color: lime;
         }
 
+        input {
+            margin: 2px;
+        }
+
+        #textos {
+            margin-bottom: 9px;
+            border: 1px solid black;
+            display: inline-block;
+            padding: 5px;
+        }
+
     </style>
 
     <script>
@@ -34,11 +45,59 @@
 
             celdas[0].addEventListener("click", cambia, false);
 
+            /***************Segundo Ejercicio*****************/
+
+            var miLista = document.getElementById("idMiLista");
+
+            for (var i = 0; i < 100; i++) {
+
+                var opcion = "<option value='" + (i + 1) + "'>" + (i + 1) + "</option>";
+
+                miLista.insertAdjacentHTML("beforeend", opcion);
+
+            }
+
+            miLista.addEventListener("change", funcionLista, false);
+
+
+
         }
 
         function cambia() {
 
             document.getElementsByTagName("td")[1].textContent = "TRES"
+
+        }
+
+        /***************Segundo Ejercicio****************/
+
+        function funcionLista() {
+
+            var destino = document.getElementById("destino");
+
+            var miLista = document.getElementById("idMiLista");
+
+            var seleccionado = miLista.options.item(miLista.options.selectedIndex).value;
+
+            destino.textContent = "";
+
+            for (var i = 0; i < seleccionado; i++) {
+
+                var cajasBoton = "<input type='text' id='" + i + "'><input type='button' onclick='copiaTexto(this)' value='Click'><br>";
+
+                destino.insertAdjacentHTML("beforeend", cajasBoton);
+
+            }
+
+        }
+
+        function copiaTexto(boton) {
+
+            var texto = boton.previousSibling.value;
+
+            document.getElementById("textos").innerHTML = "";
+
+            document.getElementById("textos").innerHTML = texto;
 
         }
 
@@ -56,6 +115,23 @@
             <td>DOS</td>
         </tr>
     </table>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="textos"></div>
+
+    <br>
+
+    Cantidad
+    <select name="miLista" id="idMiLista">
+        <option value="0">Seleccione un número...</option>
+    </select>
+
+    <br>
+
+    <div id="destino"></div>
 
 </body>
 
