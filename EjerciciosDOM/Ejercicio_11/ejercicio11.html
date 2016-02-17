@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <style>
+        input {
+            margin-bottom: 8px;
+        }
+    </style>
+
+    <script>
+
+        function enviarDatos(){
+
+            var destino = document.getElementById("datosEnviados");
+            var todosInput = document.getElementsByTagName("input");
+
+            for(var i = 0;i<todosInput.length;i++){
+
+                console.log(todosInput[i].value);
+
+                if(todosInput[i].selected == "hombre"){
+
+
+
+                }
+            }
+        }
+
+        function borrarDatos(){}
+
+    </script>
+
+</head>
+
+<body>
+
+    <fieldset>
+        <form name="formulario">
+            Nombre
+            <input type="text" placeholder="18 caracteres" maxlength="18" name="nombre"/>
+            <br>
+            <br>
+            Apellidos
+            <input type="text" placeholder="48 caracteres" maxlength="48" name="apellido"/>
+            <br>
+            <br>
+            Fecha de nacimiento
+            <input type="text" placeholder="dd/mm/yyyy" name="fechaNac"/>
+            Edad
+            <input type="text" name="edad"/>
+            <br>
+            <br>
+            Calle
+            <input type="text" placeholder="48 caracteres" maxlength="48" name="calle"/>
+            Número
+            <input type="text" placeholder="nnnn" name="numero"/>
+            <br>
+            <br>
+            Código Postal
+            <input type="text" placeholder="nnnnn" maxlength="5" name="codPos"/>
+            <br>
+            <br>
+            Provincia
+            <input type="text" placeholder="20 caracteres" maxlength="20" name="provincia"/>
+            Teléfono
+            <input type="text" placeholder="nnnnnnnnn" maxlength="9" name="tlfn"/>
+            <br>
+            <br>
+            Sexo
+            <br>
+            Hombre
+            <input type="radio" value="hombre" name="sexo"/>
+            Mujer
+            <input type="radio" value="mujer" name="sexo"/>
+            Estado Civil
+            <select name="estadoCivil">
+                <option selected="selected">Elija una opción...</option>
+                <option value="cas">Casado/a</option>
+                <option value="sol">Soltero/a</option>
+            </select>
+            <br>
+            <br>
+            Idiomas
+            <br>
+            Español<input type="checkbox" value="es" name="idiomas[]">
+            Francés<input type="checkbox" value="fr" name="idiomas[]">
+            Inglés<input type="checkbox" value="in" name="idiomas[]">
+            Alemán<input type="checkbox" value="al" name="idiomas[]">
+            <br>
+            <br>
+            Comentarios Personales
+            <br>
+            <textarea name="comentario"></textarea>
+            <br>
+            <br>
+            Pulse Aquí <input type="button" value="Enviar los datos" onclick="enviarDatos()"> <input type="button" value="Borrar los datos" onclick="borrarDatos()">
+        </form>
+    </fieldset>
+
+    <div id="datosEnviados"></div>
+
+</body>
+
+</html>
