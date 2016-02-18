@@ -12,7 +12,7 @@ su mismo nombre lo indica, será la encargada de hacer una petición de datos, a
 al servidor. Indicamos que cuando se detecte un cambio de estado se ejecute la funcion tratarRespuesta.
 XMLHttpRequestObject.onreadystatechange = tratarRespuesta, que muestra el resultado.
 Como se aprecia la mayor parte del código interesante se centra en el javascript.
-Nota: El archivo datos.txt irá en la directorio donde esté ejemplo1.html.
+Nota: El archivo datos.txt irá en el directorio donde esté ejemplo1.html.
 */
   var XMLHttpRequestObject = false;
   if (window.XMLHttpRequest) { //Para navegadores modernos
@@ -42,7 +42,7 @@ function pedirDatos(fuenteDatos){
   <body>
   <H1>Mostrando datos con AJAX</H1>
   <form>
-  <input type = "button" value = "Mostrar mensaje" onclick = "pedirDatos('datos.txt')">
+  <input type = "button" value = "Mostrar mensaje" onclick = "pedirDatos('datos.php')">
   </form>
   <div id="targetDiv" style="background-color:#99FF66;">
   <p>Aquí aparecerá texto</p>

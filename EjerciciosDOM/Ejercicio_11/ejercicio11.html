@@ -11,22 +11,67 @@
 
         function enviarDatos(){
 
-            var destino = document.getElementById("datosEnviados");
-            var todosInput = document.getElementsByTagName("input");
+            if(validar()){
 
-            for(var i = 0;i<todosInput.length;i++){
+                var destino = document.getElementById("datosEnviados");
+                var todosInput = document.getElementsByTagName("input");
 
-                console.log(todosInput[i].value);
+                for(var i = 0;i<todosInput.length;i++){
 
-                if(todosInput[i].selected == "hombre"){
+                    console.log(todosInput[i].value);
+
+                    if(todosInput[i].selected == "hombre"){
 
 
 
+                    }
                 }
+            }
+
+            else{
+
+                alert("error");
+
             }
         }
 
         function borrarDatos(){}
+
+        function validar(){
+
+            var expTlf = /^[679]\d{8}$/;
+
+            var tlf = formulario.tlf.value;
+
+            expTlf.test(tlf);
+
+            var expFecha = /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d{2}$/;
+
+            var fecha = formulario.fechaNac.value;
+
+            expFecha.test(fecha);
+
+            var expNum = /^(\d{1,4}|([s][/][n]))$/;
+
+            var numero = formulario.numero.value;
+
+            alert(expNum.test(numero));
+
+
+
+        }
+
+        function calculaEdad(){
+
+            var fecha = formulario.fechaNac.value;
+
+            fecha = fecha.split("/");
+
+            var anio = new Date().getFullYear();
+
+            formulario.edad.value=anio-fecha[2];
+
+        }
 
     </script>
 
@@ -45,9 +90,9 @@
             <br>
             <br>
             Fecha de nacimiento
-            <input type="text" placeholder="dd/mm/yyyy" name="fechaNac"/>
+            <input type="text" placeholder="dd/mm/yyyy" name="fechaNac" onblur="calculaEdad()"/>
             Edad
-            <input type="text" name="edad"/>
+            <input type="text" name="edad" readonly="readonly"/>
             <br>
             <br>
             Calle
@@ -63,7 +108,7 @@
             Provincia
             <input type="text" placeholder="20 caracteres" maxlength="20" name="provincia"/>
             Teléfono
-            <input type="text" placeholder="nnnnnnnnn" maxlength="9" name="tlfn"/>
+            <input type="text" placeholder="nnnnnnnnn" maxlength="9" name="tlf"/>
             <br>
             <br>
             Sexo
