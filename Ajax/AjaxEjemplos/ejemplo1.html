@@ -1,51 +1,81 @@
 <html>
-  <head>
-  <title>Ejemplo1</title>
-  <script>
-/*
-Explicación
-En primer lugar creamos el objeto XMLHttpRequestObject para la petición de datos. Este objeto será creado
-dependiendo del navegador web, la primera parte del if es para la mayoría de navegadores y la parte del
-if else es para Internet Explorer.
-Luego está la creación de una función pedirDatos que tiene como parametro fuenteDatos. Esta función, como
-su mismo nombre lo indica, será la encargada de hacer una petición de datos, a través del parámetro fuenteDatos
-al servidor. Indicamos que cuando se detecte un cambio de estado se ejecute la funcion tratarRespuesta.
-XMLHttpRequestObject.onreadystatechange = tratarRespuesta, que muestra el resultado.
-Como se aprecia la mayor parte del código interesante se centra en el javascript.
-Nota: El archivo datos.txt irá en el directorio donde esté ejemplo1.html.
-*/
-  var XMLHttpRequestObject = false;
-  if (window.XMLHttpRequest) { //Para navegadores modernos
-	XMLHttpRequestObject = new XMLHttpRequest();
-  } else if (window.ActiveXObject) { //Para navegadores antiguos
-	XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  //fuenteDatos es un fichero txt
-function pedirDatos(fuenteDatos){
-     // var miAleat = parseInt(Math.random()*999999999);
-	  if(XMLHttpRequestObject) {
-		//XMLHttpRequestObject.open("GET", fuenteDatos + "?aleat=" + miAleat);
-		XMLHttpRequestObject.open("GET", fuenteDatos);
-		//Si el estado cambia se ejecuta tratarRespuesta sin parentesis.
-		XMLHttpRequestObject.onreadystatechange = tratarRespuesta;
-		XMLHttpRequestObject.send(null);
-	}
-}
-  function tratarRespuesta(){
-	console.log('readystatechange: ' + XMLHttpRequestObject.readyState);
-	if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
-		document.getElementById("targetDiv").innerHTML = XMLHttpRequestObject.responseText;
-	}
-  }
-  </script>
-  </head>
-  <body>
-  <H1>Mostrando datos con AJAX</H1>
-  <form>
-  <input type = "button" value = "Mostrar mensaje" onclick = "pedirDatos('datos.php')">
-  </form>
-  <div id="targetDiv" style="background-color:#99FF66;">
-  <p>Aquí aparecerá texto</p>
-  </div>
-  </body>
-  </html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo1</title>
+    <script>
+        /*
+        Explicación
+        En primer lugar creamos el objeto XMLHttpRequestObject para la petición de datos. Este objeto será creado
+        dependiendo del navegador web, la primera parte del if es para la mayoría de navegadores y la parte del
+        if else es para Internet Explorer.
+        Luego está la creación de una función pedirDatos que tiene como parametro fuenteDatos. Esta función, como
+        su mismo nombre lo indica, será la encargada de hacer una petición de datos, a través del parámetro fuenteDatos
+        al servidor. Indicamos que cuando se detecte un cambio de estado se ejecute la funcion tratarRespuesta.
+        XMLHttpRequestObject.onreadystatechange = tratarRespuesta, que muestra el resultado.
+        Como se aprecia la mayor parte del código interesante se centra en el javascript.
+        Nota: El archivo datos.txt irá en el directorio donde esté ejemplo1.html.
+        */
+        var XMLHttpRequestObject = false;
+        if (window.XMLHttpRequest) { //Para navegadores modernos
+            XMLHttpRequestObject = new XMLHttpRequest();
+        } else if (window.ActiveXObject) { //Para navegadores antiguos
+            XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //fuenteDatos es un fichero txt
+        function pedirDatos(fuenteDatos) {
+            // var miAleat = parseInt(Math.random()*999999999);
+            if (XMLHttpRequestObject) {
+                //XMLHttpRequestObject.open("GET", fuenteDatos + "?aleat=" + miAleat);
+                XMLHttpRequestObject.open("GET", fuenteDatos);
+                //Si el estado cambia se ejecuta tratarRespuesta sin parentesis.
+                XMLHttpRequestObject.onreadystatechange = tratarRespuesta;
+                XMLHttpRequestObject.send(null);
+            }
+        }
+
+        function tratarRespuesta() {
+            console.log('readystatechange: ' + XMLHttpRequestObject.readyState);
+            if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                document.getElementById("targetDiv").innerHTML = XMLHttpRequestObject.responseText;
+            }
+        }
+        
+        /*VERSIÓN SIMPLE DE AJAX
+        
+        var objetoAjax = new XMLHttpRequest();        
+        
+        function pedirDatos() { 
+        
+            if (objetoAjax) {
+            
+                objetoAjax.open("GET", [servidorDeDatos]);                
+                objetoAjax.onreadystatechange = tratarRespuesta;
+                objetoAjax.send(null);
+            }
+        }
+        
+        function tratarRespuesta() { 
+        
+            if (objetoAjax.readyState == 4 && objetoAjax.status == 200) {
+            
+                document.getElementById("targetDiv").innerHTML = objetoAjax.responseText;
+            }
+        }
+        
+        */
+
+    </script>
+</head>
+
+<body>
+    <H1>Mostrando datos con AJAX</H1>
+    <form>
+        <input type="button" value="Mostrar mensaje" onclick="pedirDatos('datos.php')">
+    </form>
+    <div id="targetDiv" style="background-color:#99FF66;">
+        <p>Aquí aparecerá la respuesta</p>
+    </div>
+</body>
+
+</html>

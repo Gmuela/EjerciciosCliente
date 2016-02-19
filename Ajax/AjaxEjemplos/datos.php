@@ -1,7 +1,7 @@
 <?php
 
-$hora = date("h");
+$hora = date("H:i");
 
-echo "<h1>".$hora."</h1>";
+echo "<h3>".$hora."</h3>";
 
 ?>

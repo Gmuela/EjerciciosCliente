@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        var objetoAjax = new XMLHttpRequest();
+
+        function pedirDatos() {
+
+            if (objetoAjax) {
+
+                objetoAjax.open("GET", "noticias.xml");
+                objetoAjax.onreadystatechange = tratarRespuesta;
+                objetoAjax.send(null);
+            }
+        }
+
+        function tratarRespuesta() {
+
+            if (objetoAjax.readyState == 4 && objetoAjax.status == 200) {
+
+                var respuesta = objetoAjax.responseXML;
+                var respuesta2 = objetoAjax.responseText;
+                
+                respuesta2 = document.createTextNode(respuesta2);
+                
+                var titulos = respuesta.getElementsByTagName("titulo");
+                
+                var textos = respuesta.getElementsByTagName("texto");
+                
+                document.getElementById("targetDiv").appendChild(respuesta2);
+                
+                for(var i = 0; i<titulos.length;i++){
+                    
+                    document.getElementById("targetDiv").innerHTML += "<h1>"+titulos[i].textContent+"</h1><br>";
+                    document.getElementById("targetDiv").innerHTML += textos[i].textContent+"<br>";
+                    
+                } 
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <H1>Noticias</H1>
+    <form>
+        <input type="button" value="Ver noticias" onclick="pedirDatos()">   
+    </form>    
+    <div id="targetDiv"></div>
+</body>
+
+</html>
