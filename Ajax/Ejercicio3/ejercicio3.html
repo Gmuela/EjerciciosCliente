@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var objetoAjax = new XMLHttpRequest();
+
+        function pedirDatos() {
+
+            var valor = document.getElementById("idtlf").value;
+
+            if (objetoAjax) {
+
+                //GET
+                //objetoAjax.open("GET", "meses.php");
+                //objetoAjax.onreadystatechange = tratarRespuesta;
+                //objetoAjax.send(null);
+
+                //POST
+                objetoAjax.open("POST", "buscarcliente.php", true);
+                objetoAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                objetoAjax.onreadystatechange = tratarRespuesta;
+                objetoAjax.send("phone=" + valor);
+
+            }
+        }
+
+        function tratarRespuesta() {
+
+            if (objetoAjax.readyState == 4 && objetoAjax.status == 200) {
+
+                var respuesta = objetoAjax.responseText;
+
+                respuesta = respuesta.split("|");
+
+                var dir = respuesta[1].split("\n").join("<br>");
+
+                document.getElementById("solicitud").value=respuesta[0];
+
+                document.getElementById("dir").innerHTML=dir;
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    Introduzca el número de teléfono <input type="text" id="idtlf">
+    <br>
+    Su pizza será entregada en la dirección;
+    <div id="dir"></div>
+
+    Escriba su solicitud aquí:<br>
+    <textarea id="solicitud"></textarea>
+    <br>
+    <input type="button" value="Pedir Pizza" onclick="pedirDatos()">
+</body>
+
+</html>

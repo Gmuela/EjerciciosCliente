@@ -1,6 +1,8 @@
 <html>
 
 <head>
+
+    <meta charset="utf-8">
     <style>
         input {
             margin-bottom: 8px;
@@ -35,7 +37,35 @@
             }
         }
 
-        function borrarDatos(){}
+        function borrarDatos(){
+
+            formulario.nombre.value="";
+            formulario.apellido.value="";
+            formulario.fechaNac.value="";
+            formulario.calle.value="";
+            formulario.numero.value="";
+            formulario.edad.value="";
+            formulario.codPos.value="";
+            formulario.provincia.value="";
+            formulario.tlf.value="";
+
+            var idiomas = document.getElementsByName("idiomas");
+            var sexo = document.getElementsByName("sexo");
+
+            for(var i = 0;i<idiomas.length;i++){
+
+                idiomas[i].checked = false;
+
+            }
+
+            for(var i = 0;i<sexo.length;i++){
+
+                sexo[i].checked = false;
+
+            }
+
+
+        }
 
         function validar(){
 
@@ -124,10 +154,10 @@
             <br>
             Idiomas
             <br>
-            Español<input type="checkbox" value="es" name="idiomas[]">
-            Francés<input type="checkbox" value="fr" name="idiomas[]">
-            Inglés<input type="checkbox" value="in" name="idiomas[]">
-            Alemán<input type="checkbox" value="al" name="idiomas[]">
+            Español<input type="checkbox" value="es" name="idiomas">
+            Francés<input type="checkbox" value="fr" name="idiomas">
+            Inglés<input type="checkbox" value="in" name="idiomas">
+            Alemán<input type="checkbox" value="al" name="idiomas">
             <br>
             <br>
             Comentarios Personales

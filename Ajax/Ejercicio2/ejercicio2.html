@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        var objetoAjax = new XMLHttpRequest();
+
+        function pedirDatos() {
+
+            var valor = formulario.valor.value;
+
+            if (objetoAjax) {
+
+                //GET
+                //objetoAjax.open("GET", "meses.php");
+                //objetoAjax.onreadystatechange = tratarRespuesta;
+                //objetoAjax.send(null);
+
+                //POST
+                objetoAjax.open("POST", "meses.php", true);
+                objetoAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                objetoAjax.onreadystatechange = tratarRespuesta;
+                objetoAjax.send("num=" + valor);
+            }
+        }
+
+        function tratarRespuesta() {
+
+            if (objetoAjax.readyState == 4 && objetoAjax.status == 200) {
+
+                var respuesta = objetoAjax.responseText;
+
+                document.getElementById("targetDiv").innerHTML = respuesta;
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <H1>Escribe el número del mes</H1>
+    <form name="formulario">
+        Número
+        <input type="text" name="valor">
+        <input type="button" value="Mandar" onclick="pedirDatos()">
+    </form>
+    <div id="targetDiv"></div>
+</body>
+
+</html>
