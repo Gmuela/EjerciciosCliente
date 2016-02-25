@@ -7,58 +7,123 @@
         input {
             margin-bottom: 8px;
         }
+
+        table, td, tr, th{
+
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
     </style>
 
     <script>
+        function rellenarDatos() {
 
-        function enviarDatos(){
+            formulario.nombre.value = "Guillermo";
+            formulario.apellido.value = "Muela Lopez";
+            formulario.fechaNac.value = "12/10/1992";
+            formulario.edad.value = "24";
+            formulario.calle.value = "Paris";
+            formulario.numero.value = "95";
+            formulario.codPos.value = "28514";
+            formulario.provincia.value = "Madrid";
+            formulario.tlf.value = "918734050";
 
-            if(validar()){
+        }
 
-                var destino = document.getElementById("datosEnviados");
-                var todosInput = document.getElementsByTagName("input");
+        function enviarDatos() {
 
-                for(var i = 0;i<todosInput.length;i++){
+            if (validar()) {
 
-                    console.log(todosInput[i].value);
+                var nombre = formulario.nombre.value;
+                var apellido = formulario.apellido.value;
+                var fecha = formulario.fechaNac.value;
+                var calle = formulario.calle.value;
+                var numero = formulario.numero.value;
+                var edad = formulario.edad.value;
+                var cp = formulario.codPos.value;
+                var provincia = formulario.provincia.value;
+                var tlf = formulario.tlf.value;
+                var estadoCivil = formulario.estadoCivil.value;
+                var idiomas = "";
+                var sexo = "" ;
 
-                    if(todosInput[i].selected == "hombre"){
+                var inputIdiomas = document.getElementsByName("idiomas");
 
+                for (var i = 0; i < inputIdiomas.length; i++) {
 
+                    if (inputIdiomas[i].checked) {
+
+                        idiomas += inputIdiomas[i].value + ", ";
 
                     }
                 }
+
+                var inputSexo = document.getElementsByName("sexo");
+
+                for (var i = 0; i < inputSexo.length; i++) {
+
+                    if (inputSexo[i].checked == true) {
+
+                        sexo = inputSexo[i].value;
+
+                        break;
+
+                    }
+                }
+
+                var destino = document.getElementById("datosEnviados");
+
+                var nombreCompleto = nombre + " " + apellido;
+
+                var datos = [nombreCompleto, fecha, edad, calle, numero, cp, provincia, tlf, estadoCivil, idiomas, sexo];
+
+                var miTR = document.createElement("tr");
+
+                for(var i = 0; i < datos.length; i++){
+
+                    var miTD = document.createElement("td");
+
+                    miTD.appendChild(document.createTextNode(datos[i]));
+
+                    miTR.appendChild(miTD);
+
+                }
+
+                destino.firstChild.appendChild(miTR);
+
             }
 
-            else{
+            else {
 
-                alert("error");
+                alert("Datos Erróneos");
 
             }
         }
 
-        function borrarDatos(){
+        function borrarDatos() {
 
-            formulario.nombre.value="";
-            formulario.apellido.value="";
-            formulario.fechaNac.value="";
-            formulario.calle.value="";
-            formulario.numero.value="";
-            formulario.edad.value="";
-            formulario.codPos.value="";
-            formulario.provincia.value="";
-            formulario.tlf.value="";
+            formulario.nombre.value = "";
+            formulario.apellido.value = "";
+            formulario.fechaNac.value = "";
+            formulario.calle.value = "";
+            formulario.numero.value = "";
+            formulario.edad.value = "";
+            formulario.codPos.value = "";
+            formulario.provincia.value = "";
+            formulario.tlf.value = "";
 
             var idiomas = document.getElementsByName("idiomas");
             var sexo = document.getElementsByName("sexo");
 
-            for(var i = 0;i<idiomas.length;i++){
+            for (var i = 0; i < idiomas.length; i++) {
 
                 idiomas[i].checked = false;
 
             }
 
-            for(var i = 0;i<sexo.length;i++){
+            for (var i = 0; i < sexo.length; i++) {
 
                 sexo[i].checked = false;
 
@@ -69,13 +134,15 @@
 
         }
 
-        function validar(){
+        function validar() {
 
             var expTlf = /^[679]\d{8}$/;
 
             var tlf = formulario.tlf.value;
 
-            if(!expTlf.test(tlf)){
+            if (!expTlf.test(tlf)) {
+
+                alert("tlf");
 
                 return false;
 
@@ -85,7 +152,9 @@
 
             var fecha = formulario.fechaNac.value;
 
-            if(!expFecha.test(fecha)){
+            if (!expFecha.test(fecha)) {
+
+                alert("fecha");
 
                 return false;
 
@@ -93,9 +162,11 @@
 
             var expCalle = /^[a-zA-Z]{1,48}$/;
 
-            var numero = formulario.numero.value;
+            var calle = formulario.calle.value;
 
-            if(!expNum.test(numero)){
+            if (!expCalle.test(calle)) {
+
+                alert("calle");
 
                 return false;
 
@@ -105,17 +176,21 @@
 
             var numero = formulario.numero.value;
 
-            if(!expNum.test(numero)){
+            if (!expNum.test(numero)) {
+
+                alert("num");
 
                 return false;
 
             }
 
-            var expCP = /^\d{4}$/
+            var expCP = /^\d{5}$/
 
             var cp = formulario.codPos.value;
 
-            if(!expCP.test(cp)){
+            if (!expCP.test(cp)) {
+
+                alert("cp");
 
                 return false
 
@@ -125,7 +200,9 @@
 
             var provincia = formulario.provincia.value;
 
-            if(!expProv.test(provincia)){
+            if (!expProv.test(provincia)) {
+
+                alert("prov");
 
                 return false;
 
@@ -135,24 +212,31 @@
 
             var nombre = formulario.nombre.value;
 
-            if(!expNombre.test(nombre)){
+            if (!expNombre.test(nombre)) {
+
+                alert("nombre");
 
                 return false;
 
             }
 
-            var expApellido = /^[a-zA-Z]{1,48}$/
+            var expApellido = /^[a-zA-Z ]{1,48}$/
 
             var apellido = formulario.apellido.value;
 
-            if(!expApellido.test(apellido)){
+            if (!expApellido.test(apellido)) {
+
+                alert("apellido");
 
                 return false;
 
             }
+
+            return true;
+
         }
 
-        function calculaEdad(){
+        function calculaEdad() {
 
             var fecha = formulario.fechaNac.value;
 
@@ -160,7 +244,7 @@
 
             var anio = new Date().getFullYear();
 
-            formulario.edad.value=anio-fecha[2];
+            formulario.edad.value = anio - fecha[2];
 
         }
 
@@ -173,67 +257,60 @@
     <fieldset>
         <form name="formulario">
             Nombre
-            <input type="text" placeholder="18 caracteres" maxlength="18" name="nombre"/>
+            <input type="text" placeholder="18 caracteres" maxlength="18" name="nombre" />
             <br>
+            <br> Apellidos
+            <input type="text" placeholder="48 caracteres" maxlength="48" name="apellido" />
             <br>
-            Apellidos
-            <input type="text" placeholder="48 caracteres" maxlength="48" name="apellido"/>
+            <br> Fecha de nacimiento
+            <input type="text" placeholder="dd/mm/yyyy" name="fechaNac" onblur="calculaEdad()" /> Edad
+            <input type="text" name="edad" readonly="readonly" />
             <br>
+            <br> Calle
+            <input type="text" placeholder="48 caracteres" maxlength="48" name="calle" /> Número
+            <input type="text" placeholder="nnnn" name="numero" />
             <br>
-            Fecha de nacimiento
-            <input type="text" placeholder="dd/mm/yyyy" name="fechaNac" onblur="calculaEdad()"/>
-            Edad
-            <input type="text" name="edad" readonly="readonly"/>
+            <br> Código Postal
+            <input type="text" placeholder="nnnnn" maxlength="5" name="codPos" />
             <br>
+            <br> Provincia
+            <input type="text" placeholder="20 caracteres" maxlength="20" name="provincia" /> Teléfono
+            <input type="text" placeholder="nnnnnnnnn" maxlength="9" name="tlf" />
             <br>
-            Calle
-            <input type="text" placeholder="48 caracteres" maxlength="48" name="calle"/>
-            Número
-            <input type="text" placeholder="nnnn" name="numero"/>
-            <br>
-            <br>
-            Código Postal
-            <input type="text" placeholder="nnnnn" maxlength="5" name="codPos"/>
-            <br>
-            <br>
-            Provincia
-            <input type="text" placeholder="20 caracteres" maxlength="20" name="provincia"/>
-            Teléfono
-            <input type="text" placeholder="nnnnnnnnn" maxlength="9" name="tlf"/>
-            <br>
-            <br>
-            Sexo
-            <br>
-            Hombre
-            <input type="radio" value="hombre" name="sexo"/>
-            Mujer
-            <input type="radio" value="mujer" name="sexo"/>
-            Estado Civil
+            <br> Sexo
+            <br> Hombre
+            <input type="radio" value="hombre" name="sexo" /> Mujer
+            <input type="radio" value="mujer" name="sexo" /> Estado Civil
             <select name="estadoCivil">
                 <option selected="selected">Elija una opción...</option>
-                <option value="cas">Casado/a</option>
-                <option value="sol">Soltero/a</option>
+                <option value="casado">Casado/a</option>
+                <option value="soltero">Soltero/a</option>
             </select>
             <br>
             <br>
             Idiomas
             <br>
-            Español<input type="checkbox" value="es" name="idiomas">
-            Francés<input type="checkbox" value="fr" name="idiomas">
-            Inglés<input type="checkbox" value="in" name="idiomas">
-            Alemán<input type="checkbox" value="al" name="idiomas">
+            Español
+            <input type="checkbox" value="español" name="idiomas">
+            Francés
+            <input type="checkbox" value="francés" name="idiomas">
+            Inglés
+            <input type="checkbox" value="inglés" name="idiomas">
+            Alemán
+            <input type="checkbox" value="aleman" name="idiomas">
             <br>
-            <br>
-            Comentarios Personales
+            <br> Comentarios Personales
             <br>
             <textarea name="comentario"></textarea>
             <br>
-            <br>
-            Pulse Aquí <input type="button" value="Enviar los datos" onclick="enviarDatos()"> <input type="button" value="Borrar los datos" onclick="borrarDatos()">
+            <br> Pulse Aquí
+            <input type="button" value="Enviar los datos" onclick="enviarDatos()">
+            <input type="button" value="Borrar los datos" onclick="borrarDatos()">
+            <input type="button" value="Rellenar los datos" onclick="rellenarDatos()">
         </form>
     </fieldset>
 
-    <div id="datosEnviados"></div>
+    <div id="datosEnviados"><table><tr><th>Nombre y Apellidos</th><th>Fecha de Nacimiento</th><th>Edad</th><th>Calle</th><th>Número</th><th>Código Postal</th><th>Provincia</th><th>Teléfono</th><th>Estado Civil</th><th>Idiomas</th><th>Sexo</th></tr></table></div>
 
 </body>
 
