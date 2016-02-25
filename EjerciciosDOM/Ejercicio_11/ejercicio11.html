@@ -64,6 +64,8 @@
 
             }
 
+            formulario.estadoCivil.options.selectedIndex = 0;
+
 
         }
 
@@ -73,19 +75,81 @@
 
             var tlf = formulario.tlf.value;
 
-            expTlf.test(tlf);
+            if(!expTlf.test(tlf)){
+
+                return false;
+
+            }
 
             var expFecha = /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d{2}$/;
 
             var fecha = formulario.fechaNac.value;
 
-            expFecha.test(fecha);
+            if(!expFecha.test(fecha)){
 
-            var expNum = /^(\d{1,4}|([s][/][n]))$/;
+                return false;
+
+            }
+
+            var expCalle = /^[a-zA-Z]{1,48}$/;
 
             var numero = formulario.numero.value;
 
-            alert(expNum.test(numero));
+            if(!expNum.test(numero)){
+
+                return false;
+
+            }
+
+            var expNum = /^(\d{1,4}|([s][/][n]|[S][/][N]))$/;
+
+            var numero = formulario.numero.value;
+
+            if(!expNum.test(numero)){
+
+                return false;
+
+            }
+
+            var expCP = /^\d{4}$/
+
+            var cp = formulario.codPos.value;
+
+            if(!expCP.test(cp)){
+
+                return false
+
+            }
+
+            var expProv = /^[a-zA-Z]{1,20}$/
+
+            var provincia = formulario.provincia.value;
+
+            if(!expProv.test(provincia)){
+
+                return false;
+
+            }
+
+            var expNombre = /^[a-zA-Z]{1,18}$/
+
+            var nombre = formulario.nombre.value;
+
+            if(!expNombre.test(nombre)){
+
+                return false;
+
+            }
+
+            var expApellido = /^[a-zA-Z]{1,48}$/
+
+            var apellido = formulario.apellido.value;
+
+            if(!expApellido.test(apellido)){
+
+                return false;
+
+            }
         }
 
         function calculaEdad(){
