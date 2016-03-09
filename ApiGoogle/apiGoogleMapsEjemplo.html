@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>CODIGO DE REGION ESPA&Ntilde;A (ES)</title>
+    <style>
+        html,
+        body,
+        #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&region=ES"></script>
+    <script>
+        var geocoder;
+        var map;
+        //var query = "Paris, fr";
+        var query = "Nuevo Baztan,Avenida Paris, 95, es";
+        function initialize() {
+
+            geocoder = new google.maps.Geocoder();
+
+            var mapOptions = {
+                zoom: 18,
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                streetViewControl: true
+            }
+
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            codeAddress();
+        }
+
+        function codeAddress() {
+
+            geocoder.geocode({
+                "address": query
+            }, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    map.setCenter(results[0].geometry.location);
+
+                    var marker = new google.maps.Marker({
+
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+
+                } else {
+
+                    alert("Se ha producido el siguiente error: " + status);
+
+                }
+
+            });
+
+        }
+
+        window.onload = initialize;
+
+    </script>
+</head>
+
+<body>
+    <div id="map-canvas"></div>
+</body>
+
+</html>
